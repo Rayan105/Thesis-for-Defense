@@ -1,8 +1,6 @@
 # ==========================================
-# User Constraints: Never Push Plan Docs, Papers, Datasets
+# User Constraints: Never Push Papers, Datasets (Plans permitted)
 # ==========================================
-CVD_MULTIMODAL_RESEARCH_OPERATING_SYSTEM.md
-CVD_MULTIMODAL_PROJECT_EXECUTION_BLUEPRINT.md
 fydp_title_proposal.pdf
 
 # Papers & PDF literature

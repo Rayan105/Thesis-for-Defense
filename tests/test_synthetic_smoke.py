@@ -90,8 +90,7 @@ class TestSyntheticDataFixtures(unittest.TestCase):
             "*.pth",
             "*.ckpt",
             "*.pdf",
-            "CVD_MULTIMODAL_RESEARCH_OPERATING_SYSTEM.md",
-            "CVD_MULTIMODAL_PROJECT_EXECUTION_BLUEPRINT.md",
+            "fydp_title_proposal.pdf",
         ]
         for pattern in critical_patterns:
             self.assertIn(
