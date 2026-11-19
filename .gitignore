@@ -1,0 +1,59 @@
+# ==========================================
+# User Constraints: Never Push Plan Docs, Papers, Datasets
+# ==========================================
+CVD_MULTIMODAL_RESEARCH_OPERATING_SYSTEM.md
+CVD_MULTIMODAL_PROJECT_EXECUTION_BLUEPRINT.md
+fydp_title_proposal.pdf
+
+# Papers & PDF literature
+*.pdf
+02_Literature/fulltext/
+02_Literature/pdf/
+02_Literature/downloads/
+
+# Datasets & Clinical Cohort (PHI / Sensitive Health Data)
+raw/
+processed/
+fitted_states/
+adjudications/
+03_Datasets_Cohort/raw/
+03_Datasets_Cohort/processed/
+03_Datasets_Cohort/adjudications/
+03_Datasets_Cohort/splits/*/manifest.csv
+*.edf
+*.xml
+*.dcm
+*.mat
+*.dat
+*.hea
+*.csv.enc
+*.vault
+
+# Machine Learning Checkpoints & Binaries
+*.pt
+*.pth
+*.h5
+*.hdf5
+*.ckpt
+*.onnx
+*.pkl
+*.joblib
+08_Checkpoints/binaries/
+
+# Python & Environment
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+venv/
+env/
+.env
+.venv
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
