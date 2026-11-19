@@ -1,0 +1,19 @@
+# Phase 1: Minimal Data-Tool & Registry Environment Lock (STEP-002)
+# Purpose: Tabular data inspection, ECG waveform reading, CSV registry validation, unit testing
+# Note: Deep learning frameworks (PyTorch/TensorFlow) and GPU stacks are deferred to STEP-024 (Phase 2)
+
+# Core numerical and scientific
+numpy>=1.26.0,<2.0.0
+scipy>=1.12.0,<2.0.0
+pandas>=2.2.0,<3.0.0
+
+# ECG waveform and biomedical signals
+wfdb>=4.1.2
+
+# Configuration and metadata validation
+pyyaml>=6.0.1
+jsonschema>=4.21.0
+
+# Testing and code verification
+pytest>=8.0.0
+pytest-cov>=4.1.0

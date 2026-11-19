@@ -1,0 +1,26 @@
+# Auto detect text files and perform LF normalization
+* text=auto eol=lf
+
+# Explicit text files
+*.md text eol=lf
+*.csv text eol=lf
+*.py text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
+*.bib text eol=lf
+
+# Binary files - prevent Git line-ending conversion or corruption
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.tiff binary
+*.svg text
+*.pt binary
+*.pth binary
+*.ckpt binary
+*.h5 binary
+*.pkl binary
+*.onnx binary
