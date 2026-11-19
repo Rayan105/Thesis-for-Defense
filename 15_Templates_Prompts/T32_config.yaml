@@ -1,0 +1,60 @@
+# Multimodal Experiment Configuration Template (T32)
+# Null values strictly prohibit execution. All fields must be resolved prior to launch.
+
+experiment_id: null
+research_question_id: null
+comparator_tier: null          # unimodal | clinical_score | simple_fusion | transformer_fusion | ablation
+approval_record: null
+source_commit: null
+
+data:
+  release_id: null
+  dataset_id: null
+  adjudication_id: null
+  split_id: null
+  preprocessing_id: null
+  fit_state_sha256: null
+  variables_sha256: null
+  active_modalities: [clinical, ecg, laboratory, lifestyle]
+  missing_modality_policy: null # complete_case | mask_token | indicator
+
+model:
+  framework: null              # pytorch | tensorflow (UD13)
+  framework_version: null
+  architecture_name: null
+  modality_encoders:
+    clinical: null
+    ecg: null
+    laboratory: null
+    lifestyle: null
+  fusion_module: null          # cross_modal_transformer_fusion | early_concat | late_ensemble
+  pretrained_weights_sha256: null
+  license_record: null
+
+training:
+  seed: null
+  deterministic_mode: true
+  epochs_or_budget: null
+  batch_size: null
+  optimizer_and_schedule: null
+  loss_and_imbalance_policy: null
+  regularization: null
+  early_stopping_monitor: val_roc_auc
+
+evaluation_and_calibration:
+  protocol_sha256: null
+  validation_only_tuning: true
+  calibration_candidate: null # platt | isotonic | temperature
+  threshold_rule: null        # youden_j | f1_optimal | sensitivity_target
+  mandatory_metrics: [accuracy, precision, recall, f1, roc_auc, confusion_matrix]
+  adopted_q1_metrics: [pr_auc, specificity, npv, brier_score, ece, dca]
+
+xai_hooks:
+  explainer_type: null        # tree_shap | gradient_shap | partition_shap
+  background_partition: train # NEVER validation or test
+
+runtime:
+  environment_lock_sha256: null
+  hardware_record: null
+checkpoint_policy: best_validation_loss_and_auc
+artifact_destination: null
