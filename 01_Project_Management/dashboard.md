@@ -6,9 +6,9 @@
 | **Institution / Term** | Daffodil International University / Summer 2026 (CSE499) |
 | **Research Leads** | Rayan Ahmed (`232-15-847`), Mohammad Nafis Sadiq (`232-15-895`) |
 | **Supervisor** | Md. Mizanur Rahman (Senior Lecturer, Dept. of CSE, DIU) |
-| **Active Stage** | Stage S02 / S03 Transition |
-| **Current Step** | STEP-003 (Completed) |
-| **Last Updated** | 2026-11-20T02:11:00+06:00 |
+| **Active Stage** | Stage S03 (Zero-Seed Systematic Literature Search) |
+| **Current Step** | STEP-004 (Completed) |
+| **Last Updated** | 2026-11-20T02:34:00+06:00 |
 
 ---
 
