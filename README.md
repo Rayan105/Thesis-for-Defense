@@ -106,7 +106,9 @@ Every gate requires 100% evidenced criteria and named human sign-off; missing ev
 
 ---
 
-## 5. Getting Started
+## 5. Getting Started & Step Tracking
+
+👉 **Teammate & Agent Handoff Tracker:** Always check [STEP_TRACKER.md](file:///e:/FYDP/STEP_TRACKER.md) to see the exact current step, what was completed, and what to run next.
 
 See [13_Documentation/installation.md](file:///e:/FYDP/13_Documentation/installation.md) for environment setup and runtime requirements.
 

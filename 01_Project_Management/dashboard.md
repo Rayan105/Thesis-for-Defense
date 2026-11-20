@@ -8,7 +8,9 @@
 | **Supervisor** | Md. Mizanur Rahman (Senior Lecturer, Dept. of CSE, DIU) |
 | **Active Stage** | Stage S03 (Zero-Seed Systematic Literature Search) |
 | **Current Step** | STEP-004 (Completed) |
-| **Last Updated** | 2026-11-20T02:34:00+06:00 |
+| **Next Step** | 👉 [STEP-005](./STEP_TRACKER.md#next-step-details-step-005) (Execute Searches & Register Papers) |
+| **Master Step Tracker** | [STEP_TRACKER.md](../STEP_TRACKER.md) |
+| **Last Updated** | 2026-11-20T16:26:00+06:00 |
 
 ---
 
