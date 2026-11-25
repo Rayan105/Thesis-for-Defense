@@ -5,6 +5,7 @@ fydp_title_proposal.pdf
 
 # Papers & PDF literature
 *.pdf
+papers/
 02_Literature/fulltext/
 02_Literature/pdf/
 02_Literature/downloads/
