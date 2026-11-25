@@ -7,10 +7,10 @@
 | **Research Leads** | Rayan Ahmed (`232-15-847`), Mohammad Nafis Sadiq (`232-15-895`) |
 | **Supervisor** | Md. Mizanur Rahman (Senior Lecturer, Dept. of CSE, DIU) |
 | **Active Stage** | Stage S03 (Zero-Seed Systematic Literature Search) |
-| **Current Step** | STEP-004 (Completed) |
-| **Next Step** | 👉 [STEP-005](./STEP_TRACKER.md#next-step-details-step-005) (Execute Searches & Register Papers) |
+| **Current Step** | STEP-005 (Completed) |
+| **Next Step** | 👉 [STEP-006](../STEP_TRACKER.md#next-step-details-step-006) (PRISMA Screening Reconciliation Summary) |
 | **Master Step Tracker** | [STEP_TRACKER.md](../STEP_TRACKER.md) |
-| **Last Updated** | 2026-11-20T16:26:00+06:00 |
+| **Last Updated** | 2026-11-26T00:13:00+06:00 |
 
 ---
 
