@@ -8,10 +8,10 @@
 
 | Metric | Current Value |
 |---|---|
-| **Last Completed Step** | **`STEP-006`** (Completed Full-Text Screening of 83 Papers & Reconciled PRISMA Summary) |
-| **Last Git Commit** | `c71105b` (STEP-005) + STEP-006 PRISMA reconciliation |
-| **Active Stage** | **`S03`** (Zero-Seed Systematic Literature Search, Screening & Extraction) |
-| **Next Step to Execute** | 👉 **`STEP-007`** (Extract 42 Included PDFs into `summaries/P####.md` + PROBAST Flags) |
+| **Last Completed Step** | **`STEP-007`** (Full-Text Extraction `P0001–P0042`, PROBAST Audit & Candidate Claims) |
+| **Last Git Commit** | `8febaaa` (STEP-006) + STEP-007 extraction commit |
+| **Active Stage** | **`S04`** (Proposal-Gap Verification `PG1–PG5` & Q1 RQ Approval) |
+| **Next Step to Execute** | 👉 **`STEP-008`** (Synthesize Evidence & Test Proposal Research Gaps `PG1–PG5`) |
 | **Current Quality Gates** | `G01`: Not Assessed (Doc prepared) \| `G02`: **PASS** \| `G03–G17`: Blocked |
 | **Last Updated** | 2026-11-26 |
 
@@ -50,8 +50,8 @@ Read STEP_TRACKER.md and execute the next pending step.
 | **STEP-004** | S03 | Approve PRISMA zero-seed search protocol, queries, RQs (RQ1-4) | Rayan Ahmed | - | **COMPLETED** | `45ee657` ([protocol.md](file:///e:/FYDP/02_Literature/searches/protocol.md)) |
 | **STEP-005** | S03 | Execute multi-database searches, deduplicate records, populate `papers.csv` | Nafis & Rayan | - | **COMPLETED** | `c71105b` ([SEARCH_SCHOLAR](file:///e:/FYDP/02_Literature/searches/SEARCH_SCHOLAR_2026-11-25.md)) |
 | **STEP-006** | S03 | Two-stage PRISMA screening (Title/Abstract & Full-Text) in `screening.csv` | Nafis & Rayan | - | **COMPLETED** | `f19ebb2` + [screening_summary.md](file:///e:/FYDP/02_Literature/searches/screening_summary.md) |
-| **STEP-007** | S03 | Methodological extraction of included direct comparator studies (`P####.md`) | Rayan & Nafis | - | 🟡 **READY TO RUN** *(Needs `papers/` PDFs locally)* | Target: `02_Literature/summaries/` |
-| **STEP-008** | S04 | Synthesize evidence & test proposal research gaps (`PG1–PG5` $\rightarrow$ `GAP####`) | Rayan Ahmed | - | ⚪ PENDING | Target: `02_Literature/gaps.csv` |
+| **STEP-007** | S03 | Methodological extraction of included direct comparator studies (`P####.md`) | Rayan & Nafis | - | **COMPLETED** | `42/42` [summaries](file:///e:/FYDP/02_Literature/summaries/) & [matrix](file:///e:/FYDP/02_Literature/comparative_matrix.md) |
+| **STEP-008** | S04 | Synthesize evidence & test proposal research gaps (`PG1–PG5` $\rightarrow$ `GAP####`) | Rayan Ahmed | - | 🟡 **READY TO RUN** | Target: `02_Literature/gaps.csv` & `synthesis.md` |
 | **STEP-009** | S04 | Finalize & ratify Q1 Research Questions (`RQ1–RQ4`), pass Gate G03 | Supervisor | G03 | ⚪ PENDING | Target: G03 Assessment |
 | **STEP-010** | S05 | Hospital site selection, recruitment protocol, power & EPV sample calculation | Nafis Sadiq | - | ⚪ PENDING | Target: `03_Datasets_Cohort/sites.csv` |
 | **STEP-011** | S05 | Institutional IRB submission, hospital data authorization & consent/waiver | Nafis Sadiq | - | ⚪ PENDING | Target: IRB Approval Record |
@@ -97,12 +97,12 @@ Read STEP_TRACKER.md and execute the next pending step.
 
 ---
 
-## 🎯 Next Step Details: `STEP-007`
+## 🎯 Next Step Details: `STEP-008`
 
-- **Step Name:** Read, Extract, and Verify Included Studies with PROBAST Bias Flags
-- **Owning Lead:** Rayan Ahmed (`232-15-847`) & Mohammad Nafis Sadiq (`232-15-895`)
-- **Prerequisite Blocker:** Because the 42 PDFs in `papers/` are gitignored and reside locally on Mohammad Nafis Sadiq's machine (`f19ebb2`), copy the `papers/` folder into `e:\FYDP\papers\` (outside Git) OR execute `STEP-007` directly on Nafis's machine so exact sample sizes, performance tables, page locators, and PROBAST risk flags are read strictly from full texts.
+- **Step Name:** Synthesize Evidence and Test Proposal Research Gaps (`PG1–PG5`)
+- **Owning Lead:** Rayan Ahmed (`232-15-847`)
+- **Inputs Ready:** `42/42` verified summaries in [02_Literature/summaries/](file:///e:/FYDP/02_Literature/summaries/), [comparative_matrix.md](file:///e:/FYDP/02_Literature/comparative_matrix.md), updated [papers.csv](file:///e:/FYDP/02_Literature/papers.csv), and `CLAIM0001–CLAIM0012` in [claims.csv](file:///e:/FYDP/02_Literature/claims.csv).
 - **Action Required:**
-  1. Create `02_Literature/summaries/P0001.md` through `P0042.md` using template [T05_paper_summary.md](file:///e:/FYDP/15_Templates_Prompts/T05_paper_summary.md).
-  2. Resolve `"See summary"` in `SampleSize`, `"Pending Step 007"` in `PROBASTRisk`, and verify `XAIEvaluated` flags (e.g., `P0003`, `P0007`) in [02_Literature/papers.csv](file:///e:/FYDP/02_Literature/papers.csv).
-  3. Update `ReadingStatus` to `Extracted` and verify [02_Literature/references.bib](file:///e:/FYDP/02_Literature/references.bib) + candidate `claims.csv` entries.
+  1. Populate `GAP0001–GAP0005` in [02_Literature/gaps.csv](file:///e:/FYDP/02_Literature/gaps.csv) and `02_Literature/gap_notes/GAP####.md` (`T06`), testing `PG1–PG5` honestly against both supporting and contradicting studies (e.g., `P0016, P0020, P0025, P0031, P0038` for multi-modality; `P0028, P0029, P0032, P0038` for XAI evaluation).
+  2. Author comprehensive `02_Literature/synthesis.md` covering multimodal fusion, ECG encoders, lifestyle incremental value, PROBAST biases, South Asian scarcity, and XAI faithfulness.
+  3. Update candidate claims and position reviewer-proof Q1 contributions ahead of `STEP-009` (`G03`).
