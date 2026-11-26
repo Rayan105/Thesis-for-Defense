@@ -8,11 +8,11 @@
 
 | Metric | Current Value |
 |---|---|
-| **Last Completed Step** | **`STEP-007`** (Full-Text Extraction `P0001–P0042`, PROBAST Audit & Candidate Claims) |
-| **Last Git Commit** | `8febaaa` (STEP-006) + STEP-007 extraction commit |
+| **Last Completed Step** | **`STEP-008`** (Evidence Synthesis & PG1–PG5 Gap Verification — All 5 Gaps Verified) |
+| **Last Git Commit** | STEP-008 synthesis commit (see below) |
 | **Active Stage** | **`S04`** (Proposal-Gap Verification `PG1–PG5` & Q1 RQ Approval) |
-| **Next Step to Execute** | 👉 **`STEP-008`** (Synthesize Evidence & Test Proposal Research Gaps `PG1–PG5`) |
-| **Current Quality Gates** | `G01`: Not Assessed (Doc prepared) \| `G02`: **PASS** \| `G03–G17`: Blocked |
+| **Next Step to Execute** | 👉 **`STEP-009`** (Lock Q1 Research Questions & Pass Gate G03) |
+| **Current Quality Gates** | `G01`: Not Assessed (Doc prepared) \| `G02`: **PASS** \| `G03`: Ready for Assessment \| `G04–G17`: Blocked |
 | **Last Updated** | 2026-11-26 |
 
 ### 🤖 AI Prompt for Next Teammate / Next Session:
@@ -51,8 +51,8 @@ Read STEP_TRACKER.md and execute the next pending step.
 | **STEP-005** | S03 | Execute multi-database searches, deduplicate records, populate `papers.csv` | Nafis & Rayan | - | **COMPLETED** | `c71105b` ([SEARCH_SCHOLAR](file:///e:/FYDP/02_Literature/searches/SEARCH_SCHOLAR_2026-11-25.md)) |
 | **STEP-006** | S03 | Two-stage PRISMA screening (Title/Abstract & Full-Text) in `screening.csv` | Nafis & Rayan | - | **COMPLETED** | `f19ebb2` + [screening_summary.md](file:///e:/FYDP/02_Literature/searches/screening_summary.md) |
 | **STEP-007** | S03 | Methodological extraction of included direct comparator studies (`P####.md`) | Rayan & Nafis | - | **COMPLETED** | `42/42` [summaries](file:///e:/FYDP/02_Literature/summaries/) & [matrix](file:///e:/FYDP/02_Literature/comparative_matrix.md) |
-| **STEP-008** | S04 | Synthesize evidence & test proposal research gaps (`PG1–PG5` $\rightarrow$ `GAP####`) | Rayan Ahmed | - | 🟡 **READY TO RUN** | Target: `02_Literature/gaps.csv` & `synthesis.md` |
-| **STEP-009** | S04 | Finalize & ratify Q1 Research Questions (`RQ1–RQ4`), pass Gate G03 | Supervisor | G03 | ⚪ PENDING | Target: G03 Assessment |
+| **STEP-008** | S04 | Synthesize evidence & test proposal research gaps (`PG1–PG5` $\rightarrow$ `GAP####`) | Rayan Ahmed | - | ✅ **COMPLETED** | [synthesis.md](file:///e:/FYDP/02_Literature/synthesis.md) & [gaps.csv](file:///e:/FYDP/02_Literature/gaps.csv) (5 GAPs verified) |
+| **STEP-009** | S04 | Finalize & ratify Q1 Research Questions (`RQ1–RQ4`), pass Gate G03 | Supervisor | G03 | 🟡 **READY TO RUN** | Target: G03 Assessment |
 | **STEP-010** | S05 | Hospital site selection, recruitment protocol, power & EPV sample calculation | Nafis Sadiq | - | ⚪ PENDING | Target: `03_Datasets_Cohort/sites.csv` |
 | **STEP-011** | S05 | Institutional IRB submission, hospital data authorization & consent/waiver | Nafis Sadiq | - | ⚪ PENDING | Target: IRB Approval Record |
 | **STEP-012** | S05 | Screen external public cohorts (MIMIC-IV-ECG, PTB-XL) under UD06 | Nafis & Rayan | - | ⚪ PENDING | Target: External cohort feasibility |
@@ -97,12 +97,14 @@ Read STEP_TRACKER.md and execute the next pending step.
 
 ---
 
-## 🎯 Next Step Details: `STEP-008`
+## 🎯 Next Step Details: `STEP-009`
 
-- **Step Name:** Synthesize Evidence and Test Proposal Research Gaps (`PG1–PG5`)
-- **Owning Lead:** Rayan Ahmed (`232-15-847`)
-- **Inputs Ready:** `42/42` verified summaries in [02_Literature/summaries/](file:///e:/FYDP/02_Literature/summaries/), [comparative_matrix.md](file:///e:/FYDP/02_Literature/comparative_matrix.md), updated [papers.csv](file:///e:/FYDP/02_Literature/papers.csv), and `CLAIM0001–CLAIM0012` in [claims.csv](file:///e:/FYDP/02_Literature/claims.csv).
+- **Step Name:** Lock Q1-Aligned Research Questions and Pass Literature Gate (`G03`)
+- **Owning Lead:** Supervisor (Md. Mizanur Rahman) + Rayan Ahmed (`232-15-847`)
+- **Inputs Ready:** [synthesis.md](file:///e:/FYDP/02_Literature/synthesis.md), [gaps.csv](file:///e:/FYDP/02_Literature/gaps.csv) (GAP0001–GAP0005 verified), [comparative_matrix.md](file:///e:/FYDP/02_Literature/comparative_matrix.md), [research_questions.md](file:///e:/FYDP/02_Literature/research_questions.md) (provisional), [claims.csv](file:///e:/FYDP/02_Literature/claims.csv) (CLAIM0001–CLAIM0013).
 - **Action Required:**
-  1. Populate `GAP0001–GAP0005` in [02_Literature/gaps.csv](file:///e:/FYDP/02_Literature/gaps.csv) and `02_Literature/gap_notes/GAP####.md` (`T06`), testing `PG1–PG5` honestly against both supporting and contradicting studies (e.g., `P0016, P0020, P0025, P0031, P0038` for multi-modality; `P0028, P0029, P0032, P0038` for XAI evaluation).
-  2. Author comprehensive `02_Literature/synthesis.md` covering multimodal fusion, ECG encoders, lifestyle incremental value, PROBAST biases, South Asian scarcity, and XAI faithfulness.
-  3. Update candidate claims and position reviewer-proof Q1 contributions ahead of `STEP-009` (`G03`).
+  1. Finalize primary and subordinate RQs (`RQ1–RQ4`) linking every question to `O1–O4`, verified `GAP####`, required 4-modality data fields, comparator tier, statistical test, XAI metric, and permitted claim boundary.
+  2. Prepare `DEC####` decision record approving finalized RQs.
+  3. Write `G03_assessment_<date>.md` and update `gates.csv` with G03 status.
+  4. Set literature search cutoff date.
+  5. **Human-only:** Supervisor evaluates and approves Q1 positioning within the endorsed FYDP title.

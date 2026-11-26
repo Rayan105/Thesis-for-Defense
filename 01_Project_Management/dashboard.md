@@ -7,10 +7,10 @@
 | **Research Leads** | Rayan Ahmed (`232-15-847`), Mohammad Nafis Sadiq (`232-15-895`) |
 | **Supervisor** | Md. Mizanur Rahman (Senior Lecturer, Dept. of CSE, DIU) |
 | **Active Stage** | Stage S04 (Proposal-Gap Verification & Q1 RQs) |
-| **Current Step** | STEP-007 (Completed — 42/42 PDFs Audited) |
-| **Next Step** | 👉 [STEP-008](../STEP_TRACKER.md#next-step-details-step-008) (Test PG1–PG5 & Draft Literature Synthesis) |
+| **Current Step** | STEP-008 (Completed — PG1–PG5 Verified, Synthesis Authored) |
+| **Next Step** | 👉 [STEP-009](../STEP_TRACKER.md) (Lock Q1 RQs & Pass G03) |
 | **Master Step Tracker** | [STEP_TRACKER.md](../STEP_TRACKER.md) |
-| **Last Updated** | 2026-11-26T00:46:00+06:00 |
+| **Last Updated** | 2026-11-26T00:58:00+06:00 |
 
 ---
 
