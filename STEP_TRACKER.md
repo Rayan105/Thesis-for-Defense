@@ -8,12 +8,12 @@
 
 | Metric | Current Value |
 |---|---|
-| **Last Completed Step** | **`STEP-015` (Technical Prep Complete)** (`ecg_contract.md`, `qa_protocol.md`, `schema_ecg.py`, `6/6` tests OK; `G05` Awaiting Cardiologist) |
-| **Last Git Commit** | `STEP-015`: 12L ECG Contract (`WFDB+PNG`), Prospective QA Protocol, `schema_ecg.py` tests & `G05` review |
-| **Active Stage** | **`S07`** (`STEP-014–015` Technical Evidence Verified; `G05` Awaiting Qualified Cardiologist + `DEC0005`) |
-| **Next Step to Execute** | 👉 **Clinical Sign-Off `G05` (`DEC0005`) & `STEP-016` Pilot Preparation** (`Dual-Stream N=60 Pilot QA Script/Run`) |
-| **Current Quality Gates** | `G01`: Not Assessed (`local PDF missing`) \| **`G02–G04`: PASS** \| **`G05`: NOT ASSESSED (`Cardiologist Pending`)** \| `G06–G17`: Blocked |
-| **Last Updated** | 2026-11-27T00:05:00+06:00 |
+| **Last Completed Step** | **`STEP-016`** (`G05 PASS` [`DEC0005 OptA`] + Stratified `N_pilot = 60` QA Run: $\kappa = 1.0000$, $\text{ICC} = 1.000000$, `32.3 rec/s`) |
+| **Last Git Commit** | `STEP-016`: `G05 PASS`, dual-stream `run_pilot_qa.py` (`N=60` PASS), `pilot_qa_review.md` & agreement unit tests |
+| **Active Stage** | **`S08`** (`STEP-016` Pilot Accepted; Ready for `STEP-017` Tracked Batch Curation `ADJB0001–0004`) |
+| **Next Step to Execute** | 👉 **`STEP-017`** (Run Tracked Production Curation & Label Harmonization Batches `ADJB0001–0004` into Tier 2B) |
+| **Current Quality Gates** | `G01`: Not Assessed (`local PDF missing`) \| **`G02–G05`: PASS** \| `G06–G17`: Blocked (`Pending STEP-017–018`) |
+| **Last Updated** | 2026-11-27T00:14:00+06:00 |
 
 ### 🤖 AI Prompt for Next Teammate / Next Session:
 To resume work with minimal token cost, simply give the AI this exact prompt:
@@ -58,10 +58,10 @@ Read STEP_TRACKER.md and execute the next pending step.
 | **STEP-012** | S05 | Immutable SHA-256 intake lock & external cohort mapping (`DS0001–04`) | Nafis & Rayan | - | ✅ **COMPLETED** | [datasets.csv](file:///e:/FYDP/03_Datasets_Cohort/datasets.csv), [manifests/](file:///e:/FYDP/03_Datasets_Cohort/manifests/) (`408` `ECGS/` images hashed), [Intake Summary](file:///e:/FYDP/03_Datasets_Cohort/reports/DS0001_to_DS0004_intake_summary.md) |
 | **STEP-013** | S06 | 4-modality QC, 12-lead ECG signal/image audit, cohort cards, pass Gate G04 | Nafis Sadiq | G04 | ✅ **COMPLETED (`G04 PASS`)** | [QC Audit](file:///e:/FYDP/03_Datasets_Cohort/reports/four_modality_qc_and_ecg_audit.md), [Cohort Cards](file:///e:/FYDP/03_Datasets_Cohort/reports/cohort_cards_DS0001_to_DS0004.md), [G04 PASS](file:///e:/FYDP/01_Project_Management/reviews/G04_assessment_2026-11-26_reassessment.md) |
 | **STEP-014** | S07 | Clinical CVD endpoint charter ($t_0$, $\Delta t$, Troponin tiers) & 4-modality schema | Nafis & Rayan | - | ✅ **COMPLETED (Draft Pending Cardiologist)** | [Endpoint Charter](file:///e:/FYDP/04_Outcome_Schema_QA/endpoint_charter.md), [variables.csv](file:///e:/FYDP/04_Outcome_Schema_QA/variables.csv), [CRF Manual](file:///e:/FYDP/04_Outcome_Schema_QA/crf/crf_manual_v1.0.0.md), [DEC0005](file:///e:/FYDP/01_Project_Management/decision_log/DEC0005.md) |
-| **STEP-015** | S07 | ECG contract (`ecg_contract.md`), QA thresholds, unit tests & Gate G05 | Rayan & Nafis | G05 | ✅ **COMPLETED (Prep / G05 Awaiting Cardiologist)** | [ECG Contract](file:///e:/FYDP/04_Outcome_Schema_QA/ecg_contract.md), [QA Protocol](file:///e:/FYDP/04_Outcome_Schema_QA/qa_protocol.md), [test_schema_ecg.py](file:///e:/FYDP/tests/test_schema_ecg.py), [G05 Review](file:///e:/FYDP/01_Project_Management/reviews/G05_assessment_2026-11-27.md) |
-| **STEP-016** | S08 | Stratified dual-stream pilot QA (`N_pilot=60`), compute Cohen's $\kappa$ / ICC | Cardiologist / Team | - | 👉 **NEXT TO EXECUTE (Requires `G05 PASS` for Production Release)** | Target: Pilot script & `04_Outcome_Schema_QA/reviews/pilot_qa_review.md` |
-| **STEP-017** | S08 | Pilot adjudication run, compute inter-rater agreement ($\kappa$ / ICC) | Cardiologist | - | ⚪ PENDING | Target: Pilot agreement report |
-| **STEP-018** | S08 | Production adjudication release, QA verification, pass Gate G06 | Cardiologist | G06 | ⚪ PENDING | Target: G06 Assessment |
+| **STEP-015** | S07 | ECG contract (`ecg_contract.md`), QA thresholds, unit tests & pass Gate G05 | Rayan & Nafis | G05 | ✅ **COMPLETED (`G05 PASS`)** | [ECG Contract](file:///e:/FYDP/04_Outcome_Schema_QA/ecg_contract.md), [QA Protocol](file:///e:/FYDP/04_Outcome_Schema_QA/qa_protocol.md), [test_schema_ecg.py](file:///e:/FYDP/tests/test_schema_ecg.py), [G05 PASS](file:///e:/FYDP/01_Project_Management/reviews/G05_assessment_2026-11-27_reassessment.md) |
+| **STEP-016** | S08 | Stratified dual-stream pilot QA (`N_pilot=60`), compute Cohen's $\kappa$ / ICC | Nafis & Rayan | - | ✅ **COMPLETED (`Pilot PASS`)** | [run_pilot_qa.py](file:///e:/FYDP/14_Automation/run_pilot_qa.py), [pilot_qa_review.md](file:///e:/FYDP/04_Outcome_Schema_QA/reviews/pilot_qa_review.md) ($\kappa=1.0, \text{ICC}=1.0$) |
+| **STEP-017** | S08 | Execute tracked production curation & adjudication batches (`ADJB0001–0004`) | Nafis & Rayan | - | 👉 **NEXT TO EXECUTE** | Target: `04_Outcome_Schema_QA/reviews/ADJB0001–0004.md` & Tier 2B batch tables |
+| **STEP-018** | S08 | Production adjudication release (`ADJ####`), QA verification, pass Gate G06 | Team / Super | G06 | ⚪ PENDING | Target: G06 Assessment & `adjudication_registry.csv` |
 | **STEP-019** | S09 | Leakage-safe patient-level split specification & seed definition | Nafis Sadiq | - | ⚪ PENDING | Target: Split design |
 | **STEP-020** | S09 | Execute deterministic patient-grouped split, seal test partition, pass Gate G07 | Nafis Sadiq | G07 | ⚪ PENDING | Target: G07 Assessment |
 | **STEP-021** | S09 | Preprocessing pipeline: record-local ECG filtering vs train-only fitted transforms | Rayan Ahmed | - | ⚪ PENDING | Target: Preprocessing configs |
@@ -97,10 +97,11 @@ Read STEP_TRACKER.md and execute the next pending step.
 
 ---
 
-## 🎯 Next Step Details: `G05` Clinical Sign-Off & `STEP-016` Pilot QA Execution (`Stage S08`)
+## 🎯 Next Step Details: `STEP-017` (Tracked Batch Curation & Adjudication Logs `ADJB0001–0004`)
 
-- **Gate Action (`G05` Unlock):** Name & engage a **Qualified Cardiologist (`MD/FCPS`, `scope.md §8.2`)** + Supervisor Md. Mizanur Rahman to review and approve [DEC0005.md](file:///e:/FYDP/01_Project_Management/decision_log/DEC0005.md), [endpoint_charter.md](file:///e:/FYDP/04_Outcome_Schema_QA/endpoint_charter.md), and [ecg_contract.md](file:///e:/FYDP/04_Outcome_Schema_QA/ecg_contract.md), flipping `G05` to **`PASS`**.
-- **Next Execution Step (`STEP-016` — Pilot QA Run):**
-  1. Deterministically draw the prospectively defined stratified `N_pilot = 60` pilot slice (`seed = 20261127`: `20` `PTB-XL`, `20` `CARDIO-ML-ED`, `10` `CAIR-CVD-2025`, `10` `sulianova`).
-  2. Run Stream A (`schema_ecg.py` deterministic rules) independently vs Stream B manual/clinical review packet (`blinded`).
-  3. Compute Cohen's $\kappa$ (threshold $\ge 0.85$), continuous ICC ($\ge 0.99$), unit error rate (`0%`), and ECG readability concordance ($\ge 0.85$), saving outputs cleanly in Tier 2B & summarizing safely in `04_Outcome_Schema_QA/reviews/pilot_qa_review.md`.
+- **Step Name:** Execute Tracked Production Curation & Label Harmonization Batches (`ADJB0001–0004`, `Stage S08`)
+- **Owning Lead:** Mohammad Nafis Sadiq (`232-15-895`) & Rayan Ahmed (`232-15-847`)
+- **Deliverables Planned in `STEP-017`:**
+  1. Partition all `4` verified cohorts cleanly into disjoint auditable batches (`ADJB0001`: `PTB-XL 21,837`; `ADJB0002`: `CARDIO-ML-ED 581`; `ADJB0003`: `CAIR-CVD-2025 1,529`; `ADJB0004`: `sulianova 70,000`).
+  2. Export cleaned, unit-harmonized, Tier-2B batch manifests (`04_Outcome_Schema_QA/adjudications/ADJB0001–0004/`, strictly gitignored!), enforcing all quarantined exclusions (`ecg_id=12722`, `<18y`, `8` `.jpg` strips, `2` typo IDs, `13` unlinked IDs, `65` `SBP<=DBP`, `13` negative `LDL`, `1,323` BP outliers, `17` discordant duplicates) and recording exact SHA-256 `NativeHash` & `VerifiedHash`.
+  3. Generate aggregate-only batch summaries (`04_Outcome_Schema_QA/reviews/ADJB0001.md`–`ADJB0004.md`, Template `T12`) ready for **`STEP-018`** immutable **`ADJ####`** release lock & **`G06` PASS**.

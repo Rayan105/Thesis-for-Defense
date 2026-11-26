@@ -15,6 +15,13 @@ from src.cvd_mm.schema_ecg import (
     validate_ecg_image_bytes,
 )
 
+# Also verify pilot QA statistical agreement functions when automation scripts run
+from importlib.util import module_from_spec, spec_from_file_location
+
+_pilot_spec = spec_from_file_location("run_pilot_qa", os.path.join(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")), "14_Automation", "run_pilot_qa.py"))
+_pilot_mod = module_from_spec(_pilot_spec)
+_pilot_spec.loader.exec_module(_pilot_mod)
+
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 
@@ -110,6 +117,24 @@ class TestSchemaAndECGContract(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             validate_ecg_image_bytes(b"NOT_A_PNG", "bad.png")
+
+    def test_pilot_kappa_and_icc_agreement_math(self):
+        """Verify Cohen's kappa and ICC(2,1) calculation on non-trivial discordant inputs."""
+        k_perf, acc_perf = _pilot_mod.cohen_kappa(["A", "B", "A", "B"], ["A", "B", "A", "B"])
+        self.assertAlmostEqual(k_perf, 1.0, places=6)
+        self.assertAlmostEqual(acc_perf, 1.0, places=6)
+
+        k_part, acc_part = _pilot_mod.cohen_kappa(["A", "A", "B", "B", "A"], ["A", "B", "B", "B", "A"])
+        self.assertAlmostEqual(acc_part, 0.8, places=6)
+        self.assertLess(k_part, 0.8)  # Kappa adjusts cleanly for chance agreement
+
+        icc_perf, rel_perf = _pilot_mod.icc_two_way([120.0, 140.0, 160.0], [120.0, 140.0, 160.0])
+        self.assertAlmostEqual(icc_perf, 1.0, places=6)
+        self.assertAlmostEqual(rel_perf, 0.0, places=9)
+
+        icc_noisy, rel_noisy = _pilot_mod.icc_two_way([120.0, 140.0, 160.0], [122.0, 138.0, 161.0])
+        self.assertGreater(icc_noisy, 0.98)
+        self.assertGreater(rel_noisy, 0.0)
 
 
 if __name__ == "__main__":

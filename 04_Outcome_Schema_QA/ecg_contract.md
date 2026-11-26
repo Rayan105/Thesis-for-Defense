@@ -7,7 +7,7 @@
 | entity_id | ECG-CONTRACT-v1.0.0 (`UD07`) |
 | owner | Rayan Ahmed (`232-15-847`), Mohammad Nafis Sadiq (`232-15-895`) |
 | date | 2026-11-27 |
-| status | Draft Ready for Cardiologist & Supervisor G05 Ratification |
+| status | Approved (`DEC0005 Option A` — `2026-11-27`) |
 | source_inputs | `03_Datasets_Cohort/reports/four_modality_qc_and_ecg_audit.md`, `04_Outcome_Schema_QA/endpoint_charter.md`, `04_Outcome_Schema_QA/variables.csv`, `src/cvd_mm/schema_ecg.py` |
 | governing_section | OS §4.3, §4.5, §5.2 (`UD07`), §14.2 (`G05`), §15.2 (`T11`); Blueprint `STEP-015` |
 | phi_sensitivity | Tier 1 (Public / Git-safe technical specification) |
@@ -54,6 +54,6 @@ Under `DEC0004 Option B`, two heterogeneous raw ECG representations exist in our
 
 ---
 
-## 5. Cardiologist & Supervisor Ratification (`UD07 / G05`)
-- **Status:** `Pending Human Clinical & Supervisor Approval`
-- **Reviewers:** Qualified Cardiologist (`TBD`) + Md. Mizanur Rahman (`Supervisor`)
+## 5. Ratification (`UD07 / G05`)
+- **Status:** `Approved Option A (Supervisor Ratified 2026-11-27; External Clinician Required at G08 ST-T Check)`
+- **Reviewers:** Md. Mizanur Rahman (`Supervisor`, approved `2026-11-27`) + External Clinical Reviewer (`TBD` prior to `G08`)

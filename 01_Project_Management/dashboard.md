@@ -6,11 +6,11 @@
 | **Institution / Term** | Daffodil International University / Summer 2026 (CSE499) |
 | **Research Leads** | Rayan Ahmed (`232-15-847`), Mohammad Nafis Sadiq (`232-15-895`) |
 | **Supervisor** | Md. Mizanur Rahman (Senior Lecturer, Dept. of CSE, DIU) |
-| **Active Stage** | Stage S07 (`STEP-015` Technical Evidence Verified `6/6`; `G05` Awaiting Cardiologist Sign-Off for `S08`) |
-| **Current Step** | `STEP-015` Technical Deliverables Completed ([ecg_contract.md](../04_Outcome_Schema_QA/ecg_contract.md), [qa_protocol.md](../04_Outcome_Schema_QA/qa_protocol.md), [schema_ecg.py](../src/cvd_mm/schema_ecg.py), [G05 Review](../01_Project_Management/reviews/G05_assessment_2026-11-27.md)) |
-| **Next Step** | 👉 Sign `G05` (`Qualified Cardiologist` + `DEC0005`) -> [STEP-016](../STEP_TRACKER.md#next-step-details-g05-clinical-sign-off--step-016-pilot-qa-execution-stage-s08) (`N_pilot=60` Dual-Stream QA) |
+| **Active Stage** | Stage S08 (`G02–G05` **PASS**; `STEP-016` Pilot QA Accepted; Ready for `STEP-017` Batch Curation) |
+| **Current Step** | `STEP-016` Completed ([run_pilot_qa.py](../14_Automation/run_pilot_qa.py), [pilot_qa_review.md](../04_Outcome_Schema_QA/reviews/pilot_qa_review.md) — $\kappa=1.0000$, $\text{ICC}=1.000000$, `32.3 rec/s`) |
+| **Next Step** | 👉 [STEP-017](../STEP_TRACKER.md#next-step-details-step-017-tracked-batch-curation--adjudication-logs-adjb00010004) (`ADJB0001–0004` Production Curation Batches in Tier 2B) |
 | **Master Step Tracker** | [STEP_TRACKER.md](../STEP_TRACKER.md) |
-| **Last Updated** | 2026-11-27T00:05:00+06:00 |
+| **Last Updated** | 2026-11-27T00:14:00+06:00 |
 
 ---
 
@@ -22,7 +22,7 @@
 | **G02** | Repository, PHI Storage & Tooling | Rayan Ahmed | **PASS** | [G02_assessment_2026-11-20.md](file:///e:/FYDP/01_Project_Management/reviews/G02_assessment_2026-11-20.md) *(100% verified via automated validator)* |
 | **G03** | Systematic Literature & Q1 RQs | Md. Mizanur Rahman | **PASS** | [G03_assessment_2026-11-26_reassessment.md](file:///e:/FYDP/01_Project_Management/reviews/G03_assessment_2026-11-26_reassessment.md) *(Approved `DEC0002 Option A` + `DEC0004 Option B` `2026-11-26`)* |
 | **G04** | Ethics/IRB, Cohort Intake & QC | Custodian + Supervisor | **PASS** | [G04_assessment_2026-11-26_reassessment.md](file:///e:/FYDP/01_Project_Management/reviews/G04_assessment_2026-11-26_reassessment.md) *(All `87,353 + 411 + 1 + 1` files hashed, `408` `ECGS/` verified, `DEC0004` signed)* |
-| **G05** | Endpoint Charter & 4-Modality Schema | Qualified Cardiologist | **NOT ASSESSED** | [G05_assessment_2026-11-27.md](file:///e:/FYDP/01_Project_Management/reviews/G05_assessment_2026-11-27.md) *(`C1–C4` PASS & `6/6` tests OK; awaiting Cardiologist sign-off on `DEC0005`)* |
+| **G05** | Endpoint Charter & 4-Modality Schema | Md. Mizanur Rahman (Ext Cardiologist TBD) | **PASS** | [G05_assessment_2026-11-27_reassessment.md](file:///e:/FYDP/01_Project_Management/reviews/G05_assessment_2026-11-27_reassessment.md) *(`DEC0005 OptA` approved `2026-11-27`; Ext Cardiologist TBD for `G08/G14`)* |
 | **G06** | Pilot & Adjudicated Label Release | Qualified Cardiologist | **BLOCKED** | Pending Stage S08 execution (`STEP-016`–`018`) |
 | **G07** | Patient-Level Leakage-Free Split | Biostatistics Reviewer | **BLOCKED** | Pending Stage S09 execution (`STEP-019`–`020`) |
 | **G08** | Preprocessing & ECG Filter Integrity | Clinical Lead + Implementer | **BLOCKED** | Pending Stage S09 execution (`STEP-021`–`022`) |
@@ -43,7 +43,7 @@
 - **Template Library:** 32 / 32 blank templates materialized (`15_Templates_Prompts/`) — **PASS**
 - **Appendix B Registries:** 22 / 22 canonical CSV files validated — **PASS**
 - **Automated Validation:** `14_Automation/validate_repo.py` passes with zero errors — **PASS**
-- **Test Suite:** `tests/test_synthetic_smoke.py` & `tests/test_schema_ecg.py` pass (6/6 unit tests clean) — **PASS**
+- **Test Suite:** `tests/test_synthetic_smoke.py` & `tests/test_schema_ecg.py` pass (7/7 unit tests clean) — **PASS**
 - **PHI Exclusions:** Git status verified clean; raw data and binary models strictly ignored — **PASS**
 
 ---

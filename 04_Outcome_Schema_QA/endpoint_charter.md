@@ -7,7 +7,7 @@
 | entity_id | ENDPOINT-CHARTER-v1.0.0 (`UD02`, `UD03`) |
 | owner | Mohammad Nafis Sadiq (`232-15-895`), Rayan Ahmed (`232-15-847`) |
 | date | 2026-11-26 |
-| status | Draft Ready for Cardiologist Clinical Review (`Awaiting Cardiologist Sign-Off for G05`) |
+| status | Approved Option A (`DEC0005` — Supervisor Ratified `2026-11-27`; External Clinician Pending for `G08/G14`) |
 | source_inputs | `01_Project_Management/scope.md` (`v1.1.0`), `01_Project_Management/decision_log/DEC0004.md`, `03_Datasets_Cohort/reports/cohort_cards_DS0001_to_DS0004.md`, `03_Datasets_Cohort/reports/four_modality_qc_and_ecg_audit.md`, `OS §5.1–§5.2` |
 | governing_section | OS §1, §5.1, §5.2, §14.2 (`G05`), §15.2 (`T10`); Blueprint `STEP-014` |
 | phi_sensitivity | Tier 1 (Public / Git-safe schema document) |
@@ -59,5 +59,5 @@ Diagnostic endpoints in clinical datasets often depend directly on specific biom
 
 | Reviewer Role | Name & Credentials | Review Focus | Date | Status / Signature |
 |---|---|---|---|---|
-| **Academic Supervisor** | Md. Mizanur Rahman (DIU CSE) | Methodological alignment (`DEC0004`, `RQ1–RQ4`) | Pending `G05` | Pending `G05` clinical review |
-| **Qualified Cardiologist (`UD02/03/09`)** | **Unresolved / Human Decision Required** (`TBD` per `scope.md §8.2`) | Clinical validity of `y_ed_cardiac`/`y_ed_acute_cvd` vs `y_ptb_nonnorm`, `Troponin-I Tier A/B`, `CABG` prior-CVD handling, & borderline `Elevated BP/Electrolyte` disposition | Pending | **Awaiting Cardiologist Engagement (`G05`)** |
+| **Academic Supervisor** | Md. Mizanur Rahman (DIU CSE) | Approved `DEC0005 Option A` (`y_ptb/y_ed/y_cair/y_sul`, `Troponin Tier A`, `RISK0012` exclusions) | `2026-11-27` | Approved (`Team-reported approval 2026-11-27`) |
+| **External Clinician (`scope.md §8.2`)** | Pending Named Assignment | Secondary labels pre-adjudicated at parent institutions (`PTB-XL` / Mashhad `CARDIO-ML-ED`); external clinician required prior to `G08/G14` | Pending | Pending External Sign-Off (`G08/G14`) |

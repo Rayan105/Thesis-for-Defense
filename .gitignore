@@ -26,6 +26,7 @@ adjudications/
 03_Datasets_Cohort/raw/
 03_Datasets_Cohort/processed/
 03_Datasets_Cohort/adjudications/
+04_Outcome_Schema_QA/adjudications/
 03_Datasets_Cohort/splits/*/manifest.csv
 *.edf
 *.xml

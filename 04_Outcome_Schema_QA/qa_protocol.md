@@ -7,7 +7,7 @@
 | entity_id | QA-PROTOCOL-v1.0.0 (`UD09`) |
 | owner | Mohammad Nafis Sadiq (`232-15-895`), Rayan Ahmed (`232-15-847`) |
 | date | 2026-11-27 |
-| status | Draft Ready for Prospective Sign-Off Prior to STEP-016 Pilot |
+| status | Approved (`DEC0005 Option A` — Prospective Thresholds Frozen `2026-11-27`) |
 | source_inputs | `04_Outcome_Schema_QA/endpoint_charter.md`, `04_Outcome_Schema_QA/variables.csv`, `04_Outcome_Schema_QA/ecg_contract.md`, `01_Project_Management/decision_log/DEC0005.md`, `OS §5.3` |
 | governing_section | OS §5.3, §14.2 (`G05`, `G06`), Appendix A; Blueprint `STEP-015`–`STEP-018` |
 | phi_sensitivity | Tier 1 (Public / Git-safe protocol; restricted pilot outputs saved in Tier 2B) |
