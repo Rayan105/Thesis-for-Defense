@@ -6,11 +6,11 @@
 | **Institution / Term** | Daffodil International University / Summer 2026 (CSE499) |
 | **Research Leads** | Rayan Ahmed (`232-15-847`), Mohammad Nafis Sadiq (`232-15-895`) |
 | **Supervisor** | Md. Mizanur Rahman (Senior Lecturer, Dept. of CSE, DIU) |
-| **Active Stage** | Stage S07 (`STEP-014` Completed Draft; Ready for `STEP-015` ECG Contract, QA Protocol & `G05`) |
-| **Current Step** | `STEP-014` Drafted ([endpoint_charter.md](../04_Outcome_Schema_QA/endpoint_charter.md), `53`-row [variables.csv](../04_Outcome_Schema_QA/variables.csv), [crf_manual_v1.0.0.md](../04_Outcome_Schema_QA/crf/crf_manual_v1.0.0.md), [DEC0005](../01_Project_Management/decision_log/DEC0005.md)) |
-| **Next Step** | 👉 [STEP-015](../STEP_TRACKER.md#next-step-details-step-015-ecg-contract-qa-protocol-synthetic-parser-tests--gate-g05) (`ecg_contract.md`, `qa_protocol.md`, `tests/test_schema_ecg.py`, `G05` Assessment + Cardiologist Engagement) |
+| **Active Stage** | Stage S07 (`STEP-015` Technical Evidence Verified `6/6`; `G05` Awaiting Cardiologist Sign-Off for `S08`) |
+| **Current Step** | `STEP-015` Technical Deliverables Completed ([ecg_contract.md](../04_Outcome_Schema_QA/ecg_contract.md), [qa_protocol.md](../04_Outcome_Schema_QA/qa_protocol.md), [schema_ecg.py](../src/cvd_mm/schema_ecg.py), [G05 Review](../01_Project_Management/reviews/G05_assessment_2026-11-27.md)) |
+| **Next Step** | 👉 Sign `G05` (`Qualified Cardiologist` + `DEC0005`) -> [STEP-016](../STEP_TRACKER.md#next-step-details-g05-clinical-sign-off--step-016-pilot-qa-execution-stage-s08) (`N_pilot=60` Dual-Stream QA) |
 | **Master Step Tracker** | [STEP_TRACKER.md](../STEP_TRACKER.md) |
-| **Last Updated** | 2026-11-26T23:55:00+06:00 |
+| **Last Updated** | 2026-11-27T00:05:00+06:00 |
 
 ---
 
@@ -22,7 +22,7 @@
 | **G02** | Repository, PHI Storage & Tooling | Rayan Ahmed | **PASS** | [G02_assessment_2026-11-20.md](file:///e:/FYDP/01_Project_Management/reviews/G02_assessment_2026-11-20.md) *(100% verified via automated validator)* |
 | **G03** | Systematic Literature & Q1 RQs | Md. Mizanur Rahman | **PASS** | [G03_assessment_2026-11-26_reassessment.md](file:///e:/FYDP/01_Project_Management/reviews/G03_assessment_2026-11-26_reassessment.md) *(Approved `DEC0002 Option A` + `DEC0004 Option B` `2026-11-26`)* |
 | **G04** | Ethics/IRB, Cohort Intake & QC | Custodian + Supervisor | **PASS** | [G04_assessment_2026-11-26_reassessment.md](file:///e:/FYDP/01_Project_Management/reviews/G04_assessment_2026-11-26_reassessment.md) *(All `87,353 + 411 + 1 + 1` files hashed, `408` `ECGS/` verified, `DEC0004` signed)* |
-| **G05** | Endpoint Charter & 4-Modality Schema | Qualified Cardiologist | **BLOCKED** | Pending Stage S07 execution (`STEP-014`–`015`) |
+| **G05** | Endpoint Charter & 4-Modality Schema | Qualified Cardiologist | **NOT ASSESSED** | [G05_assessment_2026-11-27.md](file:///e:/FYDP/01_Project_Management/reviews/G05_assessment_2026-11-27.md) *(`C1–C4` PASS & `6/6` tests OK; awaiting Cardiologist sign-off on `DEC0005`)* |
 | **G06** | Pilot & Adjudicated Label Release | Qualified Cardiologist | **BLOCKED** | Pending Stage S08 execution (`STEP-016`–`018`) |
 | **G07** | Patient-Level Leakage-Free Split | Biostatistics Reviewer | **BLOCKED** | Pending Stage S09 execution (`STEP-019`–`020`) |
 | **G08** | Preprocessing & ECG Filter Integrity | Clinical Lead + Implementer | **BLOCKED** | Pending Stage S09 execution (`STEP-021`–`022`) |
@@ -43,7 +43,7 @@
 - **Template Library:** 32 / 32 blank templates materialized (`15_Templates_Prompts/`) — **PASS**
 - **Appendix B Registries:** 22 / 22 canonical CSV files validated — **PASS**
 - **Automated Validation:** `14_Automation/validate_repo.py` passes with zero errors — **PASS**
-- **Test Suite:** `tests/test_synthetic_smoke.py` passes (3/3 unit tests clean) — **PASS**
+- **Test Suite:** `tests/test_synthetic_smoke.py` & `tests/test_schema_ecg.py` pass (6/6 unit tests clean) — **PASS**
 - **PHI Exclusions:** Git status verified clean; raw data and binary models strictly ignored — **PASS**
 
 ---

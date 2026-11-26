@@ -8,12 +8,12 @@
 
 | Metric | Current Value |
 |---|---|
-| **Last Completed Step** | **`STEP-014` (Prep Complete)** (`endpoint_charter.md`, `53`-row `variables.csv`, `crf_manual_v1.0.0.md`, `DEC0005.md`) |
-| **Last Git Commit** | `STEP-014`: Endpoint Charter ($t_0/\Delta t$), Troponin `Tier A/B`, `53` variables & CRF manual |
-| **Active Stage** | **`S07`** (`STEP-014` Drafted; Ready for `STEP-015` ECG Contract, QA Protocol & Gate `G05`) |
-| **Next Step to Execute** | 👉 **`STEP-015`** (Finalize `ecg_contract.md`, Secondary Adjudication/QA Protocol & Evaluate Gate `G05`) |
-| **Current Quality Gates** | `G01`: Not Assessed (`C1,C3–C6 PASS`; local `fydp_title_proposal.pdf` missing) \| **`G02`: PASS** \| **`G03`: PASS** \| **`G04`: PASS** \| `G05–G17`: Blocked (`STEP-015` + Cardiologist Pending) |
-| **Last Updated** | 2026-11-26T23:55:00+06:00 |
+| **Last Completed Step** | **`STEP-015` (Technical Prep Complete)** (`ecg_contract.md`, `qa_protocol.md`, `schema_ecg.py`, `6/6` tests OK; `G05` Awaiting Cardiologist) |
+| **Last Git Commit** | `STEP-015`: 12L ECG Contract (`WFDB+PNG`), Prospective QA Protocol, `schema_ecg.py` tests & `G05` review |
+| **Active Stage** | **`S07`** (`STEP-014–015` Technical Evidence Verified; `G05` Awaiting Qualified Cardiologist + `DEC0005`) |
+| **Next Step to Execute** | 👉 **Clinical Sign-Off `G05` (`DEC0005`) & `STEP-016` Pilot Preparation** (`Dual-Stream N=60 Pilot QA Script/Run`) |
+| **Current Quality Gates** | `G01`: Not Assessed (`local PDF missing`) \| **`G02–G04`: PASS** \| **`G05`: NOT ASSESSED (`Cardiologist Pending`)** \| `G06–G17`: Blocked |
+| **Last Updated** | 2026-11-27T00:05:00+06:00 |
 
 ### 🤖 AI Prompt for Next Teammate / Next Session:
 To resume work with minimal token cost, simply give the AI this exact prompt:
@@ -58,8 +58,8 @@ Read STEP_TRACKER.md and execute the next pending step.
 | **STEP-012** | S05 | Immutable SHA-256 intake lock & external cohort mapping (`DS0001–04`) | Nafis & Rayan | - | ✅ **COMPLETED** | [datasets.csv](file:///e:/FYDP/03_Datasets_Cohort/datasets.csv), [manifests/](file:///e:/FYDP/03_Datasets_Cohort/manifests/) (`408` `ECGS/` images hashed), [Intake Summary](file:///e:/FYDP/03_Datasets_Cohort/reports/DS0001_to_DS0004_intake_summary.md) |
 | **STEP-013** | S06 | 4-modality QC, 12-lead ECG signal/image audit, cohort cards, pass Gate G04 | Nafis Sadiq | G04 | ✅ **COMPLETED (`G04 PASS`)** | [QC Audit](file:///e:/FYDP/03_Datasets_Cohort/reports/four_modality_qc_and_ecg_audit.md), [Cohort Cards](file:///e:/FYDP/03_Datasets_Cohort/reports/cohort_cards_DS0001_to_DS0004.md), [G04 PASS](file:///e:/FYDP/01_Project_Management/reviews/G04_assessment_2026-11-26_reassessment.md) |
 | **STEP-014** | S07 | Clinical CVD endpoint charter ($t_0$, $\Delta t$, Troponin tiers) & 4-modality schema | Nafis & Rayan | - | ✅ **COMPLETED (Draft Pending Cardiologist)** | [Endpoint Charter](file:///e:/FYDP/04_Outcome_Schema_QA/endpoint_charter.md), [variables.csv](file:///e:/FYDP/04_Outcome_Schema_QA/variables.csv), [CRF Manual](file:///e:/FYDP/04_Outcome_Schema_QA/crf/crf_manual_v1.0.0.md), [DEC0005](file:///e:/FYDP/01_Project_Management/decision_log/DEC0005.md) |
-| **STEP-015** | S07 | ECG contract (`ecg_contract.md`), QA thresholds & Gate G05 (`DEC0005` Cardiologist Sign-Off) | Cardiologist / Team | G05 | 👉 **NEXT TO EXECUTE** | Target: `04_Outcome_Schema_QA/ecg_contract.md`, `qa_protocol.md`, `tests/test_schema_ecg.py`, `G05` |
-| **STEP-016** | S08 | Clinical chart abstraction manual & pilot double-entry protocol | Nafis Sadiq | - | ⚪ PENDING | Target: Pilot protocol |
+| **STEP-015** | S07 | ECG contract (`ecg_contract.md`), QA thresholds, unit tests & Gate G05 | Rayan & Nafis | G05 | ✅ **COMPLETED (Prep / G05 Awaiting Cardiologist)** | [ECG Contract](file:///e:/FYDP/04_Outcome_Schema_QA/ecg_contract.md), [QA Protocol](file:///e:/FYDP/04_Outcome_Schema_QA/qa_protocol.md), [test_schema_ecg.py](file:///e:/FYDP/tests/test_schema_ecg.py), [G05 Review](file:///e:/FYDP/01_Project_Management/reviews/G05_assessment_2026-11-27.md) |
+| **STEP-016** | S08 | Stratified dual-stream pilot QA (`N_pilot=60`), compute Cohen's $\kappa$ / ICC | Cardiologist / Team | - | 👉 **NEXT TO EXECUTE (Requires `G05 PASS` for Production Release)** | Target: Pilot script & `04_Outcome_Schema_QA/reviews/pilot_qa_review.md` |
 | **STEP-017** | S08 | Pilot adjudication run, compute inter-rater agreement ($\kappa$ / ICC) | Cardiologist | - | ⚪ PENDING | Target: Pilot agreement report |
 | **STEP-018** | S08 | Production adjudication release, QA verification, pass Gate G06 | Cardiologist | G06 | ⚪ PENDING | Target: G06 Assessment |
 | **STEP-019** | S09 | Leakage-safe patient-level split specification & seed definition | Nafis Sadiq | - | ⚪ PENDING | Target: Split design |
@@ -97,12 +97,10 @@ Read STEP_TRACKER.md and execute the next pending step.
 
 ---
 
-## 🎯 Next Step Details: `STEP-015` (ECG Contract, QA Protocol, Synthetic Parser Tests & Gate `G05`)
+## 🎯 Next Step Details: `G05` Clinical Sign-Off & `STEP-016` Pilot QA Execution (`Stage S08`)
 
-- **Step Name:** Approve 12-Lead ECG Contract (`UD07`), Adjudication/QA Protocol (`UD09`), Run Schema/ECG Unit Tests & Evaluate Gate `G05` (`Stage S07`)
-- **Owning Lead:** Rayan Ahmed (`232-15-847`) & Mohammad Nafis Sadiq (`232-15-895`) + Qualified Cardiologist (`DEC0005`)
-- **Deliverables Planned in `STEP-015`:**
-  1. **`04_Outcome_Schema_QA/ecg_contract.md` (`T11`):** Formal specification reconciling `DS0001` (`PTB-XL` 100/500 Hz WFDB arrays) and `DS0002` (`CARDIO-ML-ED` `400` 12-row `.png` scans with red-grid removal & `8` `.jpg` quarantine rules per `RISK0012`).
-  2. **`04_Outcome_Schema_QA/qa_protocol.md`:** Secondary label-reconciliation and quality-audit protocol replacing prospective dual chart entry under `DEC0004` (`396+10` ECG image/label link QA, `2` typo ID resolution, `17` discordant duplicate `sulianova` quarantine).
-  3. **`tests/test_schema_ecg.py`:** Automated unit tests validating `variables.csv` schema integrity, leakage exclusion rules (`Troponin Tier A`, `CVD Risk Score`), and synthetic WFDB / ECG-image metadata contracts.
-  4. **Gate `G05` Review (`01_Project_Management/reviews/G05_assessment_<date>.md`):** Assess readiness (requires Qualified Cardiologist engagement & `DEC0005` ratification for `PASS`).
+- **Gate Action (`G05` Unlock):** Name & engage a **Qualified Cardiologist (`MD/FCPS`, `scope.md §8.2`)** + Supervisor Md. Mizanur Rahman to review and approve [DEC0005.md](file:///e:/FYDP/01_Project_Management/decision_log/DEC0005.md), [endpoint_charter.md](file:///e:/FYDP/04_Outcome_Schema_QA/endpoint_charter.md), and [ecg_contract.md](file:///e:/FYDP/04_Outcome_Schema_QA/ecg_contract.md), flipping `G05` to **`PASS`**.
+- **Next Execution Step (`STEP-016` — Pilot QA Run):**
+  1. Deterministically draw the prospectively defined stratified `N_pilot = 60` pilot slice (`seed = 20261127`: `20` `PTB-XL`, `20` `CARDIO-ML-ED`, `10` `CAIR-CVD-2025`, `10` `sulianova`).
+  2. Run Stream A (`schema_ecg.py` deterministic rules) independently vs Stream B manual/clinical review packet (`blinded`).
+  3. Compute Cohen's $\kappa$ (threshold $\ge 0.85$), continuous ICC ($\ge 0.99$), unit error rate (`0%`), and ECG readability concordance ($\ge 0.85$), saving outputs cleanly in Tier 2B & summarizing safely in `04_Outcome_Schema_QA/reviews/pilot_qa_review.md`.
