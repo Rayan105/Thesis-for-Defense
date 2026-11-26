@@ -6,11 +6,11 @@
 | **Institution / Term** | Daffodil International University / Summer 2026 (CSE499) |
 | **Research Leads** | Rayan Ahmed (`232-15-847`), Mohammad Nafis Sadiq (`232-15-895`) |
 | **Supervisor** | Md. Mizanur Rahman (Senior Lecturer, Dept. of CSE, DIU) |
-| **Active Stage** | Stage S08 (`STEP-017` All `4` Batches Closed: `91,781` Clean Eligible / `2,166` Quarantined; Ready for `STEP-018`) |
-| **Current Step** | `STEP-017` Completed ([curate_batches.py](../14_Automation/curate_batches.py), [ADJB0001–0004](../04_Outcome_Schema_QA/reviews/) — `16.81s` runtime, 5% Dual-QA $\kappa=1.0000$) |
-| **Next Step** | 👉 [STEP-018](../STEP_TRACKER.md#next-step-details-step-018-whole-cohort-qa-audit-adj-release-freeze--gate-g06) (Freeze `ADJ0001–0004`, `adjudication_registry.csv`, & Gate `G06` before `Stage S09` Preprocessing) |
+| **Active Stage** | Stage S08 (`STEP-018` Release Audit Clean [`0` Violations]; Ready for `G06` Sign-Off -> `Stage S09` Preprocessing) |
+| **Current Step** | `STEP-018` Audit Complete (`ADJ0001–0004` `91,781` Clean Eligible / `2,166` Quarantined; [Release Audit](../04_Outcome_Schema_QA/reviews/adjudication_release_audit.md)) |
+| **Next Step** | 👉 Sign `G06` (`DEC0006 UD10`) -> [STEP-019](../STEP_TRACKER.md#next-step-details-confirm-g06-dec0006--begin-stage-s09-preprocessing-step-019) (**`Stage S09` Preprocessing & Splitting**) |
 | **Master Step Tracker** | [STEP_TRACKER.md](../STEP_TRACKER.md) |
-| **Last Updated** | 2026-11-27T00:27:00+06:00 |
+| **Last Updated** | 2026-11-27T00:38:00+06:00 |
 
 ---
 
@@ -23,7 +23,7 @@
 | **G03** | Systematic Literature & Q1 RQs | Md. Mizanur Rahman | **PASS** | [G03_assessment_2026-11-26_reassessment.md](file:///e:/FYDP/01_Project_Management/reviews/G03_assessment_2026-11-26_reassessment.md) *(Approved `DEC0002 Option A` + `DEC0004 Option B` `2026-11-26`)* |
 | **G04** | Ethics/IRB, Cohort Intake & QC | Custodian + Supervisor | **PASS** | [G04_assessment_2026-11-26_reassessment.md](file:///e:/FYDP/01_Project_Management/reviews/G04_assessment_2026-11-26_reassessment.md) *(All `87,353 + 411 + 1 + 1` files hashed, `408` `ECGS/` verified, `DEC0004` signed)* |
 | **G05** | Endpoint Charter & 4-Modality Schema | Md. Mizanur Rahman (Ext Cardiologist TBD) | **PASS** | [G05_assessment_2026-11-27_reassessment.md](file:///e:/FYDP/01_Project_Management/reviews/G05_assessment_2026-11-27_reassessment.md) *(`DEC0005 OptA` approved `2026-11-27`; Ext Cardiologist TBD for `G08/G14`)* |
-| **G06** | Pilot & Adjudicated Label Release | Qualified Cardiologist | **BLOCKED** | Pending Stage S08 execution (`STEP-016`–`018`) |
+| **G06** | Pilot & Adjudicated Label Release | Md. Mizanur Rahman + Data Lead | **NOT ASSESSED** | [G06_assessment_2026-11-27.md](file:///e:/FYDP/01_Project_Management/reviews/G06_assessment_2026-11-27.md) *(`C1–C3` PASS [`0` violations]; `DEC0006 UD10` sign-off pending)* |
 | **G07** | Patient-Level Leakage-Free Split | Biostatistics Reviewer | **BLOCKED** | Pending Stage S09 execution (`STEP-019`–`020`) |
 | **G08** | Preprocessing & ECG Filter Integrity | Clinical Lead + Implementer | **BLOCKED** | Pending Stage S09 execution (`STEP-021`–`022`) |
 | **G09** | Architecture, Runtime & Smoke Test | Supervisor + Evaluator | **BLOCKED** | Pending Stage S10 execution (`STEP-023`–`027`) |
