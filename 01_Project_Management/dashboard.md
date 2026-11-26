@@ -7,8 +7,8 @@
 | **Research Leads** | Rayan Ahmed (`232-15-847`), Mohammad Nafis Sadiq (`232-15-895`) |
 | **Supervisor** | Md. Mizanur Rahman (Senior Lecturer, Dept. of CSE, DIU) |
 | **Active Stage** | Stage S05 (`DEC0004` Secondary-Data Pivot Prepared; Ready for `STEP-011` License/Provenance & CITI Track) |
-| **Current Step** | STEP-010 + `DEC0004` Scope Amendment Prepared (`scope.md v1.1.0`, `research_questions.md v1.1.0`, `sites.csv` 10 cohorts) |
-| **Next Step** | 👉 [STEP-011](../STEP_TRACKER.md#next-step-details-step-011) (Secondary Data License/DUA, CITI & Anti-Stitching Audit; **Human Action:** Supervisor signs `DEC0001/DEC0002/DEC0004` & Team picks Kaggle/PhysioNet datasets) |
+| **Current Step** | STEP-010 + `DEC0004` Option B Catalog Prepared ([secondary_dataset_catalog.md](../03_Datasets_Cohort/reports/secondary_dataset_catalog.md); `13` cohorts in `sites.csv`) |
+| **Next Step** | 👉 [STEP-011](../STEP_TRACKER.md#next-step-details-step-011) (Option B License/Provenance Audit & Local Download into gitignored `raw/`; **Human Action:** Supervisor signs `DEC0001/0002/0004`) |
 | **Master Step Tracker** | [STEP_TRACKER.md](../STEP_TRACKER.md) |
 | **Last Updated** | 2026-11-26T11:10:00+06:00 |
 

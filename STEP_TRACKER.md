@@ -8,10 +8,10 @@
 
 | Metric | Current Value |
 |---|---|
-| **Last Completed Step** | **`STEP-010` + `DEC0004` Secondary-Data Pivot Prep** (`scope.md v1.1.0`, `RQ v1.1.0`, `sites.csv` `10` cohorts incl. `CARDIO-ML-ED` & `MDS-ED`) |
-| **Last Git Commit** | Secondary-data pivot sync (`DEC0004`, amended `scope.md`/`research_questions.md`, `sites.csv`) |
-| **Active Stage** | **`S05`** (Secondary Data Governance, Licensing/CITI/DUA & Provenance Audit) |
-| **Next Step to Execute** | 👉 **`STEP-011`** (Verify Secondary Dataset Licenses/DUA/CITI, Ethics Exemption & Anti-Stitching Audit under `DEC0004`) |
+| **Last Completed Step** | **`STEP-010` + `DEC0004` Option B** (`PTB-XL`, `Chapman`, `CARDIO-ML-ED`, `CAIR-CVD-2025`, `sulianova`, `Framingham` in `sites.csv`) |
+| **Last Git Commit** | Option B Kaggle/Mendeley catalog, `sites.csv` (`13` cohorts), & `prepare_secondary_intake.py` |
+| **Active Stage** | **`S05`** (Option B License/Provenance Audit & Local Raw Download into `.gitignore` `raw/`) |
+| **Next Step to Execute** | 👉 **`STEP-011`** (Verify Option B `CC BY 4.0` Licenses/Provenance & Download Kaggle/Mendeley Cohorts) |
 | **Current Quality Gates** | `G01`: Not Assessed (`DEC0001+0004` pending Supervisor) \| `G02`: **PASS** \| `G03`: Not Assessed (`DEC0002+0004` pending Supervisor) \| `G04–G17`: Blocked |
 | **Last Updated** | 2026-11-26 |
 
