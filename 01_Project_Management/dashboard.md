@@ -6,11 +6,11 @@
 | **Institution / Term** | Daffodil International University / Summer 2026 (CSE499) |
 | **Research Leads** | Rayan Ahmed (`232-15-847`), Mohammad Nafis Sadiq (`232-15-895`) |
 | **Supervisor** | Md. Mizanur Rahman (Senior Lecturer, Dept. of CSE, DIU) |
-| **Active Stage** | Stage S04 (Proposal-Gap Verification & Q1 RQs) |
-| **Current Step** | STEP-008 (Completed — PG1–PG5 Verified, Synthesis Authored) |
-| **Next Step** | 👉 [STEP-009](../STEP_TRACKER.md) (Lock Q1 RQs & Pass G03) |
+| **Active Stage** | Stage S04 → S05 (`STEP-009` Completed; `G03` Awaiting Supervisor Sign-Off) |
+| **Current Step** | STEP-009 (Completed Documentary Prep — `RQ0/RQ1–RQ4` Locked Candidate, `DEC0002` & `G03` Review Prepared) |
+| **Next Step** | 👉 [STEP-010](../STEP_TRACKER.md#next-step-details-step-010) (Prospective Sample-Size/EPV Feasibility & External Cohort Prep; **Human Action:** Supervisor signs `G01` & `G03`) |
 | **Master Step Tracker** | [STEP_TRACKER.md](../STEP_TRACKER.md) |
-| **Last Updated** | 2026-11-26T00:58:00+06:00 |
+| **Last Updated** | 2026-11-26T08:43:00+06:00 |
 
 ---
 
@@ -20,7 +20,7 @@
 |---|---|---|---|---|
 | **G01** | Scope & Decision Charter | Md. Mizanur Rahman | **NOT ASSESSED** | [G01_assessment_2026-11-20.md](file:///e:/FYDP/01_Project_Management/reviews/G01_assessment_2026-11-20.md) *(Evidence prepared; pending supervisor sign-off)* |
 | **G02** | Repository, PHI Storage & Tooling | Rayan Ahmed | **PASS** | [G02_assessment_2026-11-20.md](file:///e:/FYDP/01_Project_Management/reviews/G02_assessment_2026-11-20.md) *(100% verified via automated validator)* |
-| **G03** | Systematic Literature & Q1 RQs | Md. Mizanur Rahman | **BLOCKED** | Pending Stage S03–S04 execution (`STEP-004`–`009`) |
+| **G03** | Systematic Literature & Q1 RQs | Md. Mizanur Rahman | **NOT ASSESSED** | [G03_assessment_2026-11-26.md](file:///e:/FYDP/01_Project_Management/reviews/G03_assessment_2026-11-26.md) *(C2–C4 verified; C1/C5 prepared; awaiting Supervisor approval & `DEC0002`)* |
 | **G04** | Ethics/IRB, Cohort Intake & QC | Hospital Custodian + Supervisor | **BLOCKED** | Pending Stage S05–S06 execution (`STEP-010`–`013`) |
 | **G05** | Endpoint Charter & 4-Modality Schema | Qualified Cardiologist | **BLOCKED** | Pending Stage S07 execution (`STEP-014`–`015`) |
 | **G06** | Pilot & Adjudicated Label Release | Qualified Cardiologist | **BLOCKED** | Pending Stage S08 execution (`STEP-016`–`018`) |

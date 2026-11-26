@@ -8,11 +8,11 @@
 
 | Metric | Current Value |
 |---|---|
-| **Last Completed Step** | **`STEP-008`** (Evidence Synthesis & PG1–PG5 Gap Verification — All 5 Gaps Verified) |
-| **Last Git Commit** | STEP-008 synthesis commit (see below) |
-| **Active Stage** | **`S04`** (Proposal-Gap Verification `PG1–PG5` & Q1 RQ Approval) |
-| **Next Step to Execute** | 👉 **`STEP-009`** (Lock Q1 Research Questions & Pass Gate G03) |
-| **Current Quality Gates** | `G01`: Not Assessed (Doc prepared) \| `G02`: **PASS** \| `G03`: Ready for Assessment \| `G04–G17`: Blocked |
+| **Last Completed Step** | **`STEP-009`** (Lock Q1 RQs `RQ0/RQ1–RQ4`, Traceability Matrix, `DEC0002` & `G03` Review Prepared) |
+| **Last Git Commit** | STEP-009 commit (`02_Literature/` locked candidate + `G03` review) |
+| **Active Stage** | **`S04` $\rightarrow$ `S05`** (Awaiting Supervisor Sign-Off on `G01` & `G03`; Preparatory Feasibility Ready) |
+| **Next Step to Execute** | 👉 **`STEP-010`** (Sample-Size/EPV Feasibility & Candidate Site/External Cohort Scouting — **Human Action:** Supervisor signs `G01` & `G03`) |
+| **Current Quality Gates** | `G01`: Not Assessed (Docs prepared) \| `G02`: **PASS** \| `G03`: Not Assessed (Docs/hashes prepared; awaiting Supervisor `DEC0002`) \| `G04–G17`: Blocked |
 | **Last Updated** | 2026-11-26 |
 
 ### 🤖 AI Prompt for Next Teammate / Next Session:
@@ -52,8 +52,8 @@ Read STEP_TRACKER.md and execute the next pending step.
 | **STEP-006** | S03 | Two-stage PRISMA screening (Title/Abstract & Full-Text) in `screening.csv` | Nafis & Rayan | - | **COMPLETED** | `f19ebb2` + [screening_summary.md](file:///e:/FYDP/02_Literature/searches/screening_summary.md) |
 | **STEP-007** | S03 | Methodological extraction of included direct comparator studies (`P####.md`) | Rayan & Nafis | - | **COMPLETED** | `42/42` [summaries](file:///e:/FYDP/02_Literature/summaries/) & [matrix](file:///e:/FYDP/02_Literature/comparative_matrix.md) |
 | **STEP-008** | S04 | Synthesize evidence & test proposal research gaps (`PG1–PG5` $\rightarrow$ `GAP####`) | Rayan Ahmed | - | ✅ **COMPLETED** | [synthesis.md](file:///e:/FYDP/02_Literature/synthesis.md) & [gaps.csv](file:///e:/FYDP/02_Literature/gaps.csv) (5 GAPs verified) |
-| **STEP-009** | S04 | Finalize & ratify Q1 Research Questions (`RQ1–RQ4`), pass Gate G03 | Supervisor | G03 | 🟡 **READY TO RUN** | Target: G03 Assessment |
-| **STEP-010** | S05 | Hospital site selection, recruitment protocol, power & EPV sample calculation | Nafis Sadiq | - | ⚪ PENDING | Target: `03_Datasets_Cohort/sites.csv` |
+| **STEP-009** | S04 | Finalize & ratify Q1 Research Questions (`RQ1–RQ4`), pass Gate G03 | Supervisor | G03 | ✅ **COMPLETED (Docs)** | [research_questions.md](file:///e:/FYDP/02_Literature/research_questions.md), [DEC0002](file:///e:/FYDP/01_Project_Management/decision_log/DEC0002.md), [G03 Review](file:///e:/FYDP/01_Project_Management/reviews/G03_assessment_2026-11-26.md) *(Awaiting Supervisor Sign-Off)* |
+| **STEP-010** | S05 | Hospital site selection, recruitment protocol, power & EPV sample calculation | Nafis Sadiq | - | 🟡 **READY (Prep)** | Target: `03_Datasets_Cohort/sites.csv` & `feasibility_epv_study.md` *(Formal collection gated on G01/G03)* |
 | **STEP-011** | S05 | Institutional IRB submission, hospital data authorization & consent/waiver | Nafis Sadiq | - | ⚪ PENDING | Target: IRB Approval Record |
 | **STEP-012** | S05 | Screen external public cohorts (MIMIC-IV-ECG, PTB-XL) under UD06 | Nafis & Rayan | - | ⚪ PENDING | Target: External cohort feasibility |
 | **STEP-013** | S06 | De-identified cohort intake, 12-lead ECG signal QC, cohort card, pass Gate G04 | Nafis Sadiq | G04 | ⚪ PENDING | Target: G04 Assessment |
@@ -97,14 +97,14 @@ Read STEP_TRACKER.md and execute the next pending step.
 
 ---
 
-## 🎯 Next Step Details: `STEP-009`
+## 🎯 Next Step Details: `STEP-010`
 
-- **Step Name:** Lock Q1-Aligned Research Questions and Pass Literature Gate (`G03`)
-- **Owning Lead:** Supervisor (Md. Mizanur Rahman) + Rayan Ahmed (`232-15-847`)
-- **Inputs Ready:** [synthesis.md](file:///e:/FYDP/02_Literature/synthesis.md), [gaps.csv](file:///e:/FYDP/02_Literature/gaps.csv) (GAP0001–GAP0005 verified), [comparative_matrix.md](file:///e:/FYDP/02_Literature/comparative_matrix.md), [research_questions.md](file:///e:/FYDP/02_Literature/research_questions.md) (provisional), [claims.csv](file:///e:/FYDP/02_Literature/claims.csv) (CLAIM0001–CLAIM0013).
+- **Step Name:** Assess Sample-Size Feasibility, Clinical Sites, and Optional External Cohorts
+- **Owning Lead:** Mohammad Nafis Sadiq (`232-15-895`) + Rayan Ahmed (`232-15-847`)
+- **Human Sign-Off Reminder (Pending Before Live Data Collection):** Obtain Supervisor Md. Mizanur Rahman's dated signature on [G01](file:///e:/FYDP/01_Project_Management/reviews/G01_assessment_2026-11-20.md) (`DEC0001` + `fydp_title_proposal.pdf`) and [G03](file:///e:/FYDP/01_Project_Management/reviews/G03_assessment_2026-11-26.md) (`DEC0002` + `research_questions.md`).
+- **Inputs Ready:** [research_questions.md](file:///e:/FYDP/02_Literature/research_questions.md) (`v1.0.0`), [synthesis.md](file:///e:/FYDP/02_Literature/synthesis.md), `OS §4, §13`, `UD04 / UD06 / UD26`.
 - **Action Required:**
-  1. Finalize primary and subordinate RQs (`RQ1–RQ4`) linking every question to `O1–O4`, verified `GAP####`, required 4-modality data fields, comparator tier, statistical test, XAI metric, and permitted claim boundary.
-  2. Prepare `DEC####` decision record approving finalized RQs.
-  3. Write `G03_assessment_<date>.md` and update `gates.csv` with G03 status.
-  4. Set literature search cutoff date.
-  5. **Human-only:** Supervisor evaluates and approves Q1 positioning within the endorsed FYDP title.
+  1. Compute prospective minimum sample size $N$ and CVD event count $E$ using Riley et al. criteria + Events-Per-Variable (EPV) bounds and define small-$N$ contingency triggers (`UD26`) in `03_Datasets_Cohort/reports/feasibility_epv_study.md`.
+  2. Prepare Bangladesh hospital/diagnostic-center site register template and spectrum-bias mitigation rules in `03_Datasets_Cohort/sites.csv` (marking real hospital selections as `Unresolved / Human Decision Required` until custodian liaison & IRB).
+  3. Screen optional public external CVD benchmarks (`PTB-XL`, `MIMIC-IV + MIMIC-IV-ECG`, `Framingham`, `NHANES`, `CAIR-CVD-2025` compatibility audit) for modality overlap, South Asian applicability, and credentialing requirements (`UD06`).
+  4. Draft decision options (`DEC0003`) for `UD04 / UD06 / UD26`.
