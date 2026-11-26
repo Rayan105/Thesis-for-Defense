@@ -8,12 +8,12 @@
 
 | Metric | Current Value |
 |---|---|
-| **Last Completed Step** | **`STEP-010` + `DEC0004` Option B** (`PTB-XL`, `Chapman`, `CARDIO-ML-ED`, `CAIR-CVD-2025`, `sulianova`, `Framingham` in `sites.csv`) |
-| **Last Git Commit** | Option B Kaggle/Mendeley catalog, `sites.csv` (`13` cohorts), & `prepare_secondary_intake.py` |
-| **Active Stage** | **`S05`** (Option B License/Provenance Audit & Local Raw Download into `.gitignore` `raw/`) |
-| **Next Step to Execute** | 👉 **`STEP-011`** (Verify Option B `CC BY 4.0` Licenses/Provenance & Download Kaggle/Mendeley Cohorts) |
-| **Current Quality Gates** | `G01`: Not Assessed (`DEC0001+0004` pending Supervisor) \| `G02`: **PASS** \| `G03`: Not Assessed (`DEC0002+0004` pending Supervisor) \| `G04–G17`: Blocked |
-| **Last Updated** | 2026-11-26 |
+| **Last Completed Step** | **`STEP-011`–`STEP-013` (Prep & Audit)** (`DS0001–DS0004` Open Licenses, SHA-256 Manifests, 4-Modality QC & `G04` Audit) |
+| **Last Git Commit** | `STEP-011–013`: `.gitignore` `Dataset/` lock, `SITE` licenses, `DS0001–0004` manifests, QC audit & `G04` review |
+| **Active Stage** | **`S06` -> `S07`** (Resolve `G04` Blockers [`ECGS/` PNG download + `DEC0004` Sign-Off]; Prep `STEP-014` Endpoint Charter) |
+| **Next Step to Execute** | 👉 **`STEP-014` Prep / Unblock `G04`** (`04_Outcome_Schema_QA/endpoint_charter.md` + Download `CARDIO-ML-ED/ECGS/`) |
+| **Current Quality Gates** | `G01`: Not Assessed (`DEC0001+0004`) \| `G02`: **PASS** \| `G03`: Not Assessed (`DEC0002+0004`) \| **`G04`: NOT ASSESSED (`RISK0011`: `ECGS/` missing + Sign-Off)** \| `G05–G17`: Blocked |
+| **Last Updated** | 2026-11-26T22:35:00+06:00 |
 
 ### 🤖 AI Prompt for Next Teammate / Next Session:
 To resume work with minimal token cost, simply give the AI this exact prompt:
@@ -54,10 +54,10 @@ Read STEP_TRACKER.md and execute the next pending step.
 | **STEP-008** | S04 | Synthesize evidence & test proposal research gaps (`PG1–PG5` $\rightarrow$ `GAP####`) | Rayan Ahmed | - | ✅ **COMPLETED** | [synthesis.md](file:///e:/FYDP/02_Literature/synthesis.md) & [gaps.csv](file:///e:/FYDP/02_Literature/gaps.csv) (5 GAPs verified) |
 | **STEP-009** | S04 | Finalize & ratify Q1 Research Questions (`RQ1–RQ4`), pass Gate G03 | Supervisor | G03 | ✅ **COMPLETED (Docs)** | [research_questions.md](file:///e:/FYDP/02_Literature/research_questions.md), [DEC0002](file:///e:/FYDP/01_Project_Management/decision_log/DEC0002.md), [G03 Review](file:///e:/FYDP/01_Project_Management/reviews/G03_assessment_2026-11-26.md) *(Awaiting Supervisor Sign-Off)* |
 | **STEP-010** | S05 | Hospital site selection, recruitment protocol, power & EPV sample calculation | Nafis Sadiq | - | ✅ **COMPLETED (Prep)** | [feasibility_epv_study.md](file:///e:/FYDP/03_Datasets_Cohort/reports/feasibility_epv_study.md), [sites.csv](file:///e:/FYDP/03_Datasets_Cohort/sites.csv), [DEC0003](file:///e:/FYDP/01_Project_Management/decision_log/DEC0003.md) *(BD Site Shortlist Pending)* |
-| **STEP-011** | S05 | Institutional IRB submission, hospital data authorization & consent/waiver | Nafis Sadiq | - | 🟡 **READY (Prep)** | Target: `03_Datasets_Cohort/irb_permissions/` & Consent/DUA *(Human IRB Required)* |
-| **STEP-012** | S05 | Screen external public cohorts (MIMIC-IV-ECG, PTB-XL) under UD06 | Nafis & Rayan | - | ⚪ PENDING | Target: External cohort feasibility |
-| **STEP-013** | S06 | De-identified cohort intake, 12-lead ECG signal QC, cohort card, pass Gate G04 | Nafis Sadiq | G04 | ⚪ PENDING | Target: G04 Assessment |
-| **STEP-014** | S07 | Clinical CVD endpoint charter ($t_0$, $\Delta t$, ICD-10 criteria) with cardiologist | Cardiologist | - | ⚪ PENDING | Target: `endpoint_charter.md` |
+| **STEP-011** | S05 | Secondary dataset licenses, provenance & ethics-exemption (`DEC0004`) | Nafis Sadiq | - | ✅ **COMPLETED (Docs)** | [SITE0001/0007/0009/0012](file:///e:/FYDP/03_Datasets_Cohort/irb_permissions/) & [sites.csv](file:///e:/FYDP/03_Datasets_Cohort/sites.csv) *(Awaiting Supervisor `DEC0004`)* |
+| **STEP-012** | S05 | Immutable SHA-256 intake lock & external cohort mapping (`DS0001–04`) | Nafis & Rayan | - | ✅ **COMPLETED (Intake)** | [datasets.csv](file:///e:/FYDP/03_Datasets_Cohort/datasets.csv), [manifests/](file:///e:/FYDP/03_Datasets_Cohort/manifests/), [Intake Summary](file:///e:/FYDP/03_Datasets_Cohort/reports/DS0001_to_DS0004_intake_summary.md) *(Missing `ECGS/` Logged)* |
+| **STEP-013** | S06 | 4-modality QC, 12-lead ECG signal audit, cohort cards, evaluate Gate G04 | Nafis Sadiq | G04 | 🟡 **AUDIT COMPLETE (G04 Blocked)** | [QC Audit](file:///e:/FYDP/03_Datasets_Cohort/reports/four_modality_qc_and_ecg_audit.md), [Cohort Cards](file:///e:/FYDP/03_Datasets_Cohort/reports/cohort_cards_DS0001_to_DS0004.md), [G04 Review](file:///e:/FYDP/01_Project_Management/reviews/G04_assessment_2026-11-26.md) *(NOT ASSESSED - `RISK0011`)* |
+| **STEP-014** | S07 | Clinical CVD endpoint charter ($t_0$, $\Delta t$, Troponin sensitivity) & `G04` unblocking | Cardiologist / Team | - | 🟡 **READY FOR PREP** | Target: `04_Outcome_Schema_QA/endpoint_charter.md` + `ECGS/` Drive fetch |
 | **STEP-015** | S07 | 4-modality variable dictionary (`variables.csv`) & ECG contract, pass Gate G05 | Nafis Sadiq | G05 | ⚪ PENDING | Target: G05 Assessment |
 | **STEP-016** | S08 | Clinical chart abstraction manual & pilot double-entry protocol | Nafis Sadiq | - | ⚪ PENDING | Target: Pilot protocol |
 | **STEP-017** | S08 | Pilot adjudication run, compute inter-rater agreement ($\kappa$ / ICC) | Cardiologist | - | ⚪ PENDING | Target: Pilot agreement report |
@@ -97,17 +97,14 @@ Read STEP_TRACKER.md and execute the next pending step.
 
 ---
 
-## 🎯 Next Step Details: `STEP-011` (`DEC0004` Secondary Data Track)
+## 🎯 Next Step Details: Unblock `G04` & Execute `STEP-014` (Endpoint Charter Prep)
 
-- **Step Name:** Secondary Dataset License, Provenance, CITI/DUA & Ethics-Exemption Audit
+- **Step / Transition:** Unblock Gate `G04` (`RISK0011` + `DEC0004` Supervisor Sign-Off) & Execute `STEP-014` (`04_Outcome_Schema_QA/endpoint_charter.md`)
 - **Owning Lead:** Mohammad Nafis Sadiq (`232-15-895`) & Rayan Ahmed (`232-15-847`)
-- **Human Decisions Required Now (For Supervisor Meeting & Dataset Selection):**
-  1. Team selects secondary dataset architecture in [DEC0004](file:///e:/FYDP/01_Project_Management/decision_log/DEC0004.md):
-     - **Option A (`PhysioNet + Open`):** Complete CITI training for `MIMIC-IV-ECG` / `MIMIC-IV-Ext-MDS-ED` + `PTB-XL` (+ optional missing-ECG `CAIR-CVD-2025`).
-     - **Option B (`Open Kaggle/Mendeley`):** `CARDIO-ML-ED` (Kaggle `zara2099` / Mendeley CC BY 4.0) + `PTB-XL` + optional `CAIR-CVD-2025`.
-     - **Option C (`Team Custom Kaggle Links`):** Provide exact Kaggle URLs for pre-download provenance & anti-stitching audit.
-  2. Supervisor Md. Mizanur Rahman reviews & signs amended [scope.md](file:///e:/FYDP/01_Project_Management/scope.md) (`v1.1.0`), [research_questions.md](file:///e:/FYDP/02_Literature/research_questions.md) (`v1.1.0`), and `G01 / G03`.
-- **Action Required in `STEP-011`:**
-  1. Verify source license (`CC BY 4.0`, PhysioNet Credentialed DUA, Kaggle Terms), synthetic-vs-real clinical provenance, adult age bounds ($\ge 18$ yr), and zero unauthorized PhysioNet re-uploads (`RISK0010`).
-  2. Document institutional IRB exemption / secondary-data governance clearance (`DIU CSE` ethics waiver/exemption or parent dataset IRB references) in `03_Datasets_Cohort/irb_permissions/SITE####.md` (`T08`).
-  3. Lock anti-stitching policy (`missing-modality tokens only; zero pairing different individuals across unrelated Kaggle datasets`).
+- **Two Mandatory Human Actions to Transition `G04 -> PASS`:**
+  1. **Fetch Missing `CARDIO-ML-ED` `ECGS/` Image Archive (`RISK0011`):** Download the `ECGS/` 12-lead PNG folder from Mendeley author Google Drive (`https://drive.google.com/drive/folders/1u1jzVb8r2Rekel5BSrZ2moNMh-56DKiL?usp=drive_link`) into `Dataset/3. DS0003_cardiomled (CARDIO-ML-ED, Mendeley Official CC BY 4.0)/ECGS/` (gitignored!) OR confirm pivot to Option A (`MIMIC-IV-Ext-MDS-ED` via CITI). Re-run [audit_cohort_quality.py](file:///e:/FYDP/14_Automation/audit_cohort_quality.py) + inspect PNGs for burned-in PHI headers.
+  2. **Supervisor Sign-Off (`DEC0001/0002/0004`):** Obtain Md. Mizanur Rahman ratification of secondary-data scope (`RF09`) and `G01 / G03 / G04`.
+- **Unblocked Documentation Prep (`STEP-014`):**
+  1. Harmonize CVD outcome endpoints carefully across the 4 downloaded benchmarks (`PTB-XL` SCP classes `MI/STTC/HYP/CD` vs `NORM`, `CARDIO-ML-ED` Initial/Final ED diagnosis + `10` inpatient deaths, `CAIR-CVD-2025` `HIGH/INTERMEDIARY/LOW` risk tiers, `sulianova` `cardio` 0/1) with explicit cross-sectional vs diagnostic boundaries (`RISK0002`).
+  2. Define explicit Troponin-I (`Troponine - I (Q)`, populated `385/581` in `DS0002`) sensitivity tiers guarding against incorporation bias (`OS §5.1`).
+  3. Lock exclusion rules for `ecg_id=12722` (`V5` flatline), `<18y` pediatric subsets (`133` in `PTB-XL`, `12` in `CARDIO-ML-ED`), `65` `SBP<=DBP` rows in `CAIR-CVD-2025`, and `1,323` BP outliers + `24/17` duplicates in `sulianova`.

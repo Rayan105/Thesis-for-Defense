@@ -11,6 +11,13 @@ papers/
 02_Literature/downloads/
 
 # Datasets & Clinical Cohort (PHI / Sensitive Health Data)
+Dataset/
+dataset/
+Datasets/
+datasets/
+*.zip
+*.tar.gz
+*.7z
 raw/
 processed/
 fitted_states/
