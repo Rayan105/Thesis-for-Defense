@@ -6,11 +6,11 @@
 | **Institution / Term** | Daffodil International University / Summer 2026 (CSE499) |
 | **Research Leads** | Rayan Ahmed (`232-15-847`), Mohammad Nafis Sadiq (`232-15-895`) |
 | **Supervisor** | Md. Mizanur Rahman (Senior Lecturer, Dept. of CSE, DIU) |
-| **Active Stage** | Stage S04 → S05 (`STEP-009` Completed; `G03` Awaiting Supervisor Sign-Off) |
-| **Current Step** | STEP-009 (Completed Documentary Prep — `RQ0/RQ1–RQ4` Locked Candidate, `DEC0002` & `G03` Review Prepared) |
-| **Next Step** | 👉 [STEP-010](../STEP_TRACKER.md#next-step-details-step-010) (Prospective Sample-Size/EPV Feasibility & External Cohort Prep; **Human Action:** Supervisor signs `G01` & `G03`) |
+| **Active Stage** | Stage S05 (`STEP-010` Prep Completed; Human Field Outreach & `G01/G03` Sign-Off Pending) |
+| **Current Step** | STEP-010 (Completed Computational Feasibility, Riley EPV Math, `sites.csv` External Screening & `DEC0003`) |
+| **Next Step** | 👉 [STEP-011](../STEP_TRACKER.md#next-step-details-step-011) (IRB Protocol Drafting & Hospital Permission Prep; **Hard Human Gate:** `G01`, `G03`, Physical BD Site Selection, IRB Approval) |
 | **Master Step Tracker** | [STEP_TRACKER.md](../STEP_TRACKER.md) |
-| **Last Updated** | 2026-11-26T08:43:00+06:00 |
+| **Last Updated** | 2026-11-26T08:55:00+06:00 |
 
 ---
 
