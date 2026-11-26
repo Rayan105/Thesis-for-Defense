@@ -6,11 +6,11 @@
 | **Institution / Term** | Daffodil International University / Summer 2026 (CSE499) |
 | **Research Leads** | Rayan Ahmed (`232-15-847`), Mohammad Nafis Sadiq (`232-15-895`) |
 | **Supervisor** | Md. Mizanur Rahman (Senior Lecturer, Dept. of CSE, DIU) |
-| **Active Stage** | Stage S08 (`G02–G05` **PASS**; `STEP-016` Pilot QA Accepted; Ready for `STEP-017` Batch Curation) |
-| **Current Step** | `STEP-016` Completed ([run_pilot_qa.py](../14_Automation/run_pilot_qa.py), [pilot_qa_review.md](../04_Outcome_Schema_QA/reviews/pilot_qa_review.md) — $\kappa=1.0000$, $\text{ICC}=1.000000$, `32.3 rec/s`) |
-| **Next Step** | 👉 [STEP-017](../STEP_TRACKER.md#next-step-details-step-017-tracked-batch-curation--adjudication-logs-adjb00010004) (`ADJB0001–0004` Production Curation Batches in Tier 2B) |
+| **Active Stage** | Stage S08 (`STEP-017` All `4` Batches Closed: `91,781` Clean Eligible / `2,166` Quarantined; Ready for `STEP-018`) |
+| **Current Step** | `STEP-017` Completed ([curate_batches.py](../14_Automation/curate_batches.py), [ADJB0001–0004](../04_Outcome_Schema_QA/reviews/) — `16.81s` runtime, 5% Dual-QA $\kappa=1.0000$) |
+| **Next Step** | 👉 [STEP-018](../STEP_TRACKER.md#next-step-details-step-018-whole-cohort-qa-audit-adj-release-freeze--gate-g06) (Freeze `ADJ0001–0004`, `adjudication_registry.csv`, & Gate `G06` before `Stage S09` Preprocessing) |
 | **Master Step Tracker** | [STEP_TRACKER.md](../STEP_TRACKER.md) |
-| **Last Updated** | 2026-11-27T00:14:00+06:00 |
+| **Last Updated** | 2026-11-27T00:27:00+06:00 |
 
 ---
 

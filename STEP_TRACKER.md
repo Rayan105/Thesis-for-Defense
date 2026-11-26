@@ -8,12 +8,12 @@
 
 | Metric | Current Value |
 |---|---|
-| **Last Completed Step** | **`STEP-016`** (`G05 PASS` [`DEC0005 OptA`] + Stratified `N_pilot = 60` QA Run: $\kappa = 1.0000$, $\text{ICC} = 1.000000$, `32.3 rec/s`) |
-| **Last Git Commit** | `STEP-016`: `G05 PASS`, dual-stream `run_pilot_qa.py` (`N=60` PASS), `pilot_qa_review.md` & agreement unit tests |
-| **Active Stage** | **`S08`** (`STEP-016` Pilot Accepted; Ready for `STEP-017` Tracked Batch Curation `ADJB0001–0004`) |
-| **Next Step to Execute** | 👉 **`STEP-017`** (Run Tracked Production Curation & Label Harmonization Batches `ADJB0001–0004` into Tier 2B) |
-| **Current Quality Gates** | `G01`: Not Assessed (`local PDF missing`) \| **`G02–G05`: PASS** \| `G06–G17`: Blocked (`Pending STEP-017–018`) |
-| **Last Updated** | 2026-11-27T00:14:00+06:00 |
+| **Last Completed Step** | **`STEP-017`** (`ADJB0001–0004` Curated Across `93,947` Rows $\rightarrow$ `91,781` Clean Eligible + `2,166` Quarantined; 5% Dual-QA $\kappa=1.0$) |
+| **Last Git Commit** | `STEP-017`: `curate_batches.py`, `ADJB0001–0004` Tier-2B SHA-256 locks & safe batch QA logs (`91,781` eligible) |
+| **Active Stage** | **`S08`** (`STEP-017` All `4` Batches Closed; Ready for `STEP-018` Whole-Cohort `ADJ####` Release & `G06`) |
+| **Next Step to Execute** | 👉 **`STEP-018`** (Whole-Cohort CONSORT Flow Reconciliation, Freeze `ADJ0001–0004` & `adjudication_registry.csv`, Evaluate `G06`) |
+| **Current Quality Gates** | `G01`: Not Assessed (`local PDF missing`) \| **`G02–G05`: PASS** \| `G06–G17`: Blocked (`Pending STEP-018`) |
+| **Last Updated** | 2026-11-27T00:27:00+06:00 |
 
 ### 🤖 AI Prompt for Next Teammate / Next Session:
 To resume work with minimal token cost, simply give the AI this exact prompt:
@@ -60,8 +60,8 @@ Read STEP_TRACKER.md and execute the next pending step.
 | **STEP-014** | S07 | Clinical CVD endpoint charter ($t_0$, $\Delta t$, Troponin tiers) & 4-modality schema | Nafis & Rayan | - | ✅ **COMPLETED (Draft Pending Cardiologist)** | [Endpoint Charter](file:///e:/FYDP/04_Outcome_Schema_QA/endpoint_charter.md), [variables.csv](file:///e:/FYDP/04_Outcome_Schema_QA/variables.csv), [CRF Manual](file:///e:/FYDP/04_Outcome_Schema_QA/crf/crf_manual_v1.0.0.md), [DEC0005](file:///e:/FYDP/01_Project_Management/decision_log/DEC0005.md) |
 | **STEP-015** | S07 | ECG contract (`ecg_contract.md`), QA thresholds, unit tests & pass Gate G05 | Rayan & Nafis | G05 | ✅ **COMPLETED (`G05 PASS`)** | [ECG Contract](file:///e:/FYDP/04_Outcome_Schema_QA/ecg_contract.md), [QA Protocol](file:///e:/FYDP/04_Outcome_Schema_QA/qa_protocol.md), [test_schema_ecg.py](file:///e:/FYDP/tests/test_schema_ecg.py), [G05 PASS](file:///e:/FYDP/01_Project_Management/reviews/G05_assessment_2026-11-27_reassessment.md) |
 | **STEP-016** | S08 | Stratified dual-stream pilot QA (`N_pilot=60`), compute Cohen's $\kappa$ / ICC | Nafis & Rayan | - | ✅ **COMPLETED (`Pilot PASS`)** | [run_pilot_qa.py](file:///e:/FYDP/14_Automation/run_pilot_qa.py), [pilot_qa_review.md](file:///e:/FYDP/04_Outcome_Schema_QA/reviews/pilot_qa_review.md) ($\kappa=1.0, \text{ICC}=1.0$) |
-| **STEP-017** | S08 | Execute tracked production curation & adjudication batches (`ADJB0001–0004`) | Nafis & Rayan | - | 👉 **NEXT TO EXECUTE** | Target: `04_Outcome_Schema_QA/reviews/ADJB0001–0004.md` & Tier 2B batch tables |
-| **STEP-018** | S08 | Production adjudication release (`ADJ####`), QA verification, pass Gate G06 | Team / Super | G06 | ⚪ PENDING | Target: G06 Assessment & `adjudication_registry.csv` |
+| **STEP-017** | S08 | Execute tracked production curation & adjudication batches (`ADJB0001–0004`) | Nafis & Rayan | - | ✅ **COMPLETED (`91,781` Eligible)** | [curate_batches.py](file:///e:/FYDP/14_Automation/curate_batches.py), [ADJB0001–0004](file:///e:/FYDP/04_Outcome_Schema_QA/reviews/) (`5%` Dual-QA $\kappa=1.0$) |
+| **STEP-018** | S08 | Whole-cohort QA reconciliation, freeze `ADJ####`, pass Gate G06 (`UD10`) | Team / Super | G06 | 👉 **NEXT TO EXECUTE** | Target: `adjudication_registry.csv`, `adjudication_release_audit.md`, `G06` Assessment |
 | **STEP-019** | S09 | Leakage-safe patient-level split specification & seed definition | Nafis Sadiq | - | ⚪ PENDING | Target: Split design |
 | **STEP-020** | S09 | Execute deterministic patient-grouped split, seal test partition, pass Gate G07 | Nafis Sadiq | G07 | ⚪ PENDING | Target: G07 Assessment |
 | **STEP-021** | S09 | Preprocessing pipeline: record-local ECG filtering vs train-only fitted transforms | Rayan Ahmed | - | ⚪ PENDING | Target: Preprocessing configs |
@@ -97,11 +97,11 @@ Read STEP_TRACKER.md and execute the next pending step.
 
 ---
 
-## 🎯 Next Step Details: `STEP-017` (Tracked Batch Curation & Adjudication Logs `ADJB0001–0004`)
+## 🎯 Next Step Details: `STEP-018` (Whole-Cohort QA Audit, `ADJ####` Release Freeze & Gate `G06`)
 
-- **Step Name:** Execute Tracked Production Curation & Label Harmonization Batches (`ADJB0001–0004`, `Stage S08`)
-- **Owning Lead:** Mohammad Nafis Sadiq (`232-15-895`) & Rayan Ahmed (`232-15-847`)
-- **Deliverables Planned in `STEP-017`:**
-  1. Partition all `4` verified cohorts cleanly into disjoint auditable batches (`ADJB0001`: `PTB-XL 21,837`; `ADJB0002`: `CARDIO-ML-ED 581`; `ADJB0003`: `CAIR-CVD-2025 1,529`; `ADJB0004`: `sulianova 70,000`).
-  2. Export cleaned, unit-harmonized, Tier-2B batch manifests (`04_Outcome_Schema_QA/adjudications/ADJB0001–0004/`, strictly gitignored!), enforcing all quarantined exclusions (`ecg_id=12722`, `<18y`, `8` `.jpg` strips, `2` typo IDs, `13` unlinked IDs, `65` `SBP<=DBP`, `13` negative `LDL`, `1,323` BP outliers, `17` discordant duplicates) and recording exact SHA-256 `NativeHash` & `VerifiedHash`.
-  3. Generate aggregate-only batch summaries (`04_Outcome_Schema_QA/reviews/ADJB0001.md`–`ADJB0004.md`, Template `T12`) ready for **`STEP-018`** immutable **`ADJ####`** release lock & **`G06` PASS**.
+- **Step Name:** Audit Whole-Cohort Clinical/Structural QA, Finalize `UD10` Missing-Modality Policy, Freeze `ADJ####` & Evaluate `G06` (`Stage S08`)
+- **Owning Lead:** Mohammad Nafis Sadiq (`232-15-895`) & Rayan Ahmed (`232-15-847`) + Supervisor ratification (`DEC0006 UD10`)
+- **Deliverables Planned in `STEP-018`:**
+  1. Verify zero cross-batch duplicates, unique `RecordID`/`PatientGroupID` integrity, and `100%` STARD/CONSORT cohort flow reconciliation (`93,947 Screened -> 91,781 Clean Eligible [2,166 Quarantined]`).
+  2. Document `UD10` cohort-inclusion & missing-modality rules (`DEC0006.md`: missing-modality tokens cleanly retained across `DS0001` `21,198`, `DS0002` `555` [`329` `C+E_png+L` + `226` `C+L`], `DS0003` `1,453`, `DS0004` `68,575`).
+  3. Populate immutable `04_Outcome_Schema_QA/adjudication_registry.csv` (`ADJ0001–ADJ0004` hashes), write `04_Outcome_Schema_QA/reviews/adjudication_release_audit.md`, and issue **`G06_assessment_2026-11-27.md`** (and immediately advance to **`Stage S09` Preprocessing Design/Splitting `STEP-019–022`** once `G06` passes!).
