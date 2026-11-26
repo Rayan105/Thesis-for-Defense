@@ -6,11 +6,11 @@
 | **Institution / Term** | Daffodil International University / Summer 2026 (CSE499) |
 | **Research Leads** | Rayan Ahmed (`232-15-847`), Mohammad Nafis Sadiq (`232-15-895`) |
 | **Supervisor** | Md. Mizanur Rahman (Senior Lecturer, Dept. of CSE, DIU) |
-| **Active Stage** | Stage S07 (`G03` & `G04` **PASS**; Ready to begin `STEP-014` Clinical Endpoint Charter & Variable Schema) |
-| **Current Step** | `STEP-011–013` Completed (`408` `CARDIO-ML-ED ECGS/` images extracted/hashed/PHI-audited; Supervisor signed `2026-11-26`) |
-| **Next Step** | 👉 [STEP-014](../STEP_TRACKER.md#next-step-details-step-014-clinical-cvd-endpoint-charter--4-modality-variable-dictionary) (Define CVD Endpoint Charter, $t_0/\Delta t$, Incorporation-Bias Rules & `variables.csv`) |
+| **Active Stage** | Stage S07 (`STEP-014` Completed Draft; Ready for `STEP-015` ECG Contract, QA Protocol & `G05`) |
+| **Current Step** | `STEP-014` Drafted ([endpoint_charter.md](../04_Outcome_Schema_QA/endpoint_charter.md), `53`-row [variables.csv](../04_Outcome_Schema_QA/variables.csv), [crf_manual_v1.0.0.md](../04_Outcome_Schema_QA/crf/crf_manual_v1.0.0.md), [DEC0005](../01_Project_Management/decision_log/DEC0005.md)) |
+| **Next Step** | 👉 [STEP-015](../STEP_TRACKER.md#next-step-details-step-015-ecg-contract-qa-protocol-synthetic-parser-tests--gate-g05) (`ecg_contract.md`, `qa_protocol.md`, `tests/test_schema_ecg.py`, `G05` Assessment + Cardiologist Engagement) |
 | **Master Step Tracker** | [STEP_TRACKER.md](../STEP_TRACKER.md) |
-| **Last Updated** | 2026-11-26T23:36:00+06:00 |
+| **Last Updated** | 2026-11-26T23:55:00+06:00 |
 
 ---
 

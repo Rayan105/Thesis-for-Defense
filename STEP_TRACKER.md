@@ -8,12 +8,12 @@
 
 | Metric | Current Value |
 |---|---|
-| **Last Completed Step** | **`STEP-011`–`STEP-013`** (`DS0001–DS0004` + `408` `CARDIO-ML-ED ECGS/` Images Verified, Hashed, QC Audited & `G03 / G04 PASS`) |
-| **Last Git Commit** | `STEP-011–013 Final`: `ECGS/` 408-image extraction/audit, Supervisor `DEC0001/0002/0004` ratification & `G03/G04 PASS` |
-| **Active Stage** | **`S06` (`PASS`) -> `S07`** (Clinical Endpoint Charter & Four-Modality Variable Schema) |
-| **Next Step to Execute** | 👉 **`STEP-014`** (Define Multi-Cohort CVD Endpoint Charter, Troponin-I Incorporation-Bias Tiers & `variables.csv`) |
-| **Current Quality Gates** | `G01`: Not Assessed (`C1,C3–C6 PASS`; place local `fydp_title_proposal.pdf` for `C2`) \| **`G02`: PASS** \| **`G03`: PASS** \| **`G04`: PASS** \| `G05–G17`: Blocked |
-| **Last Updated** | 2026-11-26T23:36:00+06:00 |
+| **Last Completed Step** | **`STEP-014` (Prep Complete)** (`endpoint_charter.md`, `53`-row `variables.csv`, `crf_manual_v1.0.0.md`, `DEC0005.md`) |
+| **Last Git Commit** | `STEP-014`: Endpoint Charter ($t_0/\Delta t$), Troponin `Tier A/B`, `53` variables & CRF manual |
+| **Active Stage** | **`S07`** (`STEP-014` Drafted; Ready for `STEP-015` ECG Contract, QA Protocol & Gate `G05`) |
+| **Next Step to Execute** | 👉 **`STEP-015`** (Finalize `ecg_contract.md`, Secondary Adjudication/QA Protocol & Evaluate Gate `G05`) |
+| **Current Quality Gates** | `G01`: Not Assessed (`C1,C3–C6 PASS`; local `fydp_title_proposal.pdf` missing) \| **`G02`: PASS** \| **`G03`: PASS** \| **`G04`: PASS** \| `G05–G17`: Blocked (`STEP-015` + Cardiologist Pending) |
+| **Last Updated** | 2026-11-26T23:55:00+06:00 |
 
 ### 🤖 AI Prompt for Next Teammate / Next Session:
 To resume work with minimal token cost, simply give the AI this exact prompt:
@@ -57,8 +57,8 @@ Read STEP_TRACKER.md and execute the next pending step.
 | **STEP-011** | S05 | Secondary dataset licenses, provenance & ethics-exemption (`DEC0004`) | Nafis Sadiq | - | ✅ **COMPLETED** | [SITE0001/0007/0009/0012](file:///e:/FYDP/03_Datasets_Cohort/irb_permissions/), [sites.csv](file:///e:/FYDP/03_Datasets_Cohort/sites.csv), [Sign-Off Meeting](file:///e:/FYDP/01_Project_Management/meetings/2026-11-26_supervisor_signoff_meeting.md) |
 | **STEP-012** | S05 | Immutable SHA-256 intake lock & external cohort mapping (`DS0001–04`) | Nafis & Rayan | - | ✅ **COMPLETED** | [datasets.csv](file:///e:/FYDP/03_Datasets_Cohort/datasets.csv), [manifests/](file:///e:/FYDP/03_Datasets_Cohort/manifests/) (`408` `ECGS/` images hashed), [Intake Summary](file:///e:/FYDP/03_Datasets_Cohort/reports/DS0001_to_DS0004_intake_summary.md) |
 | **STEP-013** | S06 | 4-modality QC, 12-lead ECG signal/image audit, cohort cards, pass Gate G04 | Nafis Sadiq | G04 | ✅ **COMPLETED (`G04 PASS`)** | [QC Audit](file:///e:/FYDP/03_Datasets_Cohort/reports/four_modality_qc_and_ecg_audit.md), [Cohort Cards](file:///e:/FYDP/03_Datasets_Cohort/reports/cohort_cards_DS0001_to_DS0004.md), [G04 PASS](file:///e:/FYDP/01_Project_Management/reviews/G04_assessment_2026-11-26_reassessment.md) |
-| **STEP-014** | S07 | Clinical CVD endpoint charter ($t_0$, $\Delta t$, Troponin tiers) & 4-modality schema | Cardiologist / Team | - | 👉 **NEXT TO EXECUTE** | Target: `04_Outcome_Schema_QA/endpoint_charter.md`, `variables.csv`, `crf_manual_v1.0.0.md` |
-| **STEP-015** | S07 | 4-modality variable dictionary (`variables.csv`) & ECG contract, pass Gate G05 | Nafis Sadiq | G05 | ⚪ PENDING | Target: G05 Assessment |
+| **STEP-014** | S07 | Clinical CVD endpoint charter ($t_0$, $\Delta t$, Troponin tiers) & 4-modality schema | Nafis & Rayan | - | ✅ **COMPLETED (Draft Pending Cardiologist)** | [Endpoint Charter](file:///e:/FYDP/04_Outcome_Schema_QA/endpoint_charter.md), [variables.csv](file:///e:/FYDP/04_Outcome_Schema_QA/variables.csv), [CRF Manual](file:///e:/FYDP/04_Outcome_Schema_QA/crf/crf_manual_v1.0.0.md), [DEC0005](file:///e:/FYDP/01_Project_Management/decision_log/DEC0005.md) |
+| **STEP-015** | S07 | ECG contract (`ecg_contract.md`), QA thresholds & Gate G05 (`DEC0005` Cardiologist Sign-Off) | Cardiologist / Team | G05 | 👉 **NEXT TO EXECUTE** | Target: `04_Outcome_Schema_QA/ecg_contract.md`, `qa_protocol.md`, `tests/test_schema_ecg.py`, `G05` |
 | **STEP-016** | S08 | Clinical chart abstraction manual & pilot double-entry protocol | Nafis Sadiq | - | ⚪ PENDING | Target: Pilot protocol |
 | **STEP-017** | S08 | Pilot adjudication run, compute inter-rater agreement ($\kappa$ / ICC) | Cardiologist | - | ⚪ PENDING | Target: Pilot agreement report |
 | **STEP-018** | S08 | Production adjudication release, QA verification, pass Gate G06 | Cardiologist | G06 | ⚪ PENDING | Target: G06 Assessment |
@@ -97,13 +97,12 @@ Read STEP_TRACKER.md and execute the next pending step.
 
 ---
 
-## 🎯 Next Step Details: `STEP-014` (Clinical CVD Endpoint Charter & 4-Modality Variable Dictionary)
+## 🎯 Next Step Details: `STEP-015` (ECG Contract, QA Protocol, Synthetic Parser Tests & Gate `G05`)
 
-- **Step Name:** Define CVD Clinical Endpoint Charter, Temporal Anchoring ($t_0, \Delta t$), Incorporation-Bias Rules & Four-Modality Variable Dictionary (`Stage S07`)
-- **Owning Lead:** Mohammad Nafis Sadiq (`232-15-895`) & Rayan Ahmed (`232-15-847`) *(Clinical ratification with Qualified Cardiologist required before `G05 PASS`)*
-- **What `STEP-014` Produces:**
-  1. **`04_Outcome_Schema_QA/endpoint_charter.md` (`T10`):** Exact binary/multi-class target harmonization across `DS0001` (`PTB-XL` non-NORM SCP), `DS0002` (`CARDIO-ML-ED` Initial/Final ED diagnosis + death subset), `DS0003` (`CAIR-CVD-2025` Risk Tiers), and `DS0004` (`sulianova cardio`), bounding prediction horizon explicitly as **cross-sectional diagnostic / acute ED risk stratification**.
-  2. **`04_Outcome_Schema_QA/variables.csv` (`UD08`):** Master feature dictionary across Clinical, ECG, Laboratory, and Lifestyle blocks with units (`mg/dL`, `years`, `mmHg`, `beats/min`), valid ranges, MNAR missingness policies, explicit placement of `Family History`, and leakage exclusions (`CVD Risk Score`, `Blood Pressure Category`, `Initial/Final diagnosis`, post-ED medications).
-  3. **PROBAST Domain 3 Incorporation-Bias Sensitivity Tiers (`OS §5.1`):** Separates `Tier A` (No-Incorporation-Bias predictors excluding `Troponine - I (Q)`) from `Tier B` (Full Lab panel sensitivity) in `DS0002`.
-  4. **`04_Outcome_Schema_QA/crf/crf_manual_v1.0.0.md` + `DEC0005.md`:** Deterministic data cleaning/harmonization rules (`age` days $\rightarrow$ years, XLSX parser, `12` `<18y` & `ecg_id=12722` exclusions, `RISK0012` `.jpg` vs `.png` handling & `2` typo ID quarantines) and unresolved clinical items (`UD02, UD03, UD08, UD09`) for Cardiologist review prior to `STEP-015 / G05`.
-- *(Optional Housekeeping Note for `G01 C2`: Drop a local gitignored copy of `fydp_title_proposal.pdf` into `e:\FYDP\` so Criterion `C2` SHA-256 verification flips `G01` from `NOT ASSESSED` to `PASS`.)*
+- **Step Name:** Approve 12-Lead ECG Contract (`UD07`), Adjudication/QA Protocol (`UD09`), Run Schema/ECG Unit Tests & Evaluate Gate `G05` (`Stage S07`)
+- **Owning Lead:** Rayan Ahmed (`232-15-847`) & Mohammad Nafis Sadiq (`232-15-895`) + Qualified Cardiologist (`DEC0005`)
+- **Deliverables Planned in `STEP-015`:**
+  1. **`04_Outcome_Schema_QA/ecg_contract.md` (`T11`):** Formal specification reconciling `DS0001` (`PTB-XL` 100/500 Hz WFDB arrays) and `DS0002` (`CARDIO-ML-ED` `400` 12-row `.png` scans with red-grid removal & `8` `.jpg` quarantine rules per `RISK0012`).
+  2. **`04_Outcome_Schema_QA/qa_protocol.md`:** Secondary label-reconciliation and quality-audit protocol replacing prospective dual chart entry under `DEC0004` (`396+10` ECG image/label link QA, `2` typo ID resolution, `17` discordant duplicate `sulianova` quarantine).
+  3. **`tests/test_schema_ecg.py`:** Automated unit tests validating `variables.csv` schema integrity, leakage exclusion rules (`Troponin Tier A`, `CVD Risk Score`), and synthetic WFDB / ECG-image metadata contracts.
+  4. **Gate `G05` Review (`01_Project_Management/reviews/G05_assessment_<date>.md`):** Assess readiness (requires Qualified Cardiologist engagement & `DEC0005` ratification for `PASS`).
