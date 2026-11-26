@@ -1,8 +1,8 @@
 # Scope Charter — CVD Multimodal Framework
 
-**Status:** Proposed; awaiting supervisor ratification  
-**Version:** v1.0.0  
-**Date:** 2026-11-20  
+**Status:** Proposed Amendment (`v1.1.0` — Secondary Public/Credentialed Data Pivot Pending Supervisor Ratification [`DEC0004`])  
+**Version:** v1.1.0  
+**Date:** 2026-11-26  
 **Governing document:** [CVD Multimodal Research Operating System](../CVD_MULTIMODAL_RESEARCH_OPERATING_SYSTEM.md), v1.0.0  
 
 ---
@@ -36,12 +36,17 @@ Source: `fydp_title_proposal.pdf` p.1, Section III (`RF01`). Updated Title field
 
 ## 4. Core Scope
 
-This project develops a **reproducible, explainable multimodal CVD risk-prediction framework** integrating four approved data modalities via a Transformer-based fusion network with quantitatively validated SHAP explainability. It produces:
+This project develops a **reproducible, explainable multimodal CVD risk-prediction framework** integrating four approved data modalities via a Transformer-based fusion network with quantitatively validated SHAP explainability.
 
-1. An ethically collected, leakage-free four-modality dataset (primary hospital/diagnostic center cohort from Bangladesh, post-IRB approval)
-2. A rigorously benchmarked Transformer-based Multimodal Fusion Network evaluated against 4-tier comparators
-3. Quantitatively faithful, stable, and clinician-reviewed multimodal SHAP explanations
-4. A research decision-support prototype (NOT clinical deployment)
+> [!NOTE]
+> **Proposed Scope Amendment (`v1.1.0` / [DEC0004](./decision_log/DEC0004.md)):** While the original proposal (`RF09`, p. 4) anticipated primary hospital collection in Bangladesh, the research team requested pivoting to **verified secondary open/credentialed benchmark cohorts (Kaggle / Mendeley Data / PhysioNet)**. Verbatim approved title (`RF01`), four modalities (`RF10`), Transformer fusion (`RF08`), SHAP (`RF11`), and six mandatory metrics (`RF12`) remain **100% preserved**. Prospective primary Bangladeshi hospital validation is bounded explicitly as Future Work, pending Supervisor ratification of `DEC0004`.
+
+It produces:
+
+1. An ethically governed, license-verified, leakage-free secondary four-modality dataset architecture (avoiding synthetic data and unlinked patient stitching per `DEC0004`)
+2. A rigorously benchmarked Transformer-based Multimodal Fusion Network (with missing-modality resilience) evaluated against 4-tier comparators
+3. Quantitatively faithful, stable, and clinically reviewed multimodal SHAP explanations (`AOPC`, seed stability, shortcut audit)
+4. A research decision-support prototype (`NOT` clinical deployment)
 5. An FYDP thesis compliant with DIU CSE499 requirements
 6. A Q1 journal manuscript compliant with TRIPOD+AI (2024)
 
@@ -70,10 +75,9 @@ Plus adopted Q1 extensions (adoption recorded under `UD16–UD17`): PR-AUC, Spec
 ## 5. Explicit In-Scope Items
 
 - Systematic PRISMA-aligned literature review and `PG1–PG5` gap verification (zero-seed, since proposal has zero citations)
-- IRB/ethics-approved primary cohort collection from Bangladesh hospitals/diagnostic centers
-- Optional external public cohort for validation/pretraining (`UD06`)
-- Clinical endpoint definition with qualified cardiologist adjudication (`UD02`)
-- Leakage-safe patient-level splitting and train-only preprocessing
+- Lawfully licensed secondary public/credentialed cohorts (`Kaggle / Mendeley CC BY 4.0 / PhysioNet DUA` under `DEC0004`, with optional multi-cohort missing-modality design incorporating de-identified open regional datasets such as `CAIR-CVD-2025`, and institutional ethics exemption verification)
+- Cross-cohort external validation (`UD06`) and clinical endpoint harmonization (`UD02`)
+- Strict anti-stitching & leakage-safe patient-level splitting and train-only preprocessing
 - 4-tier comparator benchmarking (Unimodal → Clinical Scores → Simple Fusion → Transformer)
 - Progressive modality addition and Leave-One-Modality-Out (LOMO) ablations
 - Missing-modality robustness testing

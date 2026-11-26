@@ -6,11 +6,11 @@
 | **Institution / Term** | Daffodil International University / Summer 2026 (CSE499) |
 | **Research Leads** | Rayan Ahmed (`232-15-847`), Mohammad Nafis Sadiq (`232-15-895`) |
 | **Supervisor** | Md. Mizanur Rahman (Senior Lecturer, Dept. of CSE, DIU) |
-| **Active Stage** | Stage S05 (`STEP-010` Prep Completed; Human Field Outreach & `G01/G03` Sign-Off Pending) |
-| **Current Step** | STEP-010 (Completed Computational Feasibility, Riley EPV Math, `sites.csv` External Screening & `DEC0003`) |
-| **Next Step** | 👉 [STEP-011](../STEP_TRACKER.md#next-step-details-step-011) (IRB Protocol Drafting & Hospital Permission Prep; **Hard Human Gate:** `G01`, `G03`, Physical BD Site Selection, IRB Approval) |
+| **Active Stage** | Stage S05 (`DEC0004` Secondary-Data Pivot Prepared; Ready for `STEP-011` License/Provenance & CITI Track) |
+| **Current Step** | STEP-010 + `DEC0004` Scope Amendment Prepared (`scope.md v1.1.0`, `research_questions.md v1.1.0`, `sites.csv` 10 cohorts) |
+| **Next Step** | 👉 [STEP-011](../STEP_TRACKER.md#next-step-details-step-011) (Secondary Data License/DUA, CITI & Anti-Stitching Audit; **Human Action:** Supervisor signs `DEC0001/DEC0002/DEC0004` & Team picks Kaggle/PhysioNet datasets) |
 | **Master Step Tracker** | [STEP_TRACKER.md](../STEP_TRACKER.md) |
-| **Last Updated** | 2026-11-26T08:55:00+06:00 |
+| **Last Updated** | 2026-11-26T11:10:00+06:00 |
 
 ---
 

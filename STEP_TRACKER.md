@@ -8,11 +8,11 @@
 
 | Metric | Current Value |
 |---|---|
-| **Last Completed Step** | **`STEP-010`** (Riley EPV Power Study, External Benchmark Screening `SITE0001–0008`, `DEC0003` Prep) |
-| **Last Git Commit** | STEP-010 commit (`sites.csv`, `feasibility_epv_study.md`, `DEC0003`, EPV calculator) |
-| **Active Stage** | **`S05`** (Ethics/IRB, Hospital Acquisition & External Cohort Screening) |
-| **Next Step to Execute** | 👉 **`STEP-011`** (Draft IRB/Ethics Protocol, Consent & DUA Package — **Human Action:** Hospital Selection, IRB Filing & `G01`/`G03` Sign-Off) |
-| **Current Quality Gates** | `G01`: Not Assessed (Docs prepared) \| `G02`: **PASS** \| `G03`: Not Assessed (Docs prepared; awaiting Supervisor) \| `G04–G17`: Blocked |
+| **Last Completed Step** | **`STEP-010` + `DEC0004` Secondary-Data Pivot Prep** (`scope.md v1.1.0`, `RQ v1.1.0`, `sites.csv` `10` cohorts incl. `CARDIO-ML-ED` & `MDS-ED`) |
+| **Last Git Commit** | Secondary-data pivot sync (`DEC0004`, amended `scope.md`/`research_questions.md`, `sites.csv`) |
+| **Active Stage** | **`S05`** (Secondary Data Governance, Licensing/CITI/DUA & Provenance Audit) |
+| **Next Step to Execute** | 👉 **`STEP-011`** (Verify Secondary Dataset Licenses/DUA/CITI, Ethics Exemption & Anti-Stitching Audit under `DEC0004`) |
+| **Current Quality Gates** | `G01`: Not Assessed (`DEC0001+0004` pending Supervisor) \| `G02`: **PASS** \| `G03`: Not Assessed (`DEC0002+0004` pending Supervisor) \| `G04–G17`: Blocked |
 | **Last Updated** | 2026-11-26 |
 
 ### 🤖 AI Prompt for Next Teammate / Next Session:
@@ -97,15 +97,17 @@ Read STEP_TRACKER.md and execute the next pending step.
 
 ---
 
-## 🎯 Next Step Details: `STEP-011`
+## 🎯 Next Step Details: `STEP-011` (`DEC0004` Secondary Data Track)
 
-- **Step Name:** Obtain IRB/Ethics Approval, Hospital Permissions, and Data-Use Agreements
-- **Owning Lead:** Mohammad Nafis Sadiq (`232-15-895`) + Rayan Ahmed (`232-15-847`)
-- **Critical Human Prerequisites Required Alongside / Before Execution:**
-  1. Supervisor Md. Mizanur Rahman sign-off on [G01](file:///e:/FYDP/01_Project_Management/reviews/G01_assessment_2026-11-20.md) (`DEC0001` + `fydp_title_proposal.pdf`) and [G03](file:///e:/FYDP/01_Project_Management/reviews/G03_assessment_2026-11-26.md) (`DEC0002` + `research_questions.md`).
-  2. Researchers confirm target Bangladesh hospital(s)/diagnostic center(s) (`UD04`) and resolve [DEC0003](file:///e:/FYDP/01_Project_Management/decision_log/DEC0003.md) (`UD06` external cohorts + `UD26` contingency).
-- **Action Required (Preparatory Drafts Permitted; Zero Fabricated Approvals):**
-  1. Prepare institutional IRB application packet (`study objectives, 4-modality elements, consent/waiver form, Tier 2A/2B PHI & ECG-header scrubbing SOP, approved compute destinations`).
-  2. Prepare Hospital/Diagnostic-Center MOU / Administrative Data Permission request letter & `SITE####` (`T08`) authorization template.
-  3. Complete PhysioNet CITI Human Subjects Training & DUA workflow if `MIMIC-IV + MIMIC-IV-ECG` (`SITE0002`) is adopted under `DEC0003`.
-  4. **Hard Boundary (`RF09`, `OS §4.1`):** ZERO patient records or credentialed clinical files may be downloaded or collected until actual written IRB & hospital approvals land.
+- **Step Name:** Secondary Dataset License, Provenance, CITI/DUA & Ethics-Exemption Audit
+- **Owning Lead:** Mohammad Nafis Sadiq (`232-15-895`) & Rayan Ahmed (`232-15-847`)
+- **Human Decisions Required Now (For Supervisor Meeting & Dataset Selection):**
+  1. Team selects secondary dataset architecture in [DEC0004](file:///e:/FYDP/01_Project_Management/decision_log/DEC0004.md):
+     - **Option A (`PhysioNet + Open`):** Complete CITI training for `MIMIC-IV-ECG` / `MIMIC-IV-Ext-MDS-ED` + `PTB-XL` (+ optional missing-ECG `CAIR-CVD-2025`).
+     - **Option B (`Open Kaggle/Mendeley`):** `CARDIO-ML-ED` (Kaggle `zara2099` / Mendeley CC BY 4.0) + `PTB-XL` + optional `CAIR-CVD-2025`.
+     - **Option C (`Team Custom Kaggle Links`):** Provide exact Kaggle URLs for pre-download provenance & anti-stitching audit.
+  2. Supervisor Md. Mizanur Rahman reviews & signs amended [scope.md](file:///e:/FYDP/01_Project_Management/scope.md) (`v1.1.0`), [research_questions.md](file:///e:/FYDP/02_Literature/research_questions.md) (`v1.1.0`), and `G01 / G03`.
+- **Action Required in `STEP-011`:**
+  1. Verify source license (`CC BY 4.0`, PhysioNet Credentialed DUA, Kaggle Terms), synthetic-vs-real clinical provenance, adult age bounds ($\ge 18$ yr), and zero unauthorized PhysioNet re-uploads (`RISK0010`).
+  2. Document institutional IRB exemption / secondary-data governance clearance (`DIU CSE` ethics waiver/exemption or parent dataset IRB references) in `03_Datasets_Cohort/irb_permissions/SITE####.md` (`T08`).
+  3. Lock anti-stitching policy (`missing-modality tokens only; zero pairing different individuals across unrelated Kaggle datasets`).
