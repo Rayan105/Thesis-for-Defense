@@ -6,11 +6,11 @@
 | **Institution / Term** | Daffodil International University / Summer 2026 (CSE499) |
 | **Research Leads** | Rayan Ahmed (`232-15-847`), Mohammad Nafis Sadiq (`232-15-895`) |
 | **Supervisor** | Md. Mizanur Rahman (Senior Lecturer, Dept. of CSE, DIU) |
-| **Active Stage** | Stage S06–S07 (`STEP-011–013` Option B `DS0001–0004` Audited; `G04` NOT ASSESSED pending `ECGS/` & Sign-Off) |
-| **Current Step** | `STEP-011–013` Completed (`SITE` licenses, SHA-256 manifests, [QC Audit](../03_Datasets_Cohort/reports/four_modality_qc_and_ecg_audit.md), [Cohort Cards](../03_Datasets_Cohort/reports/cohort_cards_DS0001_to_DS0004.md)) |
-| **Next Step** | 👉 Unblock `G04` (`Download CARDIO-ML-ED/ECGS/` + Supervisor `DEC0004` sign-off) & prep [STEP-014](../STEP_TRACKER.md#next-step-details-unblock-g04--execute-step-014-endpoint-charter-prep) (Endpoint Charter) |
+| **Active Stage** | Stage S07 (`G03` & `G04` **PASS**; Ready to begin `STEP-014` Clinical Endpoint Charter & Variable Schema) |
+| **Current Step** | `STEP-011–013` Completed (`408` `CARDIO-ML-ED ECGS/` images extracted/hashed/PHI-audited; Supervisor signed `2026-11-26`) |
+| **Next Step** | 👉 [STEP-014](../STEP_TRACKER.md#next-step-details-step-014-clinical-cvd-endpoint-charter--4-modality-variable-dictionary) (Define CVD Endpoint Charter, $t_0/\Delta t$, Incorporation-Bias Rules & `variables.csv`) |
 | **Master Step Tracker** | [STEP_TRACKER.md](../STEP_TRACKER.md) |
-| **Last Updated** | 2026-11-26T22:35:00+06:00 |
+| **Last Updated** | 2026-11-26T23:36:00+06:00 |
 
 ---
 
@@ -18,10 +18,10 @@
 
 | Gate | Title / Domain | Assessor / Approver | Status | Evidence Document |
 |---|---|---|---|---|
-| **G01** | Scope & Decision Charter | Md. Mizanur Rahman | **NOT ASSESSED** | [G01_assessment_2026-11-20.md](file:///e:/FYDP/01_Project_Management/reviews/G01_assessment_2026-11-20.md) *(Evidence prepared; pending supervisor sign-off)* |
+| **G01** | Scope & Decision Charter | Md. Mizanur Rahman | **NOT ASSESSED** | [G01_assessment_2026-11-26.md](file:///e:/FYDP/01_Project_Management/reviews/G01_assessment_2026-11-26.md) *(`C1,C3–C6` PASS via Supervisor sign-off; local `fydp_title_proposal.pdf` missing for `C2`)* |
 | **G02** | Repository, PHI Storage & Tooling | Rayan Ahmed | **PASS** | [G02_assessment_2026-11-20.md](file:///e:/FYDP/01_Project_Management/reviews/G02_assessment_2026-11-20.md) *(100% verified via automated validator)* |
-| **G03** | Systematic Literature & Q1 RQs | Md. Mizanur Rahman | **NOT ASSESSED** | [G03_assessment_2026-11-26.md](file:///e:/FYDP/01_Project_Management/reviews/G03_assessment_2026-11-26.md) *(C2–C4 verified; C1/C5 prepared; awaiting Supervisor approval & `DEC0002`)* |
-| **G04** | Ethics/IRB, Cohort Intake & QC | Custodian + Clinician + Supervisor | **NOT ASSESSED** | [G04_assessment_2026-11-26.md](file:///e:/FYDP/01_Project_Management/reviews/G04_assessment_2026-11-26.md) *(QC & hashes ready; blocked on `DS0002 ECGS/` download + `DEC0004` sign-off)* |
+| **G03** | Systematic Literature & Q1 RQs | Md. Mizanur Rahman | **PASS** | [G03_assessment_2026-11-26_reassessment.md](file:///e:/FYDP/01_Project_Management/reviews/G03_assessment_2026-11-26_reassessment.md) *(Approved `DEC0002 Option A` + `DEC0004 Option B` `2026-11-26`)* |
+| **G04** | Ethics/IRB, Cohort Intake & QC | Custodian + Supervisor | **PASS** | [G04_assessment_2026-11-26_reassessment.md](file:///e:/FYDP/01_Project_Management/reviews/G04_assessment_2026-11-26_reassessment.md) *(All `87,353 + 411 + 1 + 1` files hashed, `408` `ECGS/` verified, `DEC0004` signed)* |
 | **G05** | Endpoint Charter & 4-Modality Schema | Qualified Cardiologist | **BLOCKED** | Pending Stage S07 execution (`STEP-014`–`015`) |
 | **G06** | Pilot & Adjudicated Label Release | Qualified Cardiologist | **BLOCKED** | Pending Stage S08 execution (`STEP-016`–`018`) |
 | **G07** | Patient-Level Leakage-Free Split | Biostatistics Reviewer | **BLOCKED** | Pending Stage S09 execution (`STEP-019`–`020`) |

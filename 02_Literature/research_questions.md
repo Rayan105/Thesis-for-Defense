@@ -110,10 +110,10 @@ All five proposal research gaps (`PG1–PG5`) were tested rigorously against con
 
 ## 5. Human Ratification & `G03` Lock Record (`STEP-009`)
 
-*All documentary evidence, gap testing (`GAP0001–GAP0005`), claim linkages (`CLAIM0001–CLAIM0013`), and full-text extraction provenance (`P0001–P0042`) are verified and locked at `v1.0.0 Candidate Final`. Transition to locked baseline and `G03 PASS` requires human review and signature below.*
+*All documentary evidence, gap testing (`GAP0001–GAP0005`), claim linkages (`CLAIM0001–CLAIM0013`), and full-text extraction provenance (`P0001–P0042`) are verified, ratified on `2026-11-26` (`DEC0002 Option A` + `DEC0004 Option B`), and locked at `v1.1.0 Approved`.*
 
 | Role | Name | Decision / Action | Date | Signature |
 |---|---|---|---|---|
-| **1st Researcher (Lit & Modeling Lead)** | Rayan Ahmed (`232-15-847`) | Prepared & Audited `RQ0, RQ1–RQ4` | `2026-11-26` | *Prepared (`DEC0002`)* |
-| **2nd Researcher (Cohort & Eval Lead)** | Mohammad Nafis Sadiq (`232-15-895`) | Screened `P0001–P0083` & Co-Audited | _____ | *Awaiting confirm* |
-| **Supervisor (`G03` Approver)** | Md. Mizanur Rahman | Approves `RQ1–RQ4`, Null Policy & `G03` Disposition | _____ | **Pending (`DEC0002`)** |
+| **1st Researcher (Lit & Modeling Lead)** | Rayan Ahmed (`232-15-847`) | Prepared & Confirmed `RQ0, RQ1–RQ4` | `2026-11-26` | Signed (`DEC0002/0004`) |
+| **2nd Researcher (Cohort & Eval Lead)** | Mohammad Nafis Sadiq (`232-15-895`) | Screened `P0001–P0083` & Confirmed | `2026-11-26` | Signed (`DEC0002/0004`) |
+| **Supervisor (`G03` Approver)** | Md. Mizanur Rahman | Approved `RQ1–RQ4`, Null Policy & `DEC0002 Option A` | `2026-11-26` | Approved (`MEET-20261126-001`, physical sign-off reported 2026-11-26) |

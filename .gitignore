@@ -18,6 +18,7 @@ datasets/
 *.zip
 *.tar.gz
 *.7z
+*.rar
 raw/
 processed/
 fitted_states/

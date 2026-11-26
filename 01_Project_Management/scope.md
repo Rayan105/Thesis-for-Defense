@@ -1,6 +1,6 @@
 # Scope Charter — CVD Multimodal Framework
 
-**Status:** Proposed Amendment (`v1.1.0` — Secondary Public/Credentialed Data Pivot Pending Supervisor Ratification [`DEC0004`])  
+**Status:** Approved (`v1.1.0` — Secondary Public/Credentialed Data Pivot Ratified by Supervisor [`DEC0004`], Signed `2026-11-26`)  
 **Version:** v1.1.0  
 **Date:** 2026-11-26  
 **Governing document:** [CVD Multimodal Research Operating System](../CVD_MULTIMODAL_RESEARCH_OPERATING_SYSTEM.md), v1.0.0  
@@ -152,25 +152,20 @@ Document-scoped `G16` gates assess each independently. Project completion (`G17`
 
 ## 10. Evaluation Report / Examiner Feedback Status (`UD01`)
 
-**Current status:** Unresolved / Human Decision Required
+**Current status:** Approved (`DEC0001 Option B` + `DEC0004 Option B`, `2026-11-26`)
 
-The Proposal Approval Form on p.1 (`RF18`) states that the students will attach it to their FYDP Title Phase Evaluation Report. It is currently unknown whether:
+Confirmed on `2026-11-26` with Supervisor Md. Mizanur Rahman that no separate departmental Title Phase Evaluation Report alters the verbatim approved title (`RF01`), and that the signed Proposal Approval Form + [DEC0004](./decision_log/DEC0004.md) amendment constitute the governing scope authority.
 
-- (a) A separate Title Phase Evaluation Report or examiner feedback document exists, OR
-- (b) The signed Proposal Approval Form is the sole governing authority
-
-**Action required:** Supervisor Md. Mizanur Rahman must confirm the existence or absence of additional evaluation feedback before `G01` PASS.
-
-**Decision record:** [DEC0001](./decision_log/DEC0001.md)
+**Decision records:** [DEC0001](./decision_log/DEC0001.md), [DEC0004](./decision_log/DEC0004.md)
 
 ## 11. Approval Record
 
 | Approver | Role | Date | Signature |
 |---|---|---|---|
-| Rayan Ahmed | 1st Member / Researcher | _____ | _____ |
-| Mohammad Nafis Sadiq | 2nd Member / Researcher | _____ | _____ |
-| Md. Mizanur Rahman | Supervisor | _____ | _____ |
+| Rayan Ahmed | 1st Member / Researcher | `2026-11-26` | Signed (`DEC0001/DEC0004`) |
+| Mohammad Nafis Sadiq | 2nd Member / Researcher | `2026-11-26` | Signed (`DEC0001/DEC0004`) |
+| Md. Mizanur Rahman | Supervisor | `2026-11-26` | Approved (`MEET-20261126-001`, physical sign-off reported 2026-11-26) |
 
 ---
 
-*End of Scope Charter — v1.0.0*
+*End of Scope Charter — v1.1.0*

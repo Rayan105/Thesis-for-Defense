@@ -7,7 +7,7 @@
 | entity_id | DS0001; DS0002; DS0003; DS0004 |
 | owner | Mohammad Nafis Sadiq (`232-15-895`), Rayan Ahmed (`232-15-847`) |
 | date | 2026-11-26 |
-| status | Intake Audited (`DS0002` Partial Blocker `RISK0011`; `G04` NOT ASSESSED) |
+| status | Intake & Full ECGS/ Image Archive Audited (`DEC0004` Ratified; `G04` Ready) |
 | source_inputs | `03_Datasets_Cohort/datasets.csv`, `03_Datasets_Cohort/sites.csv`, `03_Datasets_Cohort/manifests/*.csv`, `14_Automation/audit_cohort_quality.py` |
 | governing_section | OS §4.1–§4.3, §14.2 (`G04`), §15.2 (`T09`); Blueprint `STEP-012`–`STEP-013` |
 | phi_sensitivity | Tier 1 (Public / Git-safe aggregates only; raw archives in `.gitignore` `Dataset/`) |
@@ -47,27 +47,27 @@
 ## Card 2 — `DS0002`: CARDIO-ML-ED (`SITE0009`)
 
 ### 1. Provenance & Administration
-- **Dataset / Site:** `DS0002` (`SITE0009`) — CARDIO-ML-ED Official Mendeley Release (`DOI 10.17632/zfszfmpb82.2`; Mashhad `22 Bahman` & `Ghaem` Hospitals, Iran). Local folder `Dataset/3. DS0003_cardiomled (CARDIO-ML-ED, Mendeley Official CC BY 4.0)`.
-- **License / Authorization:** `CC BY 4.0` ([SITE0009.md](../irb_permissions/SITE0009.md)).
-- **Manifest CSV SHA-256:** `8124a7221aeb9d5f3b459e288d0695905fa2e6695974be488c660194b6332c92` ([DS0002_cardiomled_manifest.csv](../manifests/DS0002_cardiomled_manifest.csv); `3` files, `491,128` bytes).
+- **Dataset / Site:** `DS0002` (`SITE0009`) — CARDIO-ML-ED Official Mendeley Release (`DOI 10.17632/zfszfmpb82.2`; Mashhad `22 Bahman` & `Ghaem` Hospitals, Iran) + Google Drive `ECGS/` archive. Local folder `Dataset/3. DS0003_cardiomled (CARDIO-ML-ED, Mendeley Official CC BY 4.0)`.
+- **License / Authorization:** `CC BY 4.0` ([SITE0009.md](../irb_permissions/SITE0009.md)); `DEC0004 Option B` signed by Supervisor `2026-11-26`.
+- **Manifest CSV SHA-256:** `ed23c60e51547179d93b3d8623f84e46388bbb9402ea5d0a1b3dd2234fd4bd92` ([DS0002_cardiomled_manifest.csv](../manifests/DS0002_cardiomled_manifest.csv); `411` hashed files [`400` PNG + `8` JPG + `3` metadata files], `4,298,236,245` bytes / `4,099.12` MiB; `21` source `.rar` volumes stored cleanly in `_rar_archives/`).
 
 ### 2. Quantitative Summary
 - **Clinical Rows (`Sheet 1`):** `581` non-empty rows | **Unique `Col1` Hospital IDs:** `569` (`12` repeated patient IDs) | **Unique `Col0` Serial IDs:** `581`.
+- **ECG Images (`ECGS/`):** `408` image files (`400 .png`, `8 .jpg`, `4,297,745,117` B / `4,098.65` MiB) spanning `357` normalized base patient IDs, of which **`344` unique patients (`327` verified adults $\ge 18$y)** overlap `Datasheet1` `Col1` (`13` image base IDs absent across all `10` XLSX sheets).
 - **Demographics:** Gender `{F: 347, M: 233, missing: 1}`; Numeric age (`577/581`): `min 6.0`, `max 98.0`, **`<18y: 12`**, **`>=18y: 565`**, missing `4`.
-- **Labels:** Initial diagnosis: `Cardiac=346`, `Noncardiac=233`, missing `2`; Final diagnosis (`237` missing!): `Noncardiac=148`, `Hypertensive crisis=64`, `ACS=57`, `Elevated BP=24`, `Arrhythmia=18`, `Electrolyte-imbalance=17`, `MI=9`, `Cardiac-arrest=7`; Death: `0=557`, `1=10`, missing `14`. `ECG Labels.csv`: `408` entries (`343` match `Col1` after stripping `-1`/`-2` suffixes; top class `Non-cardiac=286`, `Ischemia=44`).
+- **Labels:** Initial diagnosis: `Cardiac=346`, `Noncardiac=233`, missing `2`; Final diagnosis (`237` missing!): `Noncardiac=148`, `Hypertensive crisis=64`, `ACS=57`, `Elevated BP=24`, `Arrhythmia=18`, `Electrolyte-imbalance=17`, `MI=9`, `Cardiac-arrest=7`; Death: `0=557`, `1=10`, missing `14`. `ECG Labels.csv`: `408` entries (`396` exact + `10` deterministic space/suffix matches + `2` typo pairs `140354/1403354`, `148679/148676`; top class `Non-cardiac=286`, `Ischemia=44`).
 
 ### 3. Modality Availability & Missingness (`DS0002`)
 | Modality | Available? | Variables / Format | Missingness / Critical Defect |
 |---|---|---|---|
 | **Clinical** | **Present (`C`)** | Demographics, vitals (`SBP/DBP/PR/RR/T/SpO2`), triage, diagnosis | Missing: `SBP: 14`, `DBP: 17`, `PR: 25`, `RR: 77`, `Final diag: 237` |
-| **ECG** | **BLOCKED Locally (`0` PNGs)** | Labels present (`ECG Labels.csv`, `408` rows); **raw `ECGS/` PNG images absent** | External Google Drive download in `README.txt` not yet fetched (`RISK0011`) |
-| **Laboratory** | **Present (`L`)** | `61`-col panel (`CBC, BS, Cr, Electrolytes, Troponin-I, ESR/CRP, Coag, Urine, ABG`) | Missing ranges `106` (`WBC`) to `561` (`Bilirubin Total`); **`Troponine-I`: `196` missing (`385` present)** -> incorporation-bias audit needed (`OS §5.1`) |
+| **ECG** | **Present (`408` Scans — Format Split)** | `400 .png` cropped `12`-row scans (`814–5100 × 2757–7020` px) + `8 .jpg` `6`-lead paper strips + `ECG Labels.csv` (`408`) | `344` patient IDs link to clinical `Col1`; `.png` retains red paper grid (`contrary to README`); `8` `.jpg` differ in layout (`RISK0012`) |
+| **Laboratory** | **Present (`L`)** | `61`-col panel (`CBC, BS, Cr, Electrolytes, Troponin-I, ESR/CRP, Coag, Urine, ABG`) | Missing ranges `106` (`WBC`) to `561` (`Bilirubin Total`); **`Troponine-I`: `196` missing (`385` present)** -> incorporation-bias sensitivity tier required (`OS §5.1`) |
 | **Lifestyle** | **Absent (`0`)** | `Previous diseases` (`301` present) has **`0` smoking/alcohol/diet/activity entries** | `[MISSING_LIFESTYLE]` |
 
 ### 4. Signal Integrity & Quality Checks
-- **File-Format Anomaly:** `Datasheet1 (Edited).csv` (`477,004` B) is actually an `XLSX` ZIP workbook (`PK\x03\x04` magic bytes, `10` worksheets) misnamed `.csv`.
-- **Mandatory `G04` Blocker (`RISK0011`):** Zero ECG PNG files are present on disk; `ECGS/` MUST be downloaded from the official Drive link and inspected for burned-in patient banners/readable tracestrips (or replaced by Option A CITI `MIMIC-IV-Ext-MDS-ED`) before `G04` can transition from `NOT ASSESSED`.
-- **Physiologic & Bias Findings:** `0` rows had `SBP <= DBP`; `12` `<18y` rows must be excluded for adult scope; `12` duplicate `Col1` IDs require connected-component grouping (`G07`); `Troponin-I` (`385/581`) requires sensitivity runs excluding cardiac enzymes from predictors (`STEP-014`).
+- **File-Format & Visual Scan Findings:** `Datasheet1 (Edited).csv` (`477,004` B) is an `XLSX` ZIP workbook (`PK\x03\x04`, `10` worksheets). All `408` `ECGS/` images passed byte header/footer checks (`0` corrupt PNG/JPG files). Representative visual checks (`1.png`, `122519.png`, `126035-1.jpg`) confirmed **zero burned-in patient names/MRNs/IDs** (`PHI PASS`), while discovering two engineering defects (`RISK0012`): `.png` scans are `90°`-rotated portrait strips still retaining red millimeter grid lines, and the `8` `.jpg` strips (`126035-1.jpg`, etc.) contain uncropped `6`-lead halves with vendor paper text (`PAB`, `ordered by TST`, `5mm/mV`).
+- **Physiologic & Bias Findings:** `0` rows had `SBP <= DBP`; `12` `<18y` rows must be excluded for adult scope; `12` duplicate `Col1` IDs require connected-component grouping (`G07`); `2` filename/label numeric discrepancies (`140354/1403354`, `148679/148676`) and `13` unlinked image base-IDs must be quarantined prior to `G06`.
 
 ---
 

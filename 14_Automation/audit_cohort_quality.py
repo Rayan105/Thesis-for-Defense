@@ -17,6 +17,7 @@ Strict PHI & Git Safety: Writes ONLY SHA-256 manifests and aggregate counts to T
 
 from __future__ import annotations
 
+import argparse
 import collections
 from concurrent.futures import ThreadPoolExecutor
 import csv
@@ -183,11 +184,28 @@ def read_xlsx_sheet1(xlsx_path: str) -> list[list[str]]:
 
 
 def audit_cardiomled() -> None:
-    print("\n=== [DS0002 / Local 3. DS0003_cardiomled] CARDIO-ML-ED Audit ===")
+    print("\n=== [DS0002 / Local 3. DS0003_cardiomled] CARDIO-ML-ED Audit ===", flush=True)
     cdir = os.path.join(DATASET_ROOT, "3. DS0003_cardiomled (CARDIO-ML-ED, Mendeley Official CC BY 4.0)")
-    n_files, tot_b = write_dir_manifest(cdir, os.path.join(MANIFEST_DIR, "DS0002_cardiomled_manifest.csv"))
-    has_ecgs_dir = os.path.isdir(os.path.join(cdir, "ECGS")) or any(fn.lower().endswith((".png", ".jpg")) for _, _, fns in os.walk(cdir) for fn in fns)
-    print(f"Files hashed={n_files}, bytes={tot_b:,}, ECG image folder/PNGs present={has_ecgs_dir}")
+    n_files, tot_b = write_dir_manifest(
+        cdir, os.path.join(MANIFEST_DIR, "DS0002_cardiomled_manifest.csv"), skip_exts=(".rar",)
+    )
+    ecg_dir = os.path.join(cdir, "ECGS")
+    ecg_imgs = sorted(
+        fn for fn in os.listdir(ecg_dir) if os.path.isfile(os.path.join(ecg_dir, fn)) and fn.lower().endswith((".png", ".jpg", ".jpeg"))
+    ) if os.path.isdir(ecg_dir) else []
+    corrupt_imgs = 0
+    for fn in ecg_imgs:
+        fp = os.path.join(ecg_dir, fn)
+        with open(fp, "rb") as fh:
+            head = fh.read(16)
+            fh.seek(max(0, os.path.getsize(fp) - 24))
+            tail = fh.read(24)
+        if fn.lower().endswith(".png"):
+            if not head.startswith(b"\x89PNG\r\n\x1a\n") or b"IEND" not in tail:
+                corrupt_imgs += 1
+        elif not head.startswith(b"\xff\xd8") or not tail.endswith(b"\xff\xd9"):
+            corrupt_imgs += 1
+    print(f"Files hashed (excl .rar)={n_files}, bytes={tot_b:,}, ECGS images={len(ecg_imgs)}, corrupt_imgs={corrupt_imgs}", flush=True)
 
     s1 = read_xlsx_sheet1(os.path.join(cdir, "Datasheet1 (Edited).csv"))
     non_empty = [r for r in s1[1:] if any(c.strip() for c in r)]
@@ -195,10 +213,11 @@ def audit_cardiomled() -> None:
     with open(os.path.join(cdir, "ECG Labels.csv"), encoding="utf-8") as f:
         ecg_rows = [r for r in csv.reader(f) if r and r[0].strip()]
     ecg_base_ids = set(r[0].strip().split("-")[0] for r in ecg_rows)
-    print(f"Sheet1 rows={len(non_empty)}, unique Col1 IDs={len(c1_ids)}, ECG Labels rows={len(ecg_rows)}")
-    print(f"Exact Col1 overlap={len(c1_ids & set(r[0].strip() for r in ecg_rows))}, Base-ID (strip -1/-2) overlap={len(c1_ids & ecg_base_ids)}")
+    img_stems = set(os.path.splitext(fn)[0] for fn in ecg_imgs)
+    img_base_ids = set(s.strip().split("-")[0].split("(")[0].strip() for s in img_stems)
+    print(f"Sheet1 rows={len(non_empty)}, unique Col1 IDs={len(c1_ids)}, ECG Labels rows={len(ecg_rows)}", flush=True)
+    print(f"Exact filename-vs-label matches={len(img_stems & set(r[0].strip() for r in ecg_rows))}/{len(ecg_imgs)}, Image base-ID overlap Col1={len(c1_ids & img_base_ids)}, Label base-ID overlap Col1={len(c1_ids & ecg_base_ids)}", flush=True)
 
-    # Check SBP/DBP plausibility & gender distribution
     genders = collections.Counter(r[2].strip().upper() if len(r) > 2 else "" for r in non_empty)
     deaths = collections.Counter(r[6].strip() if len(r) > 6 else "" for r in non_empty)
     bp_bad = 0
@@ -210,7 +229,7 @@ def audit_cardiomled() -> None:
                 bp_bad += 1
         except ValueError:
             bp_bad += 1
-    print(f"Genders={dict(genders)}, Deaths={dict(deaths)}, SBP<=DBP or non-numeric={bp_bad}")
+    print(f"Genders={dict(genders)}, Deaths={dict(deaths)}, SBP<=DBP or non-numeric={bp_bad}", flush=True)
 
 
 def audit_cair() -> None:
@@ -249,10 +268,17 @@ def audit_sulianova() -> None:
 
 
 def main() -> None:
-    audit_cardiomled()
-    audit_cair()
-    audit_sulianova()
-    audit_ptbxl()
+    parser = argparse.ArgumentParser(description="Cohort QC & SHA-256 audit")
+    parser.add_argument("--ds", choices=["all", "DS0001", "DS0002", "DS0003", "DS0004"], default="all")
+    args = parser.parse_args()
+    if args.ds in ("all", "DS0002"):
+        audit_cardiomled()
+    if args.ds in ("all", "DS0003"):
+        audit_cair()
+    if args.ds in ("all", "DS0004"):
+        audit_sulianova()
+    if args.ds in ("all", "DS0001"):
+        audit_ptbxl()
     print("\n=== Manifest CSV SHA-256 Digests ===", flush=True)
     for fn in sorted(os.listdir(MANIFEST_DIR)):
         if fn.endswith(".csv"):
