@@ -10,7 +10,7 @@
 | **S06** | 4-Modality Quality, ECG Integrity & Cohort Approval | STEP-013 | G04 | Week 5 | **COMPLETED (`G04 PASS`)** |
 | **S07** | Clinical Endpoint Ontology & 4-Modality Schema | STEP-014–015 | G05 | Week 6 | **COMPLETED (`G05 PASS` under `DEC0005 OptA`)** |
 | **S08** | Pilot Abstraction & Clinical Adjudication QA | STEP-016–018 | G06 | Week 6–7 | **COMPLETED (`G06 PASS`, `91,781` Clean)** |
-| **S09** | Leakage-Safe Split, Preprocessing & Release | STEP-019–022 | G07, G08 | Week 7–8 | **In Progress (`STEP-019` Done -> `STEP-020` Next)** |
+| **S09** | Leakage-Safe Split, Preprocessing & Release | STEP-019–022 | G07, G08 | Week 7–8 | **In Progress (`STEP-019–020` Done; `G07` Awaiting Sign-Off -> `STEP-021`)** |
 | **S10** | Architecture Selection, Runtime Lock & Smoke Run | STEP-023–027 | G09 | Week 8–9 | Planned *(incl. Multi-DB lit update #1)* |
 | **S11** | Controlled Experiments, Baselines & Ablations | STEP-028–031 | G10 | Week 9–11 | Planned |
 | **S12** | Validation Selection, Calibrator Fit & Test Freeze | STEP-032–033 | G11 | Week 11–12 | Planned |

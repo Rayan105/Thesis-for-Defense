@@ -1,0 +1,15 @@
+# SPLIT0001 Deterministic Split Config (STEP-020 / UD11)
+split_id: SPLIT0001
+seed: 20261127
+source_adjudications: [ADJ0001, ADJ0002, ADJ0003, ADJ0004]
+total_eligible_records: 91781
+unique_patient_groups: 89005
+manifest_sha256: db74cfeb8fed769c6c370e4e3b664b3ca6edc0af1b1ad20fe64e1123892cd3e6
+manifest_location_tier2b: 03_Datasets_Cohort/splits/SPLIT0001/manifest.csv
+partition_policy:
+  DS0001_ptbxl: official_strat_fold_1_8_train_9_val_10_test
+  DS0002_cardiomled: patient_grouped_stratified_70_15_15
+  DS0003_cair_cvd_2025: patient_grouped_stratified_70_15_15
+  DS0004_sulianova: patient_grouped_stratified_70_15_15
+inner_train_cv_folds: 5
+test_partition_status: SEALED_ZERO_ACCESS

@@ -1,0 +1,2 @@
+AccessID,SplitID,Partition,Actor,EventType,Timestamp,ApprovedBy,PurposeAndJustification,Status
+TACC0001,SPLIT0001,test,Rayan Ahmed,SEAL_INITIALIZED,2026-11-27T15:32:00+06:00,G07 Pending Sign-Off,Formal STEP-020 test partition seal; 0 test reads permitted until Gate G11 validation lock.,SEALED
