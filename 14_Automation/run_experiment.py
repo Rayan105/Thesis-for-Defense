@@ -48,7 +48,7 @@ def _pad_or_align_features(records: list[dict[str, Any]], width: int | None = No
         if len(feats) < raw_len:
             feats.extend([0.0] * (raw_len - len(feats)))
         rows.append(mask + ds_ohe + feats)
-        labels.append(int(rec["y"]))
+        labels.append(int(rec.get("Target_y", rec.get("y"))))
     return rows, labels, raw_len + 8
 
 
@@ -70,7 +70,8 @@ def run_from_config(
     candidate_id = str(cfg["candidate_id"])
     scope = str(cfg["data"]["dataset_scope"])
     seed = int(cfg["training"]["seed"])
-    epochs = int(epochs_override if epochs_override is not None else cfg["training"]["epochs"])
+    raw_epochs = cfg["training"].get("epochs", cfg["training"].get("max_epochs_or_estimators", 5))
+    epochs = int(epochs_override if epochs_override is not None else raw_epochs)
 
     # Sealed Test Custody: ONLY train & val partitions may ever be read here
     train_recs = load_rel0001_partition("train", rel_dir=rel_dir, dataset_scope=scope, limit=limit)
@@ -81,8 +82,8 @@ def run_from_config(
     X_train, y_train, total_w = _pad_or_align_features(train_recs)
     X_val, y_val, _ = _pad_or_align_features(val_recs, width=total_w)
 
-    ckpt_dir = checkpoint_dir or str(REPO_ROOT / "08_Checkpoints_Logs" / "checkpoints" / exp_id)
-    out_dir = Path(output_dir or (REPO_ROOT / "08_Checkpoints_Logs" / "artifacts" / exp_id))
+    ckpt_dir = checkpoint_dir or str(REPO_ROOT / "08_Checkpoints" / "binaries" / exp_id)
+    out_dir = Path(output_dir or (REPO_ROOT / "07_Experiments" / exp_id))
     out_dir.mkdir(parents=True, exist_ok=True)
 
     train_res = train_pure_python_logistic_with_checkpoints(

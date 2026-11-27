@@ -1,0 +1,138 @@
+{
+  "status": "LOCAL_SMOKE_PASS",
+  "experiment_id": "EXP0000_SMOKE",
+  "config_path": "07_Experiments/configs/exp0000_smoke.yaml",
+  "config_sha256": "d2b9d1daacc78f230a1c1dd8926cd23a9139d79bb0348f36d7c1fcecdb824835",
+  "test_partition_accessed": false,
+  "n_train_slice": 600,
+  "n_val_slice": 200,
+  "cohorts_covered": [
+    "DS0001",
+    "DS0002",
+    "DS0003",
+    "DS0004"
+  ],
+  "wfdb_check": {
+    "wfdb_verified": true,
+    "stem": "Dataset/1. DS0001_ptbxl (PTB-XL, Kaggle)/ptb-xl-a-large-publicly-available-electrocardiography-dataset-1.0.1/records500/00000/00001_hr",
+    "n_leads": 12,
+    "n_samples_per_lead": 5000,
+    "finite_all": true
+  },
+  "resume_continuity": {
+    "interrupted_epoch": 3,
+    "resumed_to_epoch": 6,
+    "checkpoint_sha256": "a9de978dbea009d927bbc37eb24e3b3de56bd77a7ca85df5820614f9156c8905",
+    "max_weight_diff": 0.0,
+    "bias_diff": 0.0,
+    "exact_bitwise_resume": true
+  },
+  "fusion_masked_forward_checks": {
+    "DS0001": {
+      "mask_cels": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "prob": 0.33529,
+      "attn_weights": [
+        0.040125,
+        0.879759,
+        0.080116,
+        0.0,
+        0.0
+      ]
+    },
+    "DS0002": {
+      "mask_cels": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "prob": 0.415451,
+      "attn_weights": [
+        0.007198,
+        0.042593,
+        0.084341,
+        0.865868,
+        0.0
+      ]
+    },
+    "DS0003": {
+      "mask_cels": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "prob": 0.580501,
+      "attn_weights": [
+        0.018227,
+        0.884054,
+        0.0,
+        0.074206,
+        0.023514
+      ]
+    },
+    "DS0004": {
+      "mask_cels": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "prob": 0.758215,
+      "attn_weights": [
+        0.053531,
+        0.258438,
+        0.0,
+        0.237496,
+        0.450535
+      ]
+    }
+  },
+  "val_calibration": {
+    "temperature": 0.25,
+    "calibrator_hash": "6a522c763b3ed250500b80d626e386b8d6d74911ce81688d214b999006530db3",
+    "thresholds": {
+      "tau_youden": 0.527228,
+      "tau_sens_target": 0.430892
+    },
+    "val_roc_auc": 0.608097,
+    "val_pr_auc": 0.625047,
+    "val_brier": 0.239948,
+    "val_ece_q15": 0.092651
+  },
+  "xai_hook_smoke": {
+    "background_partition": "train",
+    "background_n": 128,
+    "additivity": {
+      "max_abs_error": 0.0,
+      "max_rel_error": 0.0,
+      "violations": 0,
+      "passed": true
+    },
+    "aopc": {
+      "aopc_deletion_top": 0.101628,
+      "aopc_deletion_random": 0.030764,
+      "aopc_deletion_reverse": 0.000202,
+      "aopc_insertion_top": 0.962273,
+      "aopc_insertion_random": 0.889235,
+      "deletion_beats_random": true,
+      "deletion_beats_reverse": true,
+      "insertion_beats_random": true,
+      "baseline_score": 0.013983
+    },
+    "shortcut_audit": {
+      "top_features": [
+        "tab_0",
+        "ds_0",
+        "tab_4"
+      ],
+      "shortcut_hits_in_top_k": [],
+      "shortcut_free": true
+    }
+  }
+}
