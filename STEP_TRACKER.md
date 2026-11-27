@@ -8,12 +8,12 @@
 
 | Metric | Current Value |
 |---|---|
-| **Last Completed Step** | **`STEP-025` (Prospective Q1 Experiment, Calibration/Stats & XAI Protocols Locked)** (`Blocks A–F`, `T32` Schema, SHA-256 Frozen) |
-| **Last Git Commit** | `STEP-025`: Preregistered `experiment_plan.md`, `protocol.md`, `xai_protocol.md`, expanded `T32` & `DEC0011–12` |
-| **Active Stage** | **`S10` (`STEP-023–025` Complete)** -> **`STEP-026` (Implement Models `src/cvd_mm/`, Evaluator & Kaggle Notebook)** |
-| **Next Step to Execute** | 👉 **Execute `STEP-026`** (`Build Config/Dataset/Models/Metrics/Stats/XAI Modules + Kaggle Training Notebook -> STEP-027 G09`) |
+| **Last Completed Step** | **`STEP-026` (Modular Pipeline `src/cvd_mm/`, Tier 1–4 Models, Evaluator & Kaggle GPU Notebook)** (`32/32` Unit Tests PASS) |
+| **Last Git Commit** | `STEP-026`: Implemented `src/cvd_mm/{config,dataset,models,calibrate,metrics,stats,xai}`, `run_experiment.py`, tests & Kaggle GPU NB |
+| **Active Stage** | **`S10` (`STEP-023–026` Complete)** -> **`STEP-027` (`EXP0000_SMOKE`, Checkpoint Resume & Gate `G09`)** |
+| **Next Step to Execute** | 👉 **Execute `STEP-027`** (`Run EXP0000_SMOKE End-to-End Diagnostic, Checkpoint Save/Restore Audit & Gate G09 Sign-off`) |
 | **Current Quality Gates** | `G01`: Not Assessed (`local PDF missing`) \| **`G02–G08`: PASS** \| `G09–G17`: Blocked (`S10–S17`) |
-| **Last Updated** | 2026-11-27T18:52:00+06:00 |
+| **Last Updated** | 2026-11-27T19:08:00+06:00 |
 
 ### 🤖 AI Prompt for Next Teammate / Next Session:
 To resume work with minimal token cost, simply give the AI this exact prompt:
@@ -69,8 +69,8 @@ Read STEP_TRACKER.md and execute the next pending step.
 | **STEP-023** | S10 | Deep learning framework selection (PyTorch vs TF under UD13) | Rayan Ahmed | - | ✅ **COMPLETED (`PyTorch UD13 + Transformer UD14`)** | [DEC0009](file:///e:/FYDP/01_Project_Management/decision_log/DEC0009.md), [DEC0010](file:///e:/FYDP/01_Project_Management/decision_log/DEC0010.md), [candidates.csv](file:///e:/FYDP/06_Models_Fusion/candidates.csv), [baseline_plan.md](file:///e:/FYDP/06_Models_Fusion/baseline_plan.md), [Transformer Spec](file:///e:/FYDP/06_Models_Fusion/architectures/transformer_fusion_spec.md), [Lit Update #1](file:///e:/FYDP/02_Literature/searches/SEARCH_UPDATE1_2026-11-27.md) |
 | **STEP-024** | S10 | Lock Phase 2 modeling environment (`environment/model/`) | Rayan Ahmed | - | ✅ **COMPLETED (`environment/model/` Locked)** | [versions.md](file:///e:/FYDP/environment/model/versions.md), [requirements.txt](file:///e:/FYDP/environment/model/requirements.txt), [environment.yml](file:///e:/FYDP/environment/model/environment.yml), [verify_model_runtime.py](file:///e:/FYDP/14_Automation/verify_model_runtime.py) |
 | **STEP-025** | S10 | Formalize experiment plan, ablation matrix, calibration/stats protocol | Rayan & Nafis | - | ✅ **COMPLETED (Pre-Training Protocols Frozen)** | [experiment_plan.md](file:///e:/FYDP/07_Experiments/experiment_plan.md), [eval_protocol.md](file:///e:/FYDP/09_Evaluation_Stats/protocol.md), [xai_protocol.md](file:///e:/FYDP/10_Explainability_XAI/xai_protocol.md), [DEC0011](file:///e:/FYDP/01_Project_Management/decision_log/DEC0011.md), [DEC0012](file:///e:/FYDP/01_Project_Management/decision_log/DEC0012.md) |
-| **STEP-026** | S10 | Implement baseline suite (LR, RF, SVM, XGBoost, 1D-CNN, LSTM) & Transformer fusion | Rayan Ahmed | - | 👉 **NEXT TO EXECUTE** | Target: `src/cvd_mm/`, tests & Kaggle Training NB |
-| **STEP-027** | S10 | Diagnostic smoke run, pipeline test, checkpoint restore test, pass Gate G09 | Rayan Ahmed | G09 | ⚪ PENDING | Target: G09 Assessment |
+| **STEP-026** | S10 | Implement baseline suite (LR, RF, SVM, XGBoost, 1D-CNN, LSTM) & Transformer fusion | Rayan Ahmed | - | ✅ **COMPLETED (`src/cvd_mm/` + `32/32` Tests + Kaggle NB)** | [pipeline.md](file:///e:/FYDP/13_Documentation/pipeline.md), [run_experiment.py](file:///e:/FYDP/14_Automation/run_experiment.py), [CVD_Multimodal_Kaggle_Training_Pipeline.ipynb](file:///e:/FYDP/06_Models_Fusion/notebooks/CVD_Multimodal_Kaggle_Training_Pipeline.ipynb) |
+| **STEP-027** | S10 | Diagnostic smoke run, pipeline test, checkpoint restore test, pass Gate G09 | Rayan Ahmed | G09 | 👉 **NEXT TO EXECUTE** | Target: `EXP0000_SMOKE` & G09 Assessment |
 | **STEP-028** | S11 | Execute Tier 1 unimodal baselines & Tier 2 clinical risk scores | Rayan Ahmed | - | ⚪ PENDING | Target: Baseline runs |
 | **STEP-029** | S11 | Execute Tier 3 early/late fusion models & Tier 4 Transformer fusion | Rayan Ahmed | - | ⚪ PENDING | Target: Fusion runs |
 | **STEP-030** | S11 | Register model checkpoints & cards, evaluate qualifying Gate G10 | Rayan Ahmed | G10 | ⚪ PENDING | Target: G10 Assessment |
@@ -97,9 +97,9 @@ Read STEP_TRACKER.md and execute the next pending step.
 
 ---
 
-## 🎯 Next Step Details: Execute `STEP-026` (`Implement Modular Pipeline, Models & Kaggle Training Notebook`)
+## 🎯 Next Step Details: Execute `STEP-027` (`Diagnostic Smoke Run, Checkpoint Recovery & Gate G09`)
 
-- **Pre-Training Protocols Frozen (`STEP-025` Complete):** `experiment_plan.md`, `09_Evaluation_Stats/protocol.md`, `10_Explainability_XAI/xai_protocol.md`, and expanded `T32_config.yaml` locked with SHA-256 digests (`preregistration_hashes.json`).
-- **Next Execution (`STEP-026` -> `STEP-027`):**
-  1. **`STEP-026` (`Next`):** Build modular `src/cvd_mm/` (`config.py`, `dataset.py`, `models/` covering `MC0001–MC0015`, `metrics.py`, `calibrate.py`, `stats.py`, `xai.py`), unit tests on synthetic 4-modality fixtures (`zero NaN` missing-mask proofs, DeLong/bootstrap math), and the full **Kaggle GPU Model Training Notebook**!
-  2. **`STEP-027` (`G09`):** Execute diagnostic smoke run (`EXP0000_SMOKE`), checkpoint save/restore check, SHAP hook check -> pass Gate **`G09`** and start full model runs in **`Stage S11`** (`STEP-028+`)!
+- **Modular Pipeline Implemented (`STEP-026` Complete):** All core modules (`src/cvd_mm/`), Tier 1–4 models (`MC0001–MC0015`), thin CLI dispatcher (`14_Automation/run_experiment.py`), `32/32` synthetic unit tests (`-W error` clean), and `CVD_Multimodal_Kaggle_Training_Pipeline.ipynb` are verified and committed cleanly.
+- **Next Execution (`STEP-027` -> Gate `G09` -> Stage `S11`):**
+  1. **`STEP-027` (`Next`):** Author `07_Experiments/configs/exp0000_smoke.yaml` conforming to `T32`, execute diagnostic `EXP0000_SMOKE` on real `REL0001` `Train/Val` shards (`Test` strictly sealed), verify checkpoint interrupt/resume equivalence + SHAP hook dry pass, populate `experiment_registry.csv` & `checkpoint_registry.csv`, and conduct Gate **`G09`** assessment!
+  2. **`STEP-028+` (`Stage S11`):** Upload/attach `REL0001` on Kaggle GPU (`T4 x1`) and run full **Blocks A–F** training via `CVD_Multimodal_Kaggle_Training_Pipeline.ipynb`.

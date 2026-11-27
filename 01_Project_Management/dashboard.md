@@ -6,11 +6,11 @@
 | **Institution / Term** | Daffodil International University / Summer 2026 (CSE499) |
 | **Research Leads** | Rayan Ahmed (`232-15-847`), Mohammad Nafis Sadiq (`232-15-895`) |
 | **Supervisor** | Md. Mizanur Rahman (Senior Lecturer, Dept. of CSE, DIU) |
-| **Active Stage** | Stage S10 (`STEP-025` Protocols SHA-256 Preregistered; Ready for `STEP-026` Model & Pipeline Implementation) |
-| **Current Step** | `STEP-025` Complete (`experiment_plan.md`, `protocol.md`, `xai_protocol.md`, `DEC0011–12`; [Experiment Plan](../07_Experiments/experiment_plan.md)) |
-| **Next Step** | 👉 Execute [STEP-026](../STEP_TRACKER.md#next-step-details-execute-step-026-implement-modular-pipeline-models--kaggle-training-notebook) (**Implement `src/cvd_mm/` Models, Stats, Tests & Kaggle Training Notebook**) |
+| **Active Stage** | Stage S10 (`STEP-026` Pipeline, Tier 1–4 Models, Calibration/Stats/XAI & Kaggle NB Complete; Ready for `STEP-027` `G09`) |
+| **Current Step** | `STEP-026` Complete (`src/cvd_mm/`, `14_Automation/run_experiment.py`, `32/32` Tests PASS, Kaggle Training NB; [Pipeline Docs](../13_Documentation/pipeline.md)) |
+| **Next Step** | 👉 Execute [STEP-027](../STEP_TRACKER.md#next-step-details-execute-step-027-diagnostic-smoke-run-checkpoint-recovery--gate-g09) (**Diagnostic `EXP0000_SMOKE` Run, Recovery Drill & Gate `G09`**) |
 | **Master Step Tracker** | [STEP_TRACKER.md](../STEP_TRACKER.md) |
-| **Last Updated** | 2026-11-27T18:52:00+06:00 |
+| **Last Updated** | 2026-11-27T19:08:00+06:00 |
 
 ---
 
@@ -43,7 +43,7 @@
 - **Template Library:** 32 / 32 blank templates materialized (`15_Templates_Prompts/`) — **PASS**
 - **Appendix B Registries:** 22 / 22 canonical CSV files validated — **PASS**
 - **Automated Validation:** `14_Automation/validate_repo.py` passes with zero errors — **PASS**
-- **Test Suite:** `test_synthetic_smoke.py`, `test_schema_ecg.py`, `test_preprocessing_leakage.py` & `test_splitting.py` pass (15/15 unit tests clean) — **PASS**
+- **Test Suite:** `test_synthetic_smoke.py`, `test_schema_ecg.py`, `test_preprocessing_leakage.py`, `test_splitting.py`, `test_config.py`, `test_models.py`, `test_metrics_stats.py` & `test_xai_faithfulness.py` pass (**32/32** unit tests clean under `-W error`) — **PASS**
 - **PHI Exclusions:** Git status verified clean; raw data and binary models strictly ignored — **PASS**
 
 ---

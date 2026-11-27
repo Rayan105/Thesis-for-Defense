@@ -91,3 +91,16 @@ Before any clinical row or ECG record enters Tier 2B:
 - **Kaggle Execution Companion:** [CVD_Multimodal_Kaggle_Preprocessing_Pipeline.ipynb](../05_Preprocessing_Alignment/notebooks/CVD_Multimodal_Kaggle_Preprocessing_Pipeline.ipynb)
 - **Two-Stage Leakage Boundary:** **Stage A (Record-Local)** covers unit conversion, BMI derivation, fixed `50 Hz` notch (`fs > 120 Hz`), $\le 0.5\text{ Hz}$ zero-phase Butterworth baseline filter, and `CARDIO-ML-ED` `90°` CCW PNG rotation + RGB red-grid ink isolation; **Stage B (Train-Only)** executes ONLY after `STEP-020` (`G07`) splitting, computing Train-only `IterativeImputer`/median, `RobustScaler`, categorical encoding, MNAR `{col}_isnan` flags, 4D `[has_clinical, has_ecg, has_lab, has_lifestyle]` modality masks, and `FitStateHash` SHA-256 verification.
 
+---
+
+## 6. Stage S10 Config-Driven Multimodal Modeling, Calibration & Stats Contract (`STEP-026`)
+
+- **Core Library (`src/cvd_mm/`):**
+  - Config & Sealed-Test Custody: [config.py](../src/cvd_mm/config.py) (`T32` strict parser, zero-null enforcement, preregistered SHA-256 verification, SMOTE & non-Train XAI rejection) and [dataset.py](../src/cvd_mm/dataset.py) (`REL0001` partition loader enforcing `TEST_PARTITION_SEALED` until `G11`, per-cohort `[C, L, S]` semantic slicers, and Stage-A 12-lead WFDB filtering).
+  - Models & Training (`src/cvd_mm/models/`): [fusion_transformer.py](../src/cvd_mm/models/fusion_transformer.py) (`CompactResNet1D`, `Conv1DBiLSTMEncoder`, `CompactCNN2DPNG`, `ECGPatchTransformer`, `GatedAttentionFusionNet`, **`CVDMMTransformer`** with `[CLS, C, E, L, S]` `~ModalityMask_CELS` padding + `PurePythonMaskedFusionModel` verification mirror), [baselines.py](../src/cvd_mm/models/baselines.py) (`MC0001–MC0005`, `WHOFraminghamContextScorer`, `LateOOFStacker`, `PurePythonLogisticModel`), and [train.py](../src/cvd_mm/models/train.py) (deterministic seed lock, Train `pos_weight`, SHA-256 `.ckpt.json` / `.pt` resume engine).
+  - Evaluation, Calibration & XAI Contracts: [metrics.py](../src/cvd_mm/metrics.py) (all `6` mandatory proposal metrics + `PR-AUC`, `Specificity`, `NPV`, `Balanced Accuracy`, `MCC`, `Brier`, `BSS`, `ECE-15`, Cox Calibration Slope/Intercept), [calibrate.py](../src/cvd_mm/calibrate.py) (Validation-only `TemperatureScaling`, `PlattLogistic`, `Isotonic` PAVA & `tau_youden` / `tau_sens_target >= 0.85`), [stats.py](../src/cvd_mm/stats.py) (DCA, paired Sun & Xu DeLong, exact McNemar, stratified patient-grouped bootstrap CIs, Holm-Bonferroni & BH-FDR), and [xai.py](../src/cvd_mm/xai.py) (Train-only SHAP background, additivity check `tol=0.02`, modality shares, Deletion/Insertion AOPC vs Random/Reverse controls, stability, `_isnan` shortcut audit).
+- **Execution Entrypoints:**
+  - Thin CLI Dispatcher: [run_experiment.py](../14_Automation/run_experiment.py) (`--config`, `--limit`, `--resume-from`, Validation-only run + calibration export).
+  - Kaggle GPU Training Companion: [CVD_Multimodal_Kaggle_Training_Pipeline.ipynb](../06_Models_Fusion/notebooks/CVD_Multimodal_Kaggle_Training_Pipeline.ipynb).
+- **Verification Suite (`32/32` Clean Synthetic Unit Tests):** [test_config.py](../tests/test_config.py), [test_models.py](../tests/test_models.py), [test_metrics_stats.py](../tests/test_metrics_stats.py), [test_xai_faithfulness.py](../tests/test_xai_faithfulness.py).
+
