@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-09/schema",
+  "title": "CVD Multimodal T32 Experiment Config Validation Schema (v1.0.0 - STEP-025)",
+  "type": "object",
+  "required": [
+    "experiment_id", "comparison_block", "research_question_id", "comparator_tier",
+    "candidate_id", "approval_record", "source_commit", "data", "model", "training",
+    "evaluation_and_calibration", "xai_hooks", "runtime"
+  ],
+  "properties": {
+    "experiment_id": { "type": "string", "pattern": "^EXP[0-9]{4}(_SMOKE)?$" },
+    "comparison_block": { "enum": ["Block_A", "Block_B", "Block_C", "Block_D", "Block_E", "Block_F", "SMOKE"] },
+    "research_question_id": { "enum": ["RQ0", "RQ1", "RQ2", "RQ3", "RQ4"] },
+    "comparator_tier": { "enum": ["unimodal", "clinical_score", "simple_fusion", "transformer_fusion", "ablation"] },
+    "candidate_id": { "type": "string", "pattern": "^MC[0-9]{4}$" },
+    "data": {
+      "type": "object",
+      "required": ["release_id", "dataset_scope", "split_id", "split_manifest_sha256", "preprocessing_id", "fit_state_sha256", "variables_sha256", "active_modalities", "missing_modality_policy", "allow_troponin_tier_b"],
+      "properties": {
+        "release_id": { "type": "string", "pattern": "^REL[0-9]{4}$" },
+        "dataset_scope": { "enum": ["ALL_COHORTS", "DS0001", "DS0002", "DS0003", "DS0004"] },
+        "missing_modality_policy": { "enum": ["key_padding_mask", "indicator", "zero_fill", "complete_case"] },
+        "allow_troponin_tier_b": { "type": "boolean" }
+      }
+    },
+    "model": {
+      "type": "object",
+      "required": ["framework", "framework_version", "architecture_name", "modality_encoders", "fusion_module", "license_record"]
+    },
+    "training": {
+      "type": "object",
+      "required": ["seed", "deterministic_mode", "max_epochs_or_estimators", "batch_size", "loss_and_imbalance_policy", "early_stopping_monitor"],
+      "properties": {
+        "deterministic_mode": { "const": true }
+      }
+    },
+    "evaluation_and_calibration": {
+      "type": "object",
+      "required": ["experiment_plan_sha256", "eval_protocol_sha256", "xai_protocol_sha256", "validation_only_tuning", "test_partition_access", "threshold_rule", "bootstrap_resamples"],
+      "properties": {
+        "validation_only_tuning": { "const": true },
+        "test_partition_access": { "const": "SEALED_UNTIL_G11" },
+        "bootstrap_resamples": { "type": "integer", "minimum": 1000 }
+      }
+    },
+    "xai_hooks": {
+      "type": "object",
+      "required": ["explainer_type", "background_partition", "background_sample_size"],
+      "properties": {
+        "background_partition": { "const": "train" }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "required": ["environment_lock_sha256", "hardware_target", "checkpoint_policy", "artifact_destination"]
+    }
+  }
+}

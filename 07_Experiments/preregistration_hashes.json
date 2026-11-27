@@ -1,0 +1,12 @@
+{
+  "preregistered_at": "2026-11-27T18:52:00+06:00",
+  "step": "STEP-025",
+  "release_id": "REL0001",
+  "files": {
+    "07_Experiments/experiment_plan.md": "738353b0c99c505f4636195a0a054a3524a3f7a9811de5339f4579e72e3b0fcc",
+    "09_Evaluation_Stats/protocol.md": "5e042d94047781bad0828dbecf465d30862c0f08eac4688c91dea0b1b98fb897",
+    "10_Explainability_XAI/xai_protocol.md": "7f8cd082a80611f59563bbf5a1ff9f44486550e4a4fc703ea0f54ea50fe2fced",
+    "15_Templates_Prompts/T32_config.yaml": "e6a72c7ebf7fe2b5367aad1d4df6b5233079fc37014f9f3a81883c327bd415e9",
+    "07_Experiments/configs/exp_t32_schema_v1.json": "82194c1f72fa26e593d069203ef70cc64957c4f82a65640a56da9826cebbccf3"
+  }
+}

@@ -1,60 +1,82 @@
-# Multimodal Experiment Configuration Template (T32)
-# Null values strictly prohibit execution. All fields must be resolved prior to launch.
+# Multimodal Experiment Configuration Template (T32 — Expanded STEP-025 Schema)
+# Null values strictly prohibit execution. All required fields must resolve cleanly against exp_t32_schema_v1.json prior to launch.
 
 experiment_id: null
-research_question_id: null
-comparator_tier: null          # unimodal | clinical_score | simple_fusion | transformer_fusion | ablation
-approval_record: null
+comparison_block: null           # Block_A | Block_B | Block_C | Block_D | Block_E | Block_F | SMOKE
+research_question_id: null       # RQ0 | RQ1 | RQ2 | RQ3 | RQ4
+comparator_tier: null            # unimodal | clinical_score | simple_fusion | transformer_fusion | ablation
+candidate_id: null               # MC0001..MC0015 (registered in 06_Models_Fusion/candidates.csv)
+approval_record: null            # DEC0009; DEC0010; DEC0011; DEC0012
 source_commit: null
 
 data:
-  release_id: null
-  dataset_id: null
-  adjudication_id: null
-  split_id: null
-  preprocessing_id: null
+  release_id: null               # REL0001
+  dataset_scope: null            # ALL_COHORTS | DS0001 | DS0002 | DS0003 | DS0004
+  adjudication_ids: [ADJ0001, ADJ0002, ADJ0003, ADJ0004]
+  split_id: null                 # SPLIT0001
+  split_manifest_sha256: null
+  preprocessing_id: null         # PP0001
   fit_state_sha256: null
   variables_sha256: null
   active_modalities: [clinical, ecg, laboratory, lifestyle]
-  missing_modality_policy: null # complete_case | mask_token | indicator
+  missing_modality_policy: null  # key_padding_mask | indicator | zero_fill | complete_case
+  modality_dropout_prob: null    # 0.0..0.5 (default 0.15 for MC0015 training)
+  allow_troponin_tier_b: false   # Strict PROBAST Tier-A default = false
 
 model:
-  framework: null              # pytorch | tensorflow (UD13)
+  framework: null                # pytorch | sklearn | xgboost | lightgbm | custom_score (UD13)
   framework_version: null
   architecture_name: null
+  d_model: null                  # e.g., 64 for CVD-MM-Transformer (null for tree/linear)
+  num_layers: null               # e.g., 2 for Transformer / 3 for ResNet-1D
+  nhead: null                    # e.g., 4
+  dim_feedforward: null          # e.g., 128
+  dropout: null                  # e.g., 0.25
+  max_trainable_params_budget: null
   modality_encoders:
     clinical: null
     ecg: null
     laboratory: null
     lifestyle: null
-  fusion_module: null          # cross_modal_transformer_fusion | early_concat | late_ensemble
+  fusion_module: null            # cross_modal_transformer_fusion | gated_attention | early_concat | late_stacking | none
   pretrained_weights_sha256: null
   license_record: null
 
 training:
-  seed: null
+  seed: null                     # Canonical: 20261127..20261201
   deterministic_mode: true
-  epochs_or_budget: null
-  batch_size: null
-  optimizer_and_schedule: null
-  loss_and_imbalance_policy: null
-  regularization: null
+  max_epochs_or_estimators: null # <= 40 epochs DL; <= 500 trees GBDT
+  batch_size: null               # e.g., 64 / 256 / full_tabular
+  learning_rate: null            # e.g., 1e-3 (AdamW) or null for tree/linear
+  weight_decay: null             # e.g., 1e-2
+  scheduler: null                # cosine | plateau | none
+  optimizer: null                # adamw | lbfgs | tree_exact | hist
+  loss_and_imbalance_policy: null # bce_train_pos_weight | balanced_class_weight (NO pre-split SMOTE)
+  early_stopping_patience: null  # e.g., 7
   early_stopping_monitor: val_roc_auc
 
 evaluation_and_calibration:
-  protocol_sha256: null
+  experiment_plan_sha256: null
+  eval_protocol_sha256: null
+  xai_protocol_sha256: null
   validation_only_tuning: true
-  calibration_candidate: null # platt | isotonic | temperature
-  threshold_rule: null        # youden_j | f1_optimal | sensitivity_target
+  test_partition_access: SEALED_UNTIL_G11
+  calibration_candidates: [uncalibrated, temperature, platt, isotonic]
+  threshold_rule: null           # youden_j | sensitivity_085
+  bootstrap_resamples: 2000
   mandatory_metrics: [accuracy, precision, recall, f1, roc_auc, confusion_matrix]
-  adopted_q1_metrics: [pr_auc, specificity, npv, brier_score, ece, dca]
+  adopted_q1_metrics: [pr_auc, specificity, npv, balanced_accuracy, mcc, brier_score, ece, calibration_slope, calibration_intercept, dca]
 
 xai_hooks:
-  explainer_type: null        # tree_shap | gradient_shap | partition_shap
-  background_partition: train # NEVER validation or test
+  execute_in_step: STEP-038_TO_040_ONLY
+  explainer_type: null           # tree_shap | gradient_shap | integrated_gradients | partition_shap
+  background_partition: train    # NEVER validation or test
+  background_sample_size: 256
+  additivity_error_tol: 0.02
 
 runtime:
+  environment_lock_path: environment/model/requirements.txt
   environment_lock_sha256: null
-  hardware_record: null
-checkpoint_policy: best_validation_loss_and_auc
-artifact_destination: null
+  hardware_target: null          # kaggle_t4_gpu | local_cpu
+  checkpoint_policy: best_val_roc_auc_and_loss
+  artifact_destination: null
