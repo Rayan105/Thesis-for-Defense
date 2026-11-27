@@ -8,12 +8,12 @@
 
 | Metric | Current Value |
 |---|---|
-| **Last Completed Step** | **`STEP-022` (`REL0001` Prepared Release Locked & `G08` Review Compiled)** (`91,781` Reconciled, Read-Only Locked; `G07/G08` Awaiting Sign-Off) |
-| **Last Git Commit** | `STEP-022`: Materialized & locked `REL0001` (`91,781` rows / `89,005` patients), `releases.csv` & `G08` audit |
-| **Active Stage** | **`S09` Complete (`STEP-019–022` Execution Clean)** -> **`Stage S10` (`STEP-023` Framework Lock + Confirm `G07`/`G08`)** |
-| **Next Step to Execute** | 👉 **Execute `STEP-023` (`UD13`: Framework Selection) & Confirm `G07`/`G08`** (`Stage S10` Architecture & Baselines) |
-| **Current Quality Gates** | `G01`: Not Assessed (`local PDF missing`) \| **`G02–G06`: PASS** \| **`G07–G08`: NOT ASSESSED (`DEC0007/08` Sign-Off Pending)** \| `G09–G17`: Blocked |
-| **Last Updated** | 2026-11-27T16:18:00+06:00 |
+| **Last Completed Step** | **`STEP-023` (`G07/G08 PASS`, PyTorch `UD13`, 4-Tier Baselines & `CVD-MM-Transformer` `UD14`)** (`17` Candidates + Lit Update #1) |
+| **Last Git Commit** | `STEP-023`: Approved `G07/G08`, ran Lit Update #1, locked PyTorch (`UD13`) & 4-tier + Transformer fusion spec (`UD14`) |
+| **Active Stage** | **`S10` (`STEP-023` Complete)** -> **`STEP-024` (Pin Phase 2 Modeling & XAI Runtime `environment/model/`)** |
+| **Next Step to Execute** | 👉 **Execute `STEP-024`** (`Pin PyTorch, XGBoost, SciPy, Statsmodels, SHAP Environment Lock`) |
+| **Current Quality Gates** | `G01`: Not Assessed (`local PDF missing`) \| **`G02–G08`: PASS** \| `G09–G17`: Blocked (`S10–S17`) |
+| **Last Updated** | 2026-11-27T17:18:00+06:00 |
 
 ### 🤖 AI Prompt for Next Teammate / Next Session:
 To resume work with minimal token cost, simply give the AI this exact prompt:
@@ -66,8 +66,8 @@ Read STEP_TRACKER.md and execute the next pending step.
 | **STEP-020** | S09 | Execute deterministic patient-grouped split, seal test partition, pass Gate G07 | Rayan Ahmed | G07 | ✅ **COMPLETED (`SPLIT0001` Locked / `G07` Awaiting Sign-Off)** | [splitting.py](file:///e:/FYDP/src/cvd_mm/splitting.py), [SPLIT0001 Report](file:///e:/FYDP/03_Datasets_Cohort/splits/SPLIT0001/report.md), [DEC0008](file:///e:/FYDP/01_Project_Management/decision_log/DEC0008.md), [G07 Review](file:///e:/FYDP/01_Project_Management/reviews/G07_assessment_2026-11-27.md) |
 | **STEP-021** | S09 | Preprocessing pipeline: record-local ECG filtering vs train-only fitted transforms | Rayan Ahmed | - | ✅ **COMPLETED (`PP0001` Locked / `0` Leakage)** | [PP0001 Report](file:///e:/FYDP/05_Preprocessing_Alignment/reports/PP0001.md), [pp0001_config.yaml](file:///e:/FYDP/05_Preprocessing_Alignment/configs/pp0001_config.yaml), [run_preprocessing_pipeline.py](file:///e:/FYDP/14_Automation/run_preprocessing_pipeline.py), [Kaggle PDF Script](file:///e:/FYDP/14_Automation/build_kaggle_notebook_pdf.py) |
 | **STEP-022** | S09 | Cardiologist ECG filter morphology check, release `REL####`, pass Gate G08 | Rayan & Cardiologist | G08 | ✅ **COMPLETED (`REL0001` Locked / `G08` Awaiting Clinical Sign-Off)** | [REL0001 Summary](file:///e:/FYDP/03_Datasets_Cohort/reports/REL0001_manifest_summary.md), [releases.csv](file:///e:/FYDP/03_Datasets_Cohort/releases.csv), [materialize_release.py](file:///e:/FYDP/14_Automation/materialize_release.py), [G08 Review](file:///e:/FYDP/01_Project_Management/reviews/G08_assessment_2026-11-27.md) |
-| **STEP-023** | S10 | Deep learning framework selection (PyTorch vs TF under UD13) | Rayan Ahmed | - | 👉 **NEXT TO EXECUTE (`Stage S10` Start + Multi-DB Update #1)** | Target: `DEC0009` (`UD13`) Framework Lock |
-| **STEP-024** | S10 | Lock Phase 2 modeling environment (`environment/model/`) | Rayan Ahmed | - | ⚪ PENDING | Target: Modeling runtime lock |
+| **STEP-023** | S10 | Deep learning framework selection (PyTorch vs TF under UD13) | Rayan Ahmed | - | ✅ **COMPLETED (`PyTorch UD13 + Transformer UD14`)** | [DEC0009](file:///e:/FYDP/01_Project_Management/decision_log/DEC0009.md), [DEC0010](file:///e:/FYDP/01_Project_Management/decision_log/DEC0010.md), [candidates.csv](file:///e:/FYDP/06_Models_Fusion/candidates.csv), [baseline_plan.md](file:///e:/FYDP/06_Models_Fusion/baseline_plan.md), [Transformer Spec](file:///e:/FYDP/06_Models_Fusion/architectures/transformer_fusion_spec.md), [Lit Update #1](file:///e:/FYDP/02_Literature/searches/SEARCH_UPDATE1_2026-11-27.md) |
+| **STEP-024** | S10 | Lock Phase 2 modeling environment (`environment/model/`) | Rayan Ahmed | - | 👉 **NEXT TO EXECUTE** | Target: Modeling/XAI runtime lock |
 | **STEP-025** | S10 | Formalize experiment plan, ablation matrix, calibration/stats protocol | Rayan & Nafis | - | ⚪ PENDING | Target: `experiment_plan.md` |
 | **STEP-026** | S10 | Implement baseline suite (LR, RF, SVM, XGBoost, 1D-CNN, LSTM) & Transformer fusion | Rayan Ahmed | - | ⚪ PENDING | Target: `src/cvd_mm/models/` |
 | **STEP-027** | S10 | Diagnostic smoke run, pipeline test, checkpoint restore test, pass Gate G09 | Rayan Ahmed | G09 | ⚪ PENDING | Target: G09 Assessment |
@@ -97,9 +97,9 @@ Read STEP_TRACKER.md and execute the next pending step.
 
 ---
 
-## 🎯 Next Step Details: Confirm `G07/G08` & Begin `Stage S10` (`STEP-023` Framework Lock)
+## 🎯 Next Step Details: Execute `STEP-024` (`Pin Phase 2 Modeling & XAI Runtime`)
 
-- **Gate Approvals Pending (`G07` & `G08`):** Technical `REL0001` checksum/leakage lineage is 100% locked; formal clinical/supervisor confirmation needed for [DEC0008.md](file:///e:/FYDP/01_Project_Management/decision_log/DEC0008.md) (`G07`) and [DEC0007.md](file:///e:/FYDP/01_Project_Management/decision_log/DEC0007.md) + [G08 Review](file:///e:/FYDP/01_Project_Management/reviews/G08_assessment_2026-11-27.md) (`G08` ECG ST-T preservation).
-- **Next Execution (`Stage S10` — Modeling Architecture & Runtime Lock):**
-  1. **`STEP-023` (`UD13`):** Lock deep learning framework (`PyTorch` vs `TF`) and execute scheduled PubMed/IEEE/Scopus literature update check per `DEC0002`.
-  2. **`STEP-024`–`STEP-027` (`G09`):** Lock `environment/model/`, write `experiment_plan.md`, implement baseline suite (`LR, RF, SVM, XGBoost, 1D-CNN, LSTM`) & Missing-Modality Transformer Fusion, and pass diagnostic smoke + checkpoint restore test (`G09`).
+- **`Stage S09` Gates Closed:** **`G07` & `G08` PASS** ([G07 Reassessment](file:///e:/FYDP/01_Project_Management/reviews/G07_assessment_2026-11-27_reassessment.md), [G08 Reassessment](file:///e:/FYDP/01_Project_Management/reviews/G08_assessment_2026-11-27_reassessment.md)); **`REL0001`** (`91,781` rows) & **`PyTorch` (`UD13`) + `CVD-MM-Transformer` (`UD14`)** ready for implementation!
+- **Next Execution (`STEP-024` -> `STEP-025`):**
+  1. **`STEP-024`:** Pin and document exact modeling, calibration, statistics, and XAI software versions inside `environment/model/` (Kaggle GPU T4/P100 runtime contract + local reproducibility spec).
+  2. **`STEP-025`:** Formalize `07_Experiments/experiment_plan.md` (Blocks `A–F` ablation matrix) and `09_Evaluation_Stats/protocol.md` before model implementation (`STEP-026`) and `G09` smoke verification (`STEP-027`).
