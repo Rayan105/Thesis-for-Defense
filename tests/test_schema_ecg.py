@@ -22,6 +22,10 @@ _pilot_spec = spec_from_file_location("run_pilot_qa", os.path.join(os.path.abspa
 _pilot_mod = module_from_spec(_pilot_spec)
 _pilot_spec.loader.exec_module(_pilot_mod)
 
+_pkg_spec = spec_from_file_location("package_kaggle_ecg_assets", os.path.join(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")), "14_Automation", "package_kaggle_ecg_assets.py"))
+_pkg_mod = module_from_spec(_pkg_spec)
+_pkg_spec.loader.exec_module(_pkg_mod)
+
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 
@@ -101,6 +105,8 @@ class TestSchemaAndECGContract(unittest.TestCase):
         self.assertEqual(normalize_cardiomled_image_stem("150753 "), "150753")
         self.assertEqual(normalize_cardiomled_image_stem("136883(2)"), "136883-2")
         self.assertEqual(normalize_cardiomled_image_stem("126035-1"), "126035-1")
+        for bad_raw, expected in [("150793 .png", "150793.png"), ("150821 .png", "150821.png"), ("150874 .png", "150874.png")]:
+            self.assertEqual(_pkg_mod.sanitize_kaggle_filename(bad_raw), expected)
 
         # Minimal valid PNG with IHDR (width=1535, height=4490, bd=8, ct=2) and IEND chunk
         ihdr_data = struct.pack(">IIBBBBB", 1535, 4490, 8, 2, 0, 0, 0)

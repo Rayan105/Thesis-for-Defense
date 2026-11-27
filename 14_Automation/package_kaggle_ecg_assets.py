@@ -11,6 +11,7 @@ are NEVER blurred out by bilinear averaging, writing:
 from __future__ import annotations
 
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -22,12 +23,25 @@ if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
 from src.cvd_mm.dataset import DEFAULT_REL0001_DIR, load_rel0001_partition
+from src.cvd_mm.schema_ecg import normalize_cardiomled_image_stem
+
+
+def sanitize_kaggle_filename(name: str) -> str:
+    """Normalize basename via CRF contract so Kaggle archive filename checks pass cleanly."""
+    p = Path(name)
+    stem = re.sub(r"\s+", "_", normalize_cardiomled_image_stem(p.stem))
+    suffix = p.suffix.strip().lower()
+    clean = f"{stem}{suffix}"
+    if not clean or any(ch.isspace() for ch in clean):
+        raise ValueError(f"Unsafe Kaggle filename after sanitization: {name!r} -> {clean!r}")
+    return clean
 
 
 def collect_train_val_ds0002_png_map() -> list[dict[str, str]]:
     """Collect unique Train & Val DS0002 PNG paths strictly avoiding test shard."""
     entries: list[dict[str, str]] = []
     seen_paths: set[str] = set()
+    seen_clean_names: set[str] = set()
     for part in ("train", "val"):
         recs = load_rel0001_partition(part, rel_dir=DEFAULT_REL0001_DIR, dataset_scope="DS0002")
         for rec in recs:
@@ -39,11 +53,17 @@ def collect_train_val_ds0002_png_map() -> list[dict[str, str]]:
                     src = REPO_ROOT / norm_p
                     if not src.is_file():
                         raise FileNotFoundError(f"Missing raw DS0002 PNG: {src}")
+                    raw_name = Path(norm_p).name
+                    clean_name = sanitize_kaggle_filename(raw_name)
+                    if clean_name in seen_clean_names:
+                        raise RuntimeError(f"Sanitized filename collision: {raw_name!r} -> {clean_name!r}")
+                    seen_clean_names.add(clean_name)
                     entries.append({
                         "partition": part,
                         "encounter_id": rec["EncounterID"],
                         "raw_relpath": norm_p,
-                        "filename": Path(norm_p).name,
+                        "raw_filename": raw_name,
+                        "filename": clean_name,
                     })
     return entries
 
@@ -171,6 +191,12 @@ Write-Output ("Cleaned full-res & MinPooled " + $jobs.Count + " Train/Val DS0002
         zf.write(manifest_p, arcname="ds0002_png_train_val_manifest.json")
         for e in entries:
             zf.write(tmp_dir / e["filename"], arcname=f"ds0002_png/{e['filename']}")
+
+    with zipfile.ZipFile(zip_out, "r") as zf_chk:
+        bad_ws = [n for n in zf_chk.namelist() if any(ch.isspace() for ch in n)]
+        bad_test = [n for n in zf_chk.namelist() if "test" in n.lower()]
+        if bad_ws or bad_test:
+            raise RuntimeError(f"Archive invariant failed: whitespace={bad_ws}, test={bad_test}")
 
     shutil.rmtree(tmp_dir)
     size_mb = zip_out.stat().st_size / (1024 * 1024)
