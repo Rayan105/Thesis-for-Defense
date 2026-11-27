@@ -6,11 +6,11 @@
 | **Institution / Term** | Daffodil International University / Summer 2026 (CSE499) |
 | **Research Leads** | Rayan Ahmed (`232-15-847`), Mohammad Nafis Sadiq (`232-15-895`) |
 | **Supervisor** | Md. Mizanur Rahman (Senior Lecturer, Dept. of CSE, DIU) |
-| **Active Stage** | Stage S10 Technically Complete (`EXP0000_SMOKE` Local + Kaggle CUDA & `CKPT0001` Verified; Awaiting **`G09`** Sign-Off for Stage S11) |
-| **Current Step** | `STEP-027` Complete (`EXP0000_SMOKE`, `CKPT0001`, `checkpoint_policy.md`, `G09` Audit; [Smoke Report](file:///e:/FYDP/07_Experiments/EXP0000_SMOKE/README.md)) |
-| **Next Step** | 👉 Ratify **`G09 PASS`** (`DEC0009–0012`) & Start [STEP-028](../STEP_TRACKER.md#next-step-details-confirm-g09-pass---execute-step-028-stage-s11-full-controlled-experiments) (`Stage S11 Full Controlled Experiments`) |
+| **Active Stage** | Stage S11 Unlocked (`G09 PASS` Signed `2026-11-27`; Ready for `STEP-028` Immutable `EXP####` Bundles & Full Kaggle GPU Training) |
+| **Current Step** | `STEP-027` Complete (`G09 PASS`, `DEC0009–12 Approved`, `EXP0000_SMOKE` + `CKPT0001` Verified; [G09 PASS](file:///e:/FYDP/01_Project_Management/reviews/G09_assessment_2026-11-27_reassessment.md)) |
+| **Next Step** | 👉 Execute [STEP-028](../STEP_TRACKER.md#next-step-details-execute-step-028-stage-s11-full-controlled-experiments--blocks-af) (**Register `EXP####` Bundles & Launch Stage S11 Full Controlled Experiments**) |
 | **Master Step Tracker** | [STEP_TRACKER.md](../STEP_TRACKER.md) |
-| **Last Updated** | 2026-11-27T21:50:00+06:00 |
+| **Last Updated** | 2026-11-27T21:54:00+06:00 |
 
 ---
 
@@ -26,7 +26,7 @@
 | **G06** | Pilot & Adjudicated Label Release | Md. Mizanur Rahman + Data Lead | **PASS** | [G06_assessment_2026-11-27_reassessment.md](file:///e:/FYDP/01_Project_Management/reviews/G06_assessment_2026-11-27_reassessment.md) *(`DEC0006 Option A` ratified `2026-11-27`; `91,781` eligible / `0` violations)* |
 | **G07** | Patient-Level Leakage-Free Split | Biostatistics Reviewer + Supervisor | **PASS** | [G07_assessment_2026-11-27_reassessment.md](file:///e:/FYDP/01_Project_Management/reviews/G07_assessment_2026-11-27_reassessment.md) *(`DEC0008 Option A` confirmed `2026-11-27`; `0` overlap across `91,781` rows)* |
 | **G08** | Preprocessing & ECG Filter Integrity | Clinical Lead + Implementer | **PASS** | [G08_assessment_2026-11-27_reassessment.md](file:///e:/FYDP/01_Project_Management/reviews/G08_assessment_2026-11-27_reassessment.md) *(`DEC0007 Option A` & `REL0001` confirmed `2026-11-27`; Ext Cardiologist spot-check tracked for `G14`)* |
-| **G09** | Architecture, Runtime & Smoke Test | Supervisor + Evaluator | **NOT ASSESSED** | [G09_assessment_2026-11-27.md](file:///e:/FYDP/01_Project_Management/reviews/G09_assessment_2026-11-27.md) *(`C1–C4 PASS` [32/32 tests, Kaggle CUDA & local smoke, `CKPT0001` SHA-256 parity]; `C5` awaiting Supervisor ratification)* |
+| **G09** | Architecture, Runtime & Smoke Test | Md. Mizanur Rahman + Evaluator | **PASS** | [G09_assessment_2026-11-27_reassessment.md](file:///e:/FYDP/01_Project_Management/reviews/G09_assessment_2026-11-27_reassessment.md) *(`DEC0009–12` approved `2026-11-27`; `32/32` tests, Kaggle CUDA + local smoke, `CKPT0001` SHA-256 parity PASS)* |
 | **G10** | Controlled Experiment Completion | Experiment Reviewer | **BLOCKED** | Pending Stage S11 execution (`STEP-028`–`031`) |
 | **G11** | Validation-Only Selection & Freeze | Supervisor + Evaluator | **BLOCKED** | Pending Stage S12 execution (`STEP-032`–`033`) |
 | **G12** | Test Evaluation, Calibration & DCA | Biostatistics Reviewer | **BLOCKED** | Pending Stage S13 execution (`STEP-034`–`036`) |

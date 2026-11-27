@@ -8,12 +8,12 @@
 
 | Metric | Current Value |
 |---|---|
-| **Last Completed Step** | **`STEP-027` (`EXP0000_SMOKE` Kaggle CUDA + Local Drill & `CKPT0001` Recovery Verified)** (`G09 C1–C4 PASS / Awaiting Sign-Off`) |
-| **Last Git Commit** | `STEP-027`: Verified `EXP0000_SMOKE` Kaggle GPU & local drills, `CKPT0001`, registries & `G09` audit |
-| **Active Stage** | **`S10` Complete Technically (`STEP-023–027`)** -> **Confirm `G09` (`DEC0009–12`) to Unlock `Stage S11` (`STEP-028+`)** |
-| **Next Step to Execute** | 👉 **Confirm `G09 PASS` & Launch `STEP-028` (`Register EXP#### Bundles & Execute Stage S11 Baselines/Fusion`)** |
-| **Current Quality Gates** | `G01`: Not Assessed \| **`G02–G08`: PASS** \| **`G09`: Not Assessed (`C1–C4 Technical PASS`)** \| `G10–G17`: Blocked |
-| **Last Updated** | 2026-11-27T21:50:00+06:00 |
+| **Last Completed Step** | **`STEP-027` (`EXP0000_SMOKE` Verified & Gate `G09 PASS`)** (`Stage S10 Closed` — `G02–G09 PASS`) |
+| **Last Git Commit** | `STEP-027 / G09 PASS`: Signed `G09_assessment_2026-11-27_reassessment.md`, approved `DEC0009–12` & unlocked `Stage S11` |
+| **Active Stage** | **`S11` UNLOCKED (`STEP-028` through `STEP-031`: Controlled Baselines, Fusion & Ablations on Kaggle GPU)** |
+| **Next Step to Execute** | 👉 **Execute `STEP-028` (`Register Immutable EXP0001–EXP00XX Bundles [Blocks A–F] & Launch Stage S11 Training`)** |
+| **Current Quality Gates** | `G01`: Not Assessed (`PDF missing`) \| **`G02–G09`: PASS** \| `G10–G17`: Blocked (`S11–S17`) |
+| **Last Updated** | 2026-11-27T21:54:00+06:00 |
 
 ### 🤖 AI Prompt for Next Teammate / Next Session:
 To resume work with minimal token cost, simply give the AI this exact prompt:
@@ -70,8 +70,8 @@ Read STEP_TRACKER.md and execute the next pending step.
 | **STEP-024** | S10 | Lock Phase 2 modeling environment (`environment/model/`) | Rayan Ahmed | - | ✅ **COMPLETED (`environment/model/` Locked)** | [versions.md](file:///e:/FYDP/environment/model/versions.md), [requirements.txt](file:///e:/FYDP/environment/model/requirements.txt), [environment.yml](file:///e:/FYDP/environment/model/environment.yml), [verify_model_runtime.py](file:///e:/FYDP/14_Automation/verify_model_runtime.py) |
 | **STEP-025** | S10 | Formalize experiment plan, ablation matrix, calibration/stats protocol | Rayan & Nafis | - | ✅ **COMPLETED (Pre-Training Protocols Frozen)** | [experiment_plan.md](file:///e:/FYDP/07_Experiments/experiment_plan.md), [eval_protocol.md](file:///e:/FYDP/09_Evaluation_Stats/protocol.md), [xai_protocol.md](file:///e:/FYDP/10_Explainability_XAI/xai_protocol.md), [DEC0011](file:///e:/FYDP/01_Project_Management/decision_log/DEC0011.md), [DEC0012](file:///e:/FYDP/01_Project_Management/decision_log/DEC0012.md) |
 | **STEP-026** | S10 | Implement baseline suite (LR, RF, SVM, XGBoost, 1D-CNN, LSTM) & Transformer fusion | Rayan Ahmed | - | ✅ **COMPLETED (`src/cvd_mm/` + `32/32` Tests + Kaggle NB)** | [pipeline.md](file:///e:/FYDP/13_Documentation/pipeline.md), [run_experiment.py](file:///e:/FYDP/14_Automation/run_experiment.py), [CVD_Multimodal_Kaggle_Training_Pipeline.ipynb](file:///e:/FYDP/06_Models_Fusion/notebooks/CVD_Multimodal_Kaggle_Training_Pipeline.ipynb) |
-| **STEP-027** | S10 | Diagnostic smoke run, pipeline test, checkpoint restore test, pass Gate G09 | Rayan Ahmed | G09 | ✅ **COMPLETED (Technical `C1–C4 PASS` / `G09` Awaiting Sign-Off)** | [EXP0000_SMOKE](file:///e:/FYDP/07_Experiments/EXP0000_SMOKE/README.md), [CKPT0001](file:///e:/FYDP/08_Checkpoints/manifests/CKPT0001.md), [G09 Review](file:///e:/FYDP/01_Project_Management/reviews/G09_assessment_2026-11-27.md) |
-| **STEP-028** | S11 | Execute Tier 1 unimodal baselines & Tier 2 clinical risk scores | Rayan Ahmed | - | 👉 **NEXT (After `G09` Confirm)** | Target: `Blocks A–B` Baselines |
+| **STEP-027** | S10 | Diagnostic smoke run, pipeline test, checkpoint restore test, pass Gate G09 | Rayan Ahmed | G09 | ✅ **COMPLETED (`G09 PASS`)** | [EXP0000_SMOKE](file:///e:/FYDP/07_Experiments/EXP0000_SMOKE/README.md), [CKPT0001](file:///e:/FYDP/08_Checkpoints/manifests/CKPT0001.md), [G09 PASS](file:///e:/FYDP/01_Project_Management/reviews/G09_assessment_2026-11-27_reassessment.md) |
+| **STEP-028** | S11 | Execute Tier 1 unimodal baselines & Tier 2 clinical risk scores | Rayan Ahmed | - | 👉 **NEXT TO EXECUTE** | Target: `EXP####` Bundles & `Blocks A–B` |
 | **STEP-029** | S11 | Execute Tier 3 early/late fusion models & Tier 4 Transformer fusion | Rayan Ahmed | - | ⚪ PENDING | Target: Fusion runs |
 | **STEP-030** | S11 | Register model checkpoints & cards, evaluate qualifying Gate G10 | Rayan Ahmed | G10 | ⚪ PENDING | Target: G10 Assessment |
 | **STEP-031** | S11 | Multi-seed runs, LOMO ablations, missing-modality degradation stress tests | Rayan Ahmed | - | ⚪ PENDING | Target: Full ablation matrix |
@@ -97,9 +97,9 @@ Read STEP_TRACKER.md and execute the next pending step.
 
 ---
 
-## 🎯 Next Step Details: Confirm `G09 PASS` -> Execute `STEP-028+` (`Stage S11 Full Controlled Experiments`)
+## 🎯 Next Step Details: Execute `STEP-028+` (`Stage S11 Full Controlled Experiments — Blocks A–F`)
 
-- **Technical Smoke & Recovery Verified (`STEP-027` Empirical Complete):** Both local real-`REL0001` CPU drill (`max_weight_diff=0.0`, WFDB `12x5000` verified, AOPC > controls) and Kaggle GPU `cuda` smoke (`XGB Val AUROC=0.768026`, `TreeSHAP err=7.15e-7`, `CVDMMTransformer 129,169 params` Epoch 2 interrupt -> `CKPT0001` SHA-256 `18824d5e...` -> finite Epochs 3–4 resume, `KernelSHAP err=2.98e-8`, `Test=0 reads`) succeeded cleanly.
-- **Next Execution (`G09 Ratification` -> `Stage S11`):**
-  1. **Confirm `G09 PASS` (`Supervisor / Research Lead`):** Ratify [G09 Assessment](file:///e:/FYDP/01_Project_Management/reviews/G09_assessment_2026-11-27.md) & `DEC0009–DEC0012` (`Option A`).
-  2. **`STEP-028–031` (`Stage S11`):** Register `EXP####` YAML bundles (`Blocks A–F`) and execute full **Tier 1–4** model training across seeds on Kaggle GPU via [CVD_Multimodal_Kaggle_Training_Pipeline.ipynb](file:///e:/FYDP/06_Models_Fusion/notebooks/CVD_Multimodal_Kaggle_Training_Pipeline.ipynb).
+- **Gate `G09 PASS` Signed (`2026-11-27`):** `DEC0009–DEC0012` approved by Supervisor Md. Mizanur Rahman; [G09 Reassessment](file:///e:/FYDP/01_Project_Management/reviews/G09_assessment_2026-11-27_reassessment.md) closed **`PASS`**. Stage `S10` is complete.
+- **Next Execution (`Stage S11` — `STEP-028` to `STEP-031`):**
+  1. **`STEP-028` (`Next`):** Generate immutable `EXP0001–EXP00XX` YAML configurations (`T32`) covering `Blocks A–F` (`Tier 1–4` comparators across `DS0001–DS0004` + LOMO ablations) and register `Status=READY` inside [experiment_registry.csv](file:///e:/FYDP/07_Experiments/experiment_registry.csv).
+  2. **`STEP-029`:** Run full **Tier 1–4** model training on **Kaggle GPU (`T4 x1` / `P100`)** via [CVD_Multimodal_Kaggle_Training_Pipeline.ipynb](file:///e:/FYDP/06_Models_Fusion/notebooks/CVD_Multimodal_Kaggle_Training_Pipeline.ipynb) (`Train`/`Val` only; `Test` stays strictly sealed until Gate `G11`).
