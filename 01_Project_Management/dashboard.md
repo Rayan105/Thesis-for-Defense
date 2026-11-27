@@ -6,11 +6,11 @@
 | **Institution / Term** | Daffodil International University / Summer 2026 (CSE499) |
 | **Research Leads** | Rayan Ahmed (`232-15-847`), Mohammad Nafis Sadiq (`232-15-895`) |
 | **Supervisor** | Md. Mizanur Rahman (Senior Lecturer, Dept. of CSE, DIU) |
-| **Active Stage** | Stage S08 (`STEP-018` Release Audit Clean [`0` Violations]; Ready for `G06` Sign-Off -> `Stage S09` Preprocessing) |
-| **Current Step** | `STEP-018` Audit Complete (`ADJ0001–0004` `91,781` Clean Eligible / `2,166` Quarantined; [Release Audit](../04_Outcome_Schema_QA/reviews/adjudication_release_audit.md)) |
-| **Next Step** | 👉 Sign `G06` (`DEC0006 UD10`) -> [STEP-019](../STEP_TRACKER.md#next-step-details-confirm-g06-dec0006--begin-stage-s09-preprocessing-step-019) (**`Stage S09` Preprocessing & Splitting**) |
+| **Active Stage** | Stage S09 (`STEP-019` Leakage-Free Preprocessing Design & Kaggle Notebook Complete; `G06` Sign-Off -> `STEP-020` Next) |
+| **Current Step** | `STEP-019` Spec, Modules & Kaggle `.ipynb` Ready (`11/11` tests pass; [Pipeline Spec](../05_Preprocessing_Alignment/specs/pipeline.md)) |
+| **Next Step** | 👉 Confirm `G06` (`DEC0006 UD10`) -> [STEP-020](../STEP_TRACKER.md#next-step-details-confirm-g06--execute-step-020-patientgrouped-split--kaggle-run) (**Nafis: `PatientGroupID` Splits & Stage B Run**) |
 | **Master Step Tracker** | [STEP_TRACKER.md](../STEP_TRACKER.md) |
-| **Last Updated** | 2026-11-27T00:38:00+06:00 |
+| **Last Updated** | 2026-11-27T11:35:00+06:00 |
 
 ---
 
@@ -43,7 +43,7 @@
 - **Template Library:** 32 / 32 blank templates materialized (`15_Templates_Prompts/`) — **PASS**
 - **Appendix B Registries:** 22 / 22 canonical CSV files validated — **PASS**
 - **Automated Validation:** `14_Automation/validate_repo.py` passes with zero errors — **PASS**
-- **Test Suite:** `tests/test_synthetic_smoke.py` & `tests/test_schema_ecg.py` pass (7/7 unit tests clean) — **PASS**
+- **Test Suite:** `tests/test_synthetic_smoke.py`, `tests/test_schema_ecg.py` & `tests/test_preprocessing_leakage.py` pass (11/11 unit tests clean) — **PASS**
 - **PHI Exclusions:** Git status verified clean; raw data and binary models strictly ignored — **PASS**
 
 ---

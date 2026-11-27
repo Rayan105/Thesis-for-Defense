@@ -1,0 +1,44 @@
+# Preprocessing Configuration Template PP_v1.0.0 (UD12 — Pre-Split Design Spec)
+# Note: Actual fitted hashes (FitStateHash) stay null/unset until STEP-021 executes post-G07.
+config_id: PP_SPEC_v1_0_0
+stage: S09
+step: STEP-019
+tier_mode: Tier_A_No_Incorporation_Bias
+
+leakage_guard:
+  fit_allowed_splits: ["train"]
+  fail_on_val_or_test_in_fit: true
+  block_leakage_columns: true
+  allow_pre_split_smote: false
+
+stage_a_record_local:
+  clinical_tabular:
+    min_adult_age_years: 18.0
+    sbp_valid_range_mmhg: [50.0, 280.0]
+    dbp_valid_range_mmhg: [30.0, 180.0]
+    height_valid_range_cm: [100.0, 220.0]
+    weight_valid_range_kg: [30.0, 200.0]
+    derive_age_from_days_divisor: 365.25
+  wfdb_ecg:
+    canonical_leads: ["I", "II", "III", "AVR", "AVL", "AVF", "V1", "V2", "V3", "V4", "V5", "V6"]
+    target_sampling_rates_hz: [500.0, 100.0]
+    notch_freq_hz: 50.0
+    notch_quality_factor: 30.0
+    apply_notch_min_fs_hz: 120.0   # Skip 50 Hz notch when fs=100 Hz (Nyquist = 50 Hz!)
+    baseline_highpass_hz: 0.5      # Strictly <= 0.5 Hz to preserve ST-T segments
+    zero_phase_filtfilt: true
+    mv_clip_bounds: [-10.0, 10.0]
+  png_ecg_scans:
+    allowed_extensions: [".png"]
+    quarantine_extensions: [".jpg", ".jpeg"]
+    rotate_portrait_90_ccw: true
+    suppress_red_millimeter_grid: true
+    target_canvas_hw: [256, 768]   # (Height, Width) landscape letterbox
+
+stage_b_train_only_fit:
+  emit_missingness_masks: true
+  continuous_imputer: "median_or_iterative_mice"
+  continuous_scaler: "robust_iqr"
+  categorical_encoder: "onehot_ignore_unknown"
+  class_imbalance_strategy: "train_pos_weight_loss"
+  fit_state_hash: null   # Computed strictly at STEP-021 post-split locking

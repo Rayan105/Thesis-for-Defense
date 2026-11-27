@@ -82,3 +82,12 @@ Before any clinical row or ECG record enters Tier 2B:
 - [ ] No training script has programmatic read access to Tier 2A linkage paths.
 - [ ] All preprocessing estimators (scalers, imputers, encoders) are fit strictly on training splits.
 - [ ] Git commit hooks and pre-push checks audit staging area for accidental CSV rows containing names or identifiers.
+
+---
+
+## 5. Stage S09 Decoupled Preprocessing Contract (`STEP-019`, `UD12`)
+
+- **Specification & Code Modules:** [pipeline.md](../05_Preprocessing_Alignment/specs/pipeline.md), [pp_v1_0_0_spec.yaml](../05_Preprocessing_Alignment/configs/pp_v1_0_0_spec.yaml), [src/cvd_mm/preprocessing.py](../src/cvd_mm/preprocessing.py), [src/cvd_mm/ecg.py](../src/cvd_mm/ecg.py), [tests/test_preprocessing_leakage.py](../tests/test_preprocessing_leakage.py)
+- **Kaggle Execution Companion:** [CVD_Multimodal_Kaggle_Preprocessing_Pipeline.ipynb](../05_Preprocessing_Alignment/notebooks/CVD_Multimodal_Kaggle_Preprocessing_Pipeline.ipynb)
+- **Two-Stage Leakage Boundary:** **Stage A (Record-Local)** covers unit conversion, BMI derivation, fixed `50 Hz` notch (`fs > 120 Hz`), $\le 0.5\text{ Hz}$ zero-phase Butterworth baseline filter, and `CARDIO-ML-ED` `90°` CCW PNG rotation + RGB red-grid ink isolation; **Stage B (Train-Only)** executes ONLY after `STEP-020` (`G07`) splitting, computing Train-only `IterativeImputer`/median, `RobustScaler`, categorical encoding, MNAR `{col}_isnan` flags, 4D `[has_clinical, has_ecg, has_lab, has_lifestyle]` modality masks, and `FitStateHash` SHA-256 verification.
+

@@ -8,12 +8,12 @@
 
 | Metric | Current Value |
 |---|---|
-| **Last Completed Step** | **`STEP-018` (QA & Freeze Complete)** (`ADJ0001–0004` `91,781` Eligible / `0` Violations, `DEC0006` Drafted; `G06` Awaiting Sign-Off) |
-| **Last Git Commit** | `STEP-018`: Whole-cohort CONSORT QA (`0` violations), immutable `ADJ0001–0004` freeze, `DEC0006` (`UD10`) & `G06` review |
-| **Active Stage** | **`S08` (`STEP-018` Audit Clean) -> `S09`** (Approve `G06` / `DEC0006` -> Leakage-Safe Preprocessing & Splits!) |
-| **Next Step to Execute** | 👉 **Sign `G06` (`DEC0006` `UD10`) & Execute `STEP-019` (`Stage S09`)** (`Leakage-Free Modality Preprocessing Spec & Tests`) |
+| **Last Completed Step** | **`STEP-019` (Stage S09 Spec, DSP Modules & Kaggle Notebook Complete)** (`pipeline.md`, `pp_v1_0_0_spec.yaml`, `preprocessing.py`, `ecg.py`, `11/11` Tests Pass) |
+| **Last Git Commit** | `STEP-019`: Leakage-free 4-modality preprocessing spec (`UD12`), DSP/grid guards, unit tests (`11/11`) & Kaggle `.ipynb` |
+| **Active Stage** | **`S09` (`STEP-019` Design & Kaggle Notebook Done)** -> `STEP-020` (`G06` Sign-Off + `PatientGroupID` Splits!) |
+| **Next Step to Execute** | 👉 **Confirm `G06` (`DEC0006 UD10`) & Execute `STEP-020` (`G07`)** (`Nafis: PatientGroupID Train/Val/Test Split & Seal Test`) |
 | **Current Quality Gates** | `G01`: Not Assessed (`local PDF missing`) \| **`G02–G05`: PASS** \| **`G06`: NOT ASSESSED (`DEC0006` Sign-Off Pending)** \| `G07–G17`: Blocked |
-| **Last Updated** | 2026-11-27T00:38:00+06:00 |
+| **Last Updated** | 2026-11-27T11:35:00+06:00 |
 
 ### 🤖 AI Prompt for Next Teammate / Next Session:
 To resume work with minimal token cost, simply give the AI this exact prompt:
@@ -62,8 +62,8 @@ Read STEP_TRACKER.md and execute the next pending step.
 | **STEP-016** | S08 | Stratified dual-stream pilot QA (`N_pilot=60`), compute Cohen's $\kappa$ / ICC | Nafis & Rayan | - | ✅ **COMPLETED (`Pilot PASS`)** | [run_pilot_qa.py](file:///e:/FYDP/14_Automation/run_pilot_qa.py), [pilot_qa_review.md](file:///e:/FYDP/04_Outcome_Schema_QA/reviews/pilot_qa_review.md) ($\kappa=1.0, \text{ICC}=1.0$) |
 | **STEP-017** | S08 | Execute tracked production curation & adjudication batches (`ADJB0001–0004`) | Nafis & Rayan | - | ✅ **COMPLETED (`91,781` Eligible)** | [curate_batches.py](file:///e:/FYDP/14_Automation/curate_batches.py), [ADJB0001–0004](file:///e:/FYDP/04_Outcome_Schema_QA/reviews/) (`5%` Dual-QA $\kappa=1.0$) |
 | **STEP-018** | S08 | Whole-cohort QA reconciliation, freeze `ADJ0001–0004`, evaluate Gate G06 (`UD10`) | Nafis & Rayan | G06 | ✅ **COMPLETED (Audit Clean / G06 Awaiting Sign-Off)** | [adjudication_registry.csv](file:///e:/FYDP/04_Outcome_Schema_QA/adjudication_registry.csv), [Release Audit](file:///e:/FYDP/04_Outcome_Schema_QA/reviews/adjudication_release_audit.md), [DEC0006](file:///e:/FYDP/01_Project_Management/decision_log/DEC0006.md), [G06 Review](file:///e:/FYDP/01_Project_Management/reviews/G06_assessment_2026-11-27.md) |
-| **STEP-019** | S09 | Design leakage-free 4-modality preprocessing, ECG filtering & masking (`UD12`) | Rayan & Nafis | - | 👉 **NEXT TO EXECUTE (Requires `G06` Sign-Off for `S09` Lock)** | Target: `05_Preprocessing_Alignment/specs/pipeline.md`, `src/cvd_mm/preprocessing.py`, `ecg.py`, `tests/` |
-| **STEP-020** | S09 | Execute deterministic patient-grouped split, seal test partition, pass Gate G07 | Nafis Sadiq | G07 | ⚪ PENDING | Target: G07 Assessment |
+| **STEP-019** | S09 | Design leakage-free 4-modality preprocessing, ECG filtering & masking (`UD12`) | Rayan & Nafis | - | ✅ **COMPLETED (`11/11` Tests + Kaggle NB)** | [Pipeline Spec](file:///e:/FYDP/05_Preprocessing_Alignment/specs/pipeline.md), [preprocessing.py](file:///e:/FYDP/src/cvd_mm/preprocessing.py), [ecg.py](file:///e:/FYDP/src/cvd_mm/ecg.py), [Kaggle NB](file:///e:/FYDP/05_Preprocessing_Alignment/notebooks/CVD_Multimodal_Kaggle_Preprocessing_Pipeline.ipynb), [DEC0007](file:///e:/FYDP/01_Project_Management/decision_log/DEC0007.md) |
+| **STEP-020** | S09 | Execute deterministic patient-grouped split, seal test partition, pass Gate G07 | Nafis Sadiq | G07 | 👉 **NEXT TO EXECUTE (Confirm `G06` First)** | Target: G07 Assessment |
 | **STEP-021** | S09 | Preprocessing pipeline: record-local ECG filtering vs train-only fitted transforms | Rayan Ahmed | - | ⚪ PENDING | Target: Preprocessing configs |
 | **STEP-022** | S09 | Cardiologist ECG filter morphology check, release `REL####`, pass Gate G08 | Cardiologist | G08 | ⚪ PENDING | Target: G08 Assessment |
 | **STEP-023** | S10 | Deep learning framework selection (PyTorch vs TF under UD13) | Rayan Ahmed | - | ⚪ PENDING | Target: `DEC0002` / Framework Lock |
@@ -97,10 +97,10 @@ Read STEP_TRACKER.md and execute the next pending step.
 
 ---
 
-## 🎯 Next Step Details: Confirm `G06` (`DEC0006`) & Begin `Stage S09` Preprocessing (`STEP-019`)
+## 🎯 Next Step Details: Confirm `G06` & Execute `STEP-020` (`PatientGroupID` Split & Kaggle Run)
 
-- **Gate Confirmation Needed (`G06 -> PASS`):** Confirm [DEC0006.md](file:///e:/FYDP/01_Project_Management/decision_log/DEC0006.md) (`UD10 Option A`: retain partial-modality cohorts + binary missingness masks + `PatientGroupID` grouping) & frozen `ADJ0001–ADJ0004` releases.
-- **Next Pipeline Stage (`Stage S09`: `STEP-019`–`STEP-022`, Preprocessing & Leakage-Free Splits):**
-  1. **`STEP-019` (Preprocessing Design & Leakage Tests):** Formally separate **Stage A (record-local deterministic: unit scaling, WFDB resampling & fixed `50 Hz`/baseline filters, `CARDIO-ML-ED` PNG rotation & red-grid suppression)** from **Stage B (Train-only fitted: MICE/median imputation, Scalers, MNAR missingness masks)**, backed by `tests/test_preprocessing_leakage.py`.
-  2. **`STEP-020` (`G07`):** Deterministic `PatientGroupID`-grouped Train / Validation / Test split & test-set sealing.
-  3. **`STEP-021`–`STEP-022` (`G08`):** Execute Train-only preprocessing fits (`FitStateHash`), verify ECG ST-T filter morphology, and lock immutable `REL####` release for Stage `S10` modeling!
+- **Gate Confirmation Needed (`G06 -> PASS`):** Confirm [DEC0006.md](file:///e:/FYDP/01_Project_Management/decision_log/DEC0006.md) (`UD10 Option A`: retain partial-modality cohorts + binary missingness masks + `PatientGroupID` grouping) & frozen `ADJ0001–ADJ0004` releases before locking real splits.
+- **Next Steps in `Stage S09` (Execution by Nafis Sadiq):**
+  1. **`STEP-020` (`G07`):** Run deterministic `PatientGroupID`-grouped Train (`70%` / `PTB-XL folds 1–8`) / Validation (`15%` / `fold 9`) / Test (`15%` / `fold 10`) split, assert zero patient overlap across partitions, and formally seal the Test split.
+  2. **`STEP-021` (`Stage B Execution`):** Fit Stage B (`IterativeImputer`/median, `RobustScaler`, `OneHotEncoder`, MNAR `_isnan` masks, `FitStateHash`) **strictly on Train** locally or via [CVD_Multimodal_Kaggle_Preprocessing_Pipeline.ipynb](file:///e:/FYDP/05_Preprocessing_Alignment/notebooks/CVD_Multimodal_Kaggle_Preprocessing_Pipeline.ipynb), then export Kaggle artifacts to Tier 2B `processed/` (gitignored).
+  3. **`STEP-022` (`G08`):** Confirm `DEC0007` (`UD12`) with Cardiologist / Clinical reviewer inspecting `0.5 Hz` high-pass + `50 Hz` notch ECG waveform morphology overlays and lock `REL####` release!
