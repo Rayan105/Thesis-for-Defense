@@ -8,12 +8,12 @@
 
 | Metric | Current Value |
 |---|---|
-| **Last Completed Step** | **`STEP-027` (`EXP0000_SMOKE` Verified & Gate `G09 PASS`)** (`Stage S10 Closed` — `G02–G09 PASS`) |
-| **Last Git Commit** | `STEP-027 / G09 PASS`: Signed `G09_assessment_2026-11-27_reassessment.md`, approved `DEC0009–12` & unlocked `Stage S11` |
-| **Active Stage** | **`S11` UNLOCKED (`STEP-028` through `STEP-031`: Controlled Baselines, Fusion & Ablations on Kaggle GPU)** |
-| **Next Step to Execute** | 👉 **Execute `STEP-028` (`Register Immutable EXP0001–EXP00XX Bundles [Blocks A–F] & Launch Stage S11 Training`)** |
+| **Last Completed Step** | **`STEP-028` (`EXP0001–EXP0020` Immutable Stage S11 Bundles Registered `READY`)** (`Blocks A–F`, `33/33` Tests PASS) |
+| **Last Git Commit** | `STEP-028`: Registered & hash-validated `EXP0001–EXP0020` immutable configs (`Blocks A–F`) & `experiment_registry.csv` |
+| **Active Stage** | **`S11` IN PROGRESS (`STEP-028` Complete -> `STEP-029` Executing Full Controlled Training on Kaggle GPU)** |
+| **Next Step to Execute** | 👉 **Execute `STEP-029` (`Train Blocks A–F Models [MC0001–MC0015] on REL0001 Train/Val via Kaggle GPU`)** |
 | **Current Quality Gates** | `G01`: Not Assessed (`PDF missing`) \| **`G02–G09`: PASS** \| `G10–G17`: Blocked (`S11–S17`) |
-| **Last Updated** | 2026-11-27T21:54:00+06:00 |
+| **Last Updated** | 2026-11-27T22:00:00+06:00 |
 
 ### 🤖 AI Prompt for Next Teammate / Next Session:
 To resume work with minimal token cost, simply give the AI this exact prompt:
@@ -71,8 +71,8 @@ Read STEP_TRACKER.md and execute the next pending step.
 | **STEP-025** | S10 | Formalize experiment plan, ablation matrix, calibration/stats protocol | Rayan & Nafis | - | ✅ **COMPLETED (Pre-Training Protocols Frozen)** | [experiment_plan.md](file:///e:/FYDP/07_Experiments/experiment_plan.md), [eval_protocol.md](file:///e:/FYDP/09_Evaluation_Stats/protocol.md), [xai_protocol.md](file:///e:/FYDP/10_Explainability_XAI/xai_protocol.md), [DEC0011](file:///e:/FYDP/01_Project_Management/decision_log/DEC0011.md), [DEC0012](file:///e:/FYDP/01_Project_Management/decision_log/DEC0012.md) |
 | **STEP-026** | S10 | Implement baseline suite (LR, RF, SVM, XGBoost, 1D-CNN, LSTM) & Transformer fusion | Rayan Ahmed | - | ✅ **COMPLETED (`src/cvd_mm/` + `32/32` Tests + Kaggle NB)** | [pipeline.md](file:///e:/FYDP/13_Documentation/pipeline.md), [run_experiment.py](file:///e:/FYDP/14_Automation/run_experiment.py), [CVD_Multimodal_Kaggle_Training_Pipeline.ipynb](file:///e:/FYDP/06_Models_Fusion/notebooks/CVD_Multimodal_Kaggle_Training_Pipeline.ipynb) |
 | **STEP-027** | S10 | Diagnostic smoke run, pipeline test, checkpoint restore test, pass Gate G09 | Rayan Ahmed | G09 | ✅ **COMPLETED (`G09 PASS`)** | [EXP0000_SMOKE](file:///e:/FYDP/07_Experiments/EXP0000_SMOKE/README.md), [CKPT0001](file:///e:/FYDP/08_Checkpoints/manifests/CKPT0001.md), [G09 PASS](file:///e:/FYDP/01_Project_Management/reviews/G09_assessment_2026-11-27_reassessment.md) |
-| **STEP-028** | S11 | Execute Tier 1 unimodal baselines & Tier 2 clinical risk scores | Rayan Ahmed | - | 👉 **NEXT TO EXECUTE** | Target: `EXP####` Bundles & `Blocks A–B` |
-| **STEP-029** | S11 | Execute Tier 3 early/late fusion models & Tier 4 Transformer fusion | Rayan Ahmed | - | ⚪ PENDING | Target: Fusion runs |
+| **STEP-028** | S11 | Register & hash-validate immutable `EXP0001–EXP0020` bundles (`Blocks A–F`) | Rayan Ahmed | - | ✅ **COMPLETED (`20/20 READY` in `experiment_registry.csv`)** | [register_experiments.py](file:///e:/FYDP/14_Automation/register_experiments.py), [experiment_registry.csv](file:///e:/FYDP/07_Experiments/experiment_registry.csv), [EXP0015 README](file:///e:/FYDP/07_Experiments/EXP0015/README.md) |
+| **STEP-029** | S11 | Train registered `Blocks A–F` models (`Tier 1–4`, `MC0001–MC0015`) on Train/Val | Rayan Ahmed | - | 👉 **NEXT TO EXECUTE** | Target: Kaggle GPU Full Matrix |
 | **STEP-030** | S11 | Register model checkpoints & cards, evaluate qualifying Gate G10 | Rayan Ahmed | G10 | ⚪ PENDING | Target: G10 Assessment |
 | **STEP-031** | S11 | Multi-seed runs, LOMO ablations, missing-modality degradation stress tests | Rayan Ahmed | - | ⚪ PENDING | Target: Full ablation matrix |
 | **STEP-032** | S12 | Validation-only champion model selection, fit calibrator, pass Gate G11 | Nafis Sadiq | G11 | ⚪ PENDING | Target: G11 (Test set freeze) |
@@ -97,9 +97,9 @@ Read STEP_TRACKER.md and execute the next pending step.
 
 ---
 
-## 🎯 Next Step Details: Execute `STEP-028+` (`Stage S11 Full Controlled Experiments — Blocks A–F`)
+## 🎯 Next Step Details: Execute `STEP-029` (`Kaggle GPU Controlled Training Across Blocks A–F`)
 
-- **Gate `G09 PASS` Signed (`2026-11-27`):** `DEC0009–DEC0012` approved by Supervisor Md. Mizanur Rahman; [G09 Reassessment](file:///e:/FYDP/01_Project_Management/reviews/G09_assessment_2026-11-27_reassessment.md) closed **`PASS`**. Stage `S10` is complete.
-- **Next Execution (`Stage S11` — `STEP-028` to `STEP-031`):**
-  1. **`STEP-028` (`Next`):** Generate immutable `EXP0001–EXP00XX` YAML configurations (`T32`) covering `Blocks A–F` (`Tier 1–4` comparators across `DS0001–DS0004` + LOMO ablations) and register `Status=READY` inside [experiment_registry.csv](file:///e:/FYDP/07_Experiments/experiment_registry.csv).
-  2. **`STEP-029`:** Run full **Tier 1–4** model training on **Kaggle GPU (`T4 x1` / `P100`)** via [CVD_Multimodal_Kaggle_Training_Pipeline.ipynb](file:///e:/FYDP/06_Models_Fusion/notebooks/CVD_Multimodal_Kaggle_Training_Pipeline.ipynb) (`Train`/`Val` only; `Test` stays strictly sealed until Gate `G11`).
+- **Immutable Bundles Registered (`STEP-028` Complete):** All `20` preregistered experiment bundles ([EXP0001..EXP0020](file:///e:/FYDP/07_Experiments/experiment_registry.csv)) covering Tier 1 unimodal (`MC0001–10`), Tier 2 clinical context (`MC0011`), Tier 3 simple fusion (`MC0012–14`), Tier 4 `CVDMMTransformer` (`MC0015`), and `Blocks D–F` ablations/stress tests passed schema + SHA-256 + `G08–G09` custody checks (`Status = READY`).
+- **Next Execution (`STEP-029` — Controlled Training Execution on Kaggle GPU):**
+  1. Launch Kaggle GPU training runs (`Train/Val` only; `Test` sealed until `G11`) using [CVD_Multimodal_Kaggle_Training_Pipeline.ipynb](file:///e:/FYDP/06_Models_Fusion/notebooks/CVD_Multimodal_Kaggle_Training_Pipeline.ipynb) across `Blocks A–C` first (`Tier 1–2` baselines vs `Tier 3` vs `Tier 4 CVDMMTransformer`)!
+  2. Export & log Validation metrics (`val_roc_auc`, `val_pr_auc`, `val_brier`, `ECE-15`) and `best_val` Tier 3 checkpoints (`CKPT####`), updating [experiment_registry.csv](file:///e:/FYDP/07_Experiments/experiment_registry.csv), [checkpoint_registry.csv](file:///e:/FYDP/08_Checkpoints/checkpoint_registry.csv), and [model_registry.csv](file:///e:/FYDP/06_Models_Fusion/model_registry.csv) in **`STEP-030` (`Gate G10`)**!

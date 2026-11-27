@@ -1,0 +1,31 @@
+{
+  "experiment_id": "EXP0018",
+  "comparison_block": "Block_E",
+  "research_question_id": "RQ1",
+  "comparator_tier": "ablation",
+  "parent_baseline_exp": "EXP0015",
+  "candidate_id": "MC0015",
+  "active_modalities": [
+    "clinical",
+    "ecg",
+    "laboratory",
+    "lifestyle"
+  ],
+  "config_path": "07_Experiments/EXP0018/config.yaml",
+  "config_sha256": "227d9b24cff8543cfdb0e1e09995501b385dd66daab4081e2cde0491a34df11e",
+  "source_commit": "8994dea",
+  "seed": 20261127,
+  "gates_verified_current": [
+    "G02",
+    "G03",
+    "G04",
+    "G05",
+    "G06",
+    "G07",
+    "G08",
+    "G09"
+  ],
+  "test_partition_access": "SEALED_UNTIL_G11",
+  "status": "READY",
+  "registered_at": "2026-11-27T21:58:00+06:00"
+}

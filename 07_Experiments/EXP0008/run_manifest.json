@@ -1,0 +1,28 @@
+{
+  "experiment_id": "EXP0008",
+  "comparison_block": "Block_A",
+  "research_question_id": "RQ1",
+  "comparator_tier": "unimodal",
+  "parent_baseline_exp": "EXP0007",
+  "candidate_id": "MC0008",
+  "active_modalities": [
+    "ecg"
+  ],
+  "config_path": "07_Experiments/EXP0008/config.yaml",
+  "config_sha256": "7bc208fd9f48b06c0a4bf8292d71a80ea4e398d26f349e6f163638721d41649b",
+  "source_commit": "8994dea",
+  "seed": 20261127,
+  "gates_verified_current": [
+    "G02",
+    "G03",
+    "G04",
+    "G05",
+    "G06",
+    "G07",
+    "G08",
+    "G09"
+  ],
+  "test_partition_access": "SEALED_UNTIL_G11",
+  "status": "READY",
+  "registered_at": "2026-11-27T21:58:00+06:00"
+}

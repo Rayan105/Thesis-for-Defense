@@ -183,6 +183,32 @@ runtime:
             self.assertEqual(len(mods["laboratory"]), len(COHORT_MODALITY_SLICES["DS0004"]["laboratory"]))
             self.assertEqual(len(mods["lifestyle"]), len(COHORT_MODALITY_SLICES["DS0004"]["lifestyle"]))
 
+    def test_registered_stage_s11_bundles_all_valid(self) -> None:
+        import hashlib
+        from src.cvd_mm.config import REPO_ROOT, load_config_file
+
+        exp_root = Path(REPO_ROOT) / "07_Experiments"
+        for i in range(1, 21):
+            exp_id = f"EXP{i:04d}"
+            exp_dir = exp_root / exp_id
+            cfg_p = exp_dir / "config.yaml"
+            man_p = exp_dir / "run_manifest.json"
+            self.assertTrue(cfg_p.is_file(), f"Missing {cfg_p}")
+            self.assertTrue(man_p.is_file(), f"Missing {man_p}")
+            self.assertTrue((exp_dir / "README.md").is_file(), f"Missing README for {exp_id}")
+
+            cfg = validate_experiment_config(
+                load_config_file(str(cfg_p)),
+                allow_frozen_test_eval=False,
+                verify_prereg_files=True,
+            )
+            self.assertEqual(cfg["experiment_id"], exp_id)
+            manifest = json.loads(man_p.read_text(encoding="utf-8"))
+            self.assertEqual(manifest["status"], "READY")
+            self.assertEqual(manifest["test_partition_access"], "SEALED_UNTIL_G11")
+            actual_sha = hashlib.sha256(cfg_p.read_bytes()).hexdigest()
+            self.assertEqual(manifest["config_sha256"], actual_sha)
+
 
 if __name__ == "__main__":
     unittest.main()

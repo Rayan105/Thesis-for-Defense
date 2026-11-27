@@ -1,0 +1,30 @@
+{
+  "experiment_id": "EXP0004",
+  "comparison_block": "Block_A",
+  "research_question_id": "RQ1",
+  "comparator_tier": "unimodal",
+  "parent_baseline_exp": "EXP0001",
+  "candidate_id": "MC0004",
+  "active_modalities": [
+    "clinical",
+    "laboratory",
+    "lifestyle"
+  ],
+  "config_path": "07_Experiments/EXP0004/config.yaml",
+  "config_sha256": "cca6e9219dfdfe1335a8a061290b39a8e1c12777b29d17aaae11e14cbece52bc",
+  "source_commit": "8994dea",
+  "seed": 20261127,
+  "gates_verified_current": [
+    "G02",
+    "G03",
+    "G04",
+    "G05",
+    "G06",
+    "G07",
+    "G08",
+    "G09"
+  ],
+  "test_partition_access": "SEALED_UNTIL_G11",
+  "status": "READY",
+  "registered_at": "2026-11-27T21:58:00+06:00"
+}

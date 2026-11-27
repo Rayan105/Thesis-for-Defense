@@ -1,0 +1,82 @@
+# Immutable Experiment Configuration Bundle (EXP0002 — STEP-028 / Block_A)
+# Preregistered against experiment_plan.md & SEALED Test custody (Gate G11).
+
+experiment_id: EXP0002
+comparison_block: Block_A
+research_question_id: RQ1
+comparator_tier: unimodal
+candidate_id: MC0002
+approval_record: "DEC0009; DEC0010; DEC0011; DEC0012"
+source_commit: 8994dea
+
+data:
+  release_id: REL0001
+  dataset_scope: ALL_COHORTS
+  adjudication_ids: [ADJ0001, ADJ0002, ADJ0003, ADJ0004]
+  split_id: SPLIT0001
+  split_manifest_sha256: db74cfeb8fed769c6c370e4e3b664b3ca6edc0af1b1ad20fe64e1123892cd3e6
+  preprocessing_id: PP0001
+  fit_state_sha256: d9ccfbf40b2b1cbb500bb4b9d0f5857611c71058f6c98532f288d03e62c0b536
+  variables_sha256: cc4aed3d66c5eb7b2e54154da9ba40984a8a8924f97e859fb72212239cc8219b
+  active_modalities: [clinical, laboratory, lifestyle]
+  missing_modality_policy: indicator
+  modality_dropout_prob: 0.0
+  allow_troponin_tier_b: false
+
+model:
+  framework: sklearn
+  framework_version: ">=1.4.0,<1.7.0"
+  architecture_name: RandomForest_Balanced300
+  d_model: null
+  num_layers: null
+  nhead: null
+  dim_feedforward: null
+  dropout: null
+  max_trainable_params_budget: null
+  modality_encoders:
+    clinical: RandomForest300
+    ecg: none
+    laboratory: RandomForest300
+    lifestyle: RandomForest300
+  fusion_module: none
+  pretrained_weights_sha256: null
+  license_record: MIT_Custom_Project
+
+training:
+  seed: 20261127
+  deterministic_mode: true
+  max_epochs_or_estimators: 300
+  batch_size: full_tabular
+  learning_rate: null
+  weight_decay: null
+  scheduler: none
+  optimizer: tree_exact
+  loss_and_imbalance_policy: class_weight_balanced_no_smote
+  early_stopping_patience: null
+  early_stopping_monitor: val_roc_auc
+
+evaluation_and_calibration:
+  experiment_plan_sha256: 738353b0c99c505f4636195a0a054a3524a3f7a9811de5339f4579e72e3b0fcc
+  eval_protocol_sha256: 5e042d94047781bad0828dbecf465d30862c0f08eac4688c91dea0b1b98fb897
+  xai_protocol_sha256: 7f8cd082a80611f59563bbf5a1ff9f44486550e4a4fc703ea0f54ea50fe2fced
+  validation_only_tuning: true
+  test_partition_access: SEALED_UNTIL_G11
+  calibration_candidates: [uncalibrated, temperature, platt, isotonic]
+  threshold_rule: youden_j
+  bootstrap_resamples: 2000
+  mandatory_metrics: [accuracy, precision, recall, f1, roc_auc, confusion_matrix]
+  adopted_q1_metrics: [pr_auc, specificity, npv, balanced_accuracy, mcc, brier_score, ece, calibration_slope, calibration_intercept, dca]
+
+xai_hooks:
+  execute_in_step: STEP-038_TO_040_ONLY
+  explainer_type: tree_shap
+  background_partition: train
+  background_sample_size: 256
+  additivity_error_tol: 0.02
+
+runtime:
+  environment_lock_path: environment/model/requirements.txt
+  environment_lock_sha256: 7b0553ce078a46a1b6d826ba7a1b7ff7f1ebfd08828ad380eff801e48b7890fd
+  hardware_target: kaggle_cpu_or_t4
+  checkpoint_policy: best_val_roc_auc_and_loss
+  artifact_destination: 08_Checkpoints/binaries/EXP0002

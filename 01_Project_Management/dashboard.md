@@ -6,11 +6,11 @@
 | **Institution / Term** | Daffodil International University / Summer 2026 (CSE499) |
 | **Research Leads** | Rayan Ahmed (`232-15-847`), Mohammad Nafis Sadiq (`232-15-895`) |
 | **Supervisor** | Md. Mizanur Rahman (Senior Lecturer, Dept. of CSE, DIU) |
-| **Active Stage** | Stage S11 Unlocked (`G09 PASS` Signed `2026-11-27`; Ready for `STEP-028` Immutable `EXP####` Bundles & Full Kaggle GPU Training) |
-| **Current Step** | `STEP-027` Complete (`G09 PASS`, `DEC0009–12 Approved`, `EXP0000_SMOKE` + `CKPT0001` Verified; [G09 PASS](file:///e:/FYDP/01_Project_Management/reviews/G09_assessment_2026-11-27_reassessment.md)) |
-| **Next Step** | 👉 Execute [STEP-028](../STEP_TRACKER.md#next-step-details-execute-step-028-stage-s11-full-controlled-experiments--blocks-af) (**Register `EXP####` Bundles & Launch Stage S11 Full Controlled Experiments**) |
+| **Active Stage** | Stage S11 Active (`STEP-028` Done: `EXP0001–EXP0020` Registered `READY`; Ready for `STEP-029` Kaggle GPU Model Training) |
+| **Current Step** | `STEP-028` Complete (`20/20` Immutable `EXP####` Bundles Validated & Registered; [experiment_registry.csv](file:///e:/FYDP/07_Experiments/experiment_registry.csv)) |
+| **Next Step** | 👉 Execute [STEP-029](../STEP_TRACKER.md#next-step-details-execute-step-029-kaggle-gpu-controlled-training-across-blocks-af) (**Train Tier 1–4 Models Across `Blocks A–F` on Kaggle GPU**) |
 | **Master Step Tracker** | [STEP_TRACKER.md](../STEP_TRACKER.md) |
-| **Last Updated** | 2026-11-27T21:54:00+06:00 |
+| **Last Updated** | 2026-11-27T22:00:00+06:00 |
 
 ---
 
@@ -43,7 +43,7 @@
 - **Template Library:** 32 / 32 blank templates materialized (`15_Templates_Prompts/`) — **PASS**
 - **Appendix B Registries:** 22 / 22 canonical CSV files validated — **PASS**
 - **Automated Validation:** `14_Automation/validate_repo.py` passes with zero errors — **PASS**
-- **Test Suite:** `test_synthetic_smoke.py`, `test_schema_ecg.py`, `test_preprocessing_leakage.py`, `test_splitting.py`, `test_config.py`, `test_models.py`, `test_metrics_stats.py` & `test_xai_faithfulness.py` pass (**32/32** unit tests clean under `-W error`) — **PASS**
+- **Test Suite:** `test_synthetic_smoke.py`, `test_schema_ecg.py`, `test_preprocessing_leakage.py`, `test_splitting.py`, `test_config.py`, `test_models.py`, `test_metrics_stats.py` & `test_xai_faithfulness.py` pass (**33/33** unit tests clean under `-W error`) — **PASS**
 - **PHI Exclusions:** Git status verified clean; raw data and binary models strictly ignored — **PASS**
 
 ---

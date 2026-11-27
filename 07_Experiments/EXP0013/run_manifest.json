@@ -1,0 +1,31 @@
+{
+  "experiment_id": "EXP0013",
+  "comparison_block": "Block_C",
+  "research_question_id": "RQ1",
+  "comparator_tier": "simple_fusion",
+  "parent_baseline_exp": "EXP0012",
+  "candidate_id": "MC0013",
+  "active_modalities": [
+    "clinical",
+    "ecg",
+    "laboratory",
+    "lifestyle"
+  ],
+  "config_path": "07_Experiments/EXP0013/config.yaml",
+  "config_sha256": "eb1e4e670e9ce7ff83f079ed721721a556b04075f59d696b7c8d674df48b16f1",
+  "source_commit": "8994dea",
+  "seed": 20261127,
+  "gates_verified_current": [
+    "G02",
+    "G03",
+    "G04",
+    "G05",
+    "G06",
+    "G07",
+    "G08",
+    "G09"
+  ],
+  "test_partition_access": "SEALED_UNTIL_G11",
+  "status": "READY",
+  "registered_at": "2026-11-27T21:58:00+06:00"
+}
