@@ -8,12 +8,12 @@
 
 | Metric | Current Value |
 |---|---|
-| **Last Completed Step** | **`STEP-020` (Deterministic Split `SPLIT0001` & Custody Seal Complete)** (`91,781` Rows / `0` Overlap, `15/15` Tests OK; `G07` Awaiting Sign-Off) |
-| **Last Git Commit** | `STEP-020`: Deterministic `PatientGroupID` split (`SPLIT0001`), zero-overlap proofs, `15/15` tests & `G07` review |
-| **Active Stage** | **`S09` (`STEP-020` Audit Clean)** -> Approve `G07` (`DEC0008`) -> **`STEP-021` (`Stage B` Train-Only Fit)** |
-| **Next Step to Execute** | 👉 **Confirm `G07` (`DEC0008 UD11`) & Execute `STEP-021`** (`Fit Stage B Strictly on Train -> FitStateHash & ECG Strips`) |
-| **Current Quality Gates** | `G01`: Not Assessed (`local PDF missing`) \| **`G02–G06`: PASS** \| **`G07`: NOT ASSESSED (`DEC0008` Sign-Off Pending)** \| `G08–G17`: Blocked |
-| **Last Updated** | 2026-11-27T15:35:00+06:00 |
+| **Last Completed Step** | **`STEP-021` (`PP0001` Train-Only Fit, ECG Telemetry & Kaggle PDF Guide Complete)** (`91,781` Transformed, `MasterFitStateHash` Locked) |
+| **Last Git Commit** | `STEP-021`: Executed `PP0001` Train-only fits (`41,968` MNAR cells, `inv_err<=4.55e-13`), WFDB/PNG audits & Kaggle PDF builder |
+| **Active Stage** | **`S09` (`STEP-019–021` Done)** -> **`STEP-022` (`G08` ECG Review & `REL0001` Lock)** |
+| **Next Step to Execute** | 👉 **Execute `STEP-022` (`G08` & `REL0001`)** (`Confirm G07/G08 + Cardiologist ECG Check -> Release REL0001 for Stage S10`) |
+| **Current Quality Gates** | `G01`: Not Assessed (`local PDF missing`) \| **`G02–G06`: PASS** \| **`G07`: NOT ASSESSED (`DEC0008` Pending)** \| `G08–G17`: Blocked |
+| **Last Updated** | 2026-11-27T15:52:00+06:00 |
 
 ### 🤖 AI Prompt for Next Teammate / Next Session:
 To resume work with minimal token cost, simply give the AI this exact prompt:
@@ -64,8 +64,8 @@ Read STEP_TRACKER.md and execute the next pending step.
 | **STEP-018** | S08 | Whole-cohort QA reconciliation, freeze `ADJ0001–0004`, evaluate Gate G06 (`UD10`) | Nafis & Rayan | G06 | ✅ **COMPLETED (Audit Clean / G06 Awaiting Sign-Off)** | [adjudication_registry.csv](file:///e:/FYDP/04_Outcome_Schema_QA/adjudication_registry.csv), [Release Audit](file:///e:/FYDP/04_Outcome_Schema_QA/reviews/adjudication_release_audit.md), [DEC0006](file:///e:/FYDP/01_Project_Management/decision_log/DEC0006.md), [G06 Review](file:///e:/FYDP/01_Project_Management/reviews/G06_assessment_2026-11-27.md) |
 | **STEP-019** | S09 | Design leakage-free 4-modality preprocessing, ECG filtering & masking (`UD12`) | Rayan & Nafis | - | ✅ **COMPLETED (`11/11` Tests + Kaggle NB)** | [Pipeline Spec](file:///e:/FYDP/05_Preprocessing_Alignment/specs/pipeline.md), [preprocessing.py](file:///e:/FYDP/src/cvd_mm/preprocessing.py), [ecg.py](file:///e:/FYDP/src/cvd_mm/ecg.py), [Kaggle NB](file:///e:/FYDP/05_Preprocessing_Alignment/notebooks/CVD_Multimodal_Kaggle_Preprocessing_Pipeline.ipynb), [DEC0007](file:///e:/FYDP/01_Project_Management/decision_log/DEC0007.md) |
 | **STEP-020** | S09 | Execute deterministic patient-grouped split, seal test partition, pass Gate G07 | Rayan Ahmed | G07 | ✅ **COMPLETED (`SPLIT0001` Locked / `G07` Awaiting Sign-Off)** | [splitting.py](file:///e:/FYDP/src/cvd_mm/splitting.py), [SPLIT0001 Report](file:///e:/FYDP/03_Datasets_Cohort/splits/SPLIT0001/report.md), [DEC0008](file:///e:/FYDP/01_Project_Management/decision_log/DEC0008.md), [G07 Review](file:///e:/FYDP/01_Project_Management/reviews/G07_assessment_2026-11-27.md) |
-| **STEP-021** | S09 | Preprocessing pipeline: record-local ECG filtering vs train-only fitted transforms | Rayan Ahmed | - | 👉 **NEXT TO EXECUTE (Confirm `G07` First)** | Target: `PP0001`, `FitStateHash`, ECG Morphology Strips |
-| **STEP-022** | S09 | Cardiologist ECG filter morphology check, release `REL####`, pass Gate G08 | Cardiologist | G08 | ⚪ PENDING | Target: G08 Assessment |
+| **STEP-021** | S09 | Preprocessing pipeline: record-local ECG filtering vs train-only fitted transforms | Rayan Ahmed | - | ✅ **COMPLETED (`PP0001` Locked / `0` Leakage)** | [PP0001 Report](file:///e:/FYDP/05_Preprocessing_Alignment/reports/PP0001.md), [pp0001_config.yaml](file:///e:/FYDP/05_Preprocessing_Alignment/configs/pp0001_config.yaml), [run_preprocessing_pipeline.py](file:///e:/FYDP/14_Automation/run_preprocessing_pipeline.py), [Kaggle PDF Script](file:///e:/FYDP/14_Automation/build_kaggle_notebook_pdf.py) |
+| **STEP-022** | S09 | Cardiologist ECG filter morphology check, release `REL####`, pass Gate G08 | Rayan & Cardiologist | G08 | 👉 **NEXT TO EXECUTE (`Stage S09` Closure)** | Target: `REL0001`, `releases.csv`, `G08` Assessment |
 | **STEP-023** | S10 | Deep learning framework selection (PyTorch vs TF under UD13) | Rayan Ahmed | - | ⚪ PENDING | Target: `DEC0002` / Framework Lock |
 | **STEP-024** | S10 | Lock Phase 2 modeling environment (`environment/model/`) | Rayan Ahmed | - | ⚪ PENDING | Target: Modeling runtime lock |
 | **STEP-025** | S10 | Formalize experiment plan, ablation matrix, calibration/stats protocol | Rayan & Nafis | - | ⚪ PENDING | Target: `experiment_plan.md` |
@@ -97,9 +97,7 @@ Read STEP_TRACKER.md and execute the next pending step.
 
 ---
 
-## 🎯 Next Step Details: Confirm `G07` (`DEC0008`) & Execute `STEP-021` (`Stage B` Train-Only Fit & ECG Strips)
+## 🎯 Next Step Details: Execute `STEP-022` (`G08` ECG Morphology Check & `REL0001` Release Lock)
 
-- **Gate Confirmation Needed (`G07 -> PASS`):** Confirm [DEC0008.md](file:///e:/FYDP/01_Project_Management/decision_log/DEC0008.md) (`UD11 Option A`: `SPLIT0001` `70/15/15` + `PTB-XL StratFold 1–8/9/10` + 5-fold CV inside `Train` + sealed Test partition in `test_access_log.csv`).
-- **Next Steps in `Stage S09` (Lead: Rayan Ahmed):**
-  1. **`STEP-021` (`Stage B Train-Only Fit & ECG Check`):** Fit `TrainOnlyTabularPreprocessor` / `IterativeImputer` + `RobustScaler` + `OneHotEncoder` + `_isnan` MNAR flags **strictly on `SPLIT0001` `Train`** (`Val`/`Test` read-only `.transform`), lock `FitStateHash` & `PP0001.md` (`preprocessing_registry.csv`), and generate raw-vs-filtered ECG morphology verification samples (`50 Hz` notch + `<= 0.5 Hz` high-pass & `CARDIO-ML-ED` red-grid PNG cleaning).
-  2. **`STEP-022` (`G08` & `REL0001` Lock`):** Pass Gate `G08` (Cardiologist/Clinical morphology review + `DEC0007`) and freeze immutable prepared multimodal release **`REL0001`** (`releases.csv`) for **`Stage S10` Model Training**!
+- **Gate Approvals Needed (`G07` & `G08`):** Confirm [DEC0008.md](file:///e:/FYDP/01_Project_Management/decision_log/DEC0008.md) (`G07`) and [DEC0007.md](file:///e:/FYDP/01_Project_Management/decision_log/DEC0007.md) (`G08` ECG ST-T preservation after inspecting Kaggle `Cell 6` overlays / `PP0001` telemetry).
+- **Next Execution (`STEP-022`):** Bind exact parent SHA-256 chain (`DS0001–04 -> ADJ0001–04 -> variables.csv -> SPLIT0001 -> PP0001`) into immutable prepared release **`REL0001`** (`03_Datasets_Cohort/releases.csv`), verify zero record drift across `91,781` encounters, and pass **`G08`** so **`Stage S10` (Kaggle GPU Model Architecture & Baselines)** starts!

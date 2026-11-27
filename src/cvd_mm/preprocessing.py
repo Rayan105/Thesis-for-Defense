@@ -203,3 +203,9 @@ class TrainOnlyTabularPreprocessor:
                 vec.append(1.0 if (is_miss or raw not in vocab) else 0.0)
             out_matrix.append(vec)
         return out_matrix
+
+    def inverse_scale_numeric(self, col: str, scaled_val: float) -> float:
+        """Inverse-transform scaled numeric value back to native clinical units (STEP-021 round-trip)."""
+        if not self.fitted:
+            raise RuntimeError("TrainOnlyTabularPreprocessor must be fitted before inverse scaling.")
+        return scaled_val * self.iqrs_[col] + self.medians_[col]

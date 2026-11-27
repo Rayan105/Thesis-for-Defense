@@ -55,6 +55,8 @@ class TestPreprocessingAndECGDsp(unittest.TestCase):
         # Row 2 had missing sbp_mmhg -> index 3 is sbp_mmhg_isnan == 1.0 and imputed scaled sbp == 0.0
         self.assertAlmostEqual(out_train_1[2][2], 0.0, places=6)
         self.assertEqual(out_train_1[2][3], 1.0)
+        # Observed Row 0 inverse-scales identically back to native 120.0 mmHg
+        self.assertAlmostEqual(prep1.inverse_scale_numeric("sbp_mmhg", out_train_1[0][2]), 120.0, places=9)
 
         # Test transform works safely on unseen category -> maps to MISSING slot cleanly without crashing
         tx_b = prep1.transform(test_rows_b)

@@ -1,0 +1,59 @@
+# Executed Preprocessing Configuration PP0001 (STEP-021 / UD12)
+config_id: PP0001_EXEC_v1_0_0
+pp_id: PP0001
+split_id: SPLIT0001
+stage: S09
+step: STEP-021
+tier_mode: Tier_A_No_Incorporation_Bias
+
+parent_hashes:
+  variables_csv: cc4aed3d66c5eb7b2e54154da9ba40984a8a8924f97e859fb72212239cc8219b
+  split_manifest_sha256: db74cfeb8fed769c6c370e4e3b664b3ca6edc0af1b1ad20fe64e1123892cd3e6
+  adj0001_verified: 01bbe8524dad7e533c6ff75038c8e6130a7ac758414eb2ec9f6c61774d57b197
+  adj0002_verified: 677fe4cfb4ef0697634e1ce2255d7201cd2cf057d38a56b1da1c7ed8daa00fac
+  adj0003_verified: bcdcd00879568238be5b88bd7405b2ac4bf1d12deaec7b1f84b04f4dc2efdeb6
+  adj0004_verified: 9f82fbd44f094eaf93ec3dd4d8f0fad6bda4604286d2ba9f727c6e97e748647c
+
+leakage_guard:
+  fit_partition: train_only
+  fit_allowed_splits: ["train"]
+  fail_on_val_or_test_in_fit: true
+  block_leakage_columns: true
+  allow_pre_split_smote: false
+
+stage_a_record_local:
+  clinical_tabular:
+    min_adult_age_years: 18.0
+    sbp_valid_range_mmhg: [50.0, 280.0]
+    dbp_valid_range_mmhg: [30.0, 180.0]
+    height_valid_range_cm: [100.0, 220.0]
+    weight_valid_range_kg: [30.0, 200.0]
+    derive_age_from_days_divisor: 365.25
+  wfdb_ecg:
+    notch_freq_hz: 50.0
+    notch_quality_factor: 30.0
+    apply_notch_min_fs_hz: 120.0
+    baseline_highpass_hz: 0.5
+    zero_phase_filtfilt: true
+    mv_clip_bounds: [-10.0, 10.0]
+  png_ecg_scans:
+    allowed_extensions: [".png"]
+    quarantine_extensions: [".jpg", ".jpeg"]
+    rotate_portrait_90_ccw: true
+    suppress_red_millimeter_grid: true
+    target_canvas_hw: [256, 768]
+
+stage_b_train_only_fit:
+  emit_missingness_masks: true
+  continuous_imputer: "train_median_stdlib_lock (kaggle_notebook_uses_iterative_mice)"
+  continuous_scaler: "robust_iqr"
+  categorical_encoder: "onehot_ignore_unknown"
+  class_imbalance_strategy: "train_pos_weight_loss"
+  master_fit_state_hash: d9ccfbf40b2b1cbb500bb4b9d0f5857611c71058f6c98532f288d03e62c0b536
+  cohort_fit_state_hashes:
+    DS0001: 8655e50140ba13eda5018e18c458d0be7fd4eb3a6d53fb43596ec60e2d70d55b
+    DS0002: efa37c3bca119944a86cfd6db3c20deea3e8157c912e97455720725cacc82689
+    DS0003: eb408a5a031ee412ee1e2a5568252072bec2e8e3160a1b51f6d5d70d9d5e9124
+    DS0004: baf83a12176336681bde5a63aebc4de832c2c4afc960a97dcafd74d43d02fbc1
+  tier2b_fitted_states_dir: 05_Preprocessing_Alignment/fitted_states/PP0001/
+  tier2b_processed_dir: 05_Preprocessing_Alignment/processed/PP0001/

@@ -6,11 +6,11 @@
 | **Institution / Term** | Daffodil International University / Summer 2026 (CSE499) |
 | **Research Leads** | Rayan Ahmed (`232-15-847`), Mohammad Nafis Sadiq (`232-15-895`) |
 | **Supervisor** | Md. Mizanur Rahman (Senior Lecturer, Dept. of CSE, DIU) |
-| **Active Stage** | Stage S09 (`STEP-020` `SPLIT0001` Complete [`0` Patient Overlap]; Awaiting `G07` Sign-Off -> `STEP-021` Next) |
-| **Current Step** | `STEP-020` Split & Seal Audit Clean (`66,338` Tr / `12,724` Va / `12,719` Te; [SPLIT0001 Report](../03_Datasets_Cohort/splits/SPLIT0001/report.md)) |
-| **Next Step** | 👉 Confirm `G07` (`DEC0008 UD11`) -> [STEP-021](../STEP_TRACKER.md#next-step-details-confirm-g07-dec0008--execute-step-021-stage-b-train-only-fit--ecg-strips) (**Train-Only `Stage B` Fit & ECG Strips**) |
+| **Active Stage** | Stage S09 (`STEP-021` `PP0001` Complete [`MasterFitStateHash` Locked]; Ready for `STEP-022` `REL0001` & `G08`) |
+| **Current Step** | `STEP-021` `PP0001` Locked (`91,781` Transformed / `100%` PNG Red-Grid Suppression; [PP0001 Report](../05_Preprocessing_Alignment/reports/PP0001.md)) |
+| **Next Step** | 👉 Execute [STEP-022](../STEP_TRACKER.md#next-step-details-execute-step-022-g08-ecg-morphology-check--rel0001-release-lock) (**Confirm `G07/G08`, Release `REL0001` -> `Stage S10` Modeling**) |
 | **Master Step Tracker** | [STEP_TRACKER.md](../STEP_TRACKER.md) |
-| **Last Updated** | 2026-11-27T15:35:00+06:00 |
+| **Last Updated** | 2026-11-27T15:52:00+06:00 |
 
 ---
 
