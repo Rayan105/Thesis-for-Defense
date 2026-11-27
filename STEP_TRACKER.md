@@ -8,12 +8,12 @@
 
 | Metric | Current Value |
 |---|---|
-| **Last Completed Step** | **`STEP-021` (`PP0001` Train-Only Fit, ECG Telemetry & Kaggle PDF Guide Complete)** (`91,781` Transformed, `MasterFitStateHash` Locked) |
-| **Last Git Commit** | `STEP-021`: Executed `PP0001` Train-only fits (`41,968` MNAR cells, `inv_err<=4.55e-13`), WFDB/PNG audits & Kaggle PDF builder |
-| **Active Stage** | **`S09` (`STEP-019–021` Done)** -> **`STEP-022` (`G08` ECG Review & `REL0001` Lock)** |
-| **Next Step to Execute** | 👉 **Execute `STEP-022` (`G08` & `REL0001`)** (`Confirm G07/G08 + Cardiologist ECG Check -> Release REL0001 for Stage S10`) |
-| **Current Quality Gates** | `G01`: Not Assessed (`local PDF missing`) \| **`G02–G06`: PASS** \| **`G07`: NOT ASSESSED (`DEC0008` Pending)** \| `G08–G17`: Blocked |
-| **Last Updated** | 2026-11-27T15:52:00+06:00 |
+| **Last Completed Step** | **`STEP-022` (`REL0001` Prepared Release Locked & `G08` Review Compiled)** (`91,781` Reconciled, Read-Only Locked; `G07/G08` Awaiting Sign-Off) |
+| **Last Git Commit** | `STEP-022`: Materialized & locked `REL0001` (`91,781` rows / `89,005` patients), `releases.csv` & `G08` audit |
+| **Active Stage** | **`S09` Complete (`STEP-019–022` Execution Clean)** -> **`Stage S10` (`STEP-023` Framework Lock + Confirm `G07`/`G08`)** |
+| **Next Step to Execute** | 👉 **Execute `STEP-023` (`UD13`: Framework Selection) & Confirm `G07`/`G08`** (`Stage S10` Architecture & Baselines) |
+| **Current Quality Gates** | `G01`: Not Assessed (`local PDF missing`) \| **`G02–G06`: PASS** \| **`G07–G08`: NOT ASSESSED (`DEC0007/08` Sign-Off Pending)** \| `G09–G17`: Blocked |
+| **Last Updated** | 2026-11-27T16:18:00+06:00 |
 
 ### 🤖 AI Prompt for Next Teammate / Next Session:
 To resume work with minimal token cost, simply give the AI this exact prompt:
@@ -65,8 +65,8 @@ Read STEP_TRACKER.md and execute the next pending step.
 | **STEP-019** | S09 | Design leakage-free 4-modality preprocessing, ECG filtering & masking (`UD12`) | Rayan & Nafis | - | ✅ **COMPLETED (`11/11` Tests + Kaggle NB)** | [Pipeline Spec](file:///e:/FYDP/05_Preprocessing_Alignment/specs/pipeline.md), [preprocessing.py](file:///e:/FYDP/src/cvd_mm/preprocessing.py), [ecg.py](file:///e:/FYDP/src/cvd_mm/ecg.py), [Kaggle NB](file:///e:/FYDP/05_Preprocessing_Alignment/notebooks/CVD_Multimodal_Kaggle_Preprocessing_Pipeline.ipynb), [DEC0007](file:///e:/FYDP/01_Project_Management/decision_log/DEC0007.md) |
 | **STEP-020** | S09 | Execute deterministic patient-grouped split, seal test partition, pass Gate G07 | Rayan Ahmed | G07 | ✅ **COMPLETED (`SPLIT0001` Locked / `G07` Awaiting Sign-Off)** | [splitting.py](file:///e:/FYDP/src/cvd_mm/splitting.py), [SPLIT0001 Report](file:///e:/FYDP/03_Datasets_Cohort/splits/SPLIT0001/report.md), [DEC0008](file:///e:/FYDP/01_Project_Management/decision_log/DEC0008.md), [G07 Review](file:///e:/FYDP/01_Project_Management/reviews/G07_assessment_2026-11-27.md) |
 | **STEP-021** | S09 | Preprocessing pipeline: record-local ECG filtering vs train-only fitted transforms | Rayan Ahmed | - | ✅ **COMPLETED (`PP0001` Locked / `0` Leakage)** | [PP0001 Report](file:///e:/FYDP/05_Preprocessing_Alignment/reports/PP0001.md), [pp0001_config.yaml](file:///e:/FYDP/05_Preprocessing_Alignment/configs/pp0001_config.yaml), [run_preprocessing_pipeline.py](file:///e:/FYDP/14_Automation/run_preprocessing_pipeline.py), [Kaggle PDF Script](file:///e:/FYDP/14_Automation/build_kaggle_notebook_pdf.py) |
-| **STEP-022** | S09 | Cardiologist ECG filter morphology check, release `REL####`, pass Gate G08 | Rayan & Cardiologist | G08 | 👉 **NEXT TO EXECUTE (`Stage S09` Closure)** | Target: `REL0001`, `releases.csv`, `G08` Assessment |
-| **STEP-023** | S10 | Deep learning framework selection (PyTorch vs TF under UD13) | Rayan Ahmed | - | ⚪ PENDING | Target: `DEC0002` / Framework Lock |
+| **STEP-022** | S09 | Cardiologist ECG filter morphology check, release `REL####`, pass Gate G08 | Rayan & Cardiologist | G08 | ✅ **COMPLETED (`REL0001` Locked / `G08` Awaiting Clinical Sign-Off)** | [REL0001 Summary](file:///e:/FYDP/03_Datasets_Cohort/reports/REL0001_manifest_summary.md), [releases.csv](file:///e:/FYDP/03_Datasets_Cohort/releases.csv), [materialize_release.py](file:///e:/FYDP/14_Automation/materialize_release.py), [G08 Review](file:///e:/FYDP/01_Project_Management/reviews/G08_assessment_2026-11-27.md) |
+| **STEP-023** | S10 | Deep learning framework selection (PyTorch vs TF under UD13) | Rayan Ahmed | - | 👉 **NEXT TO EXECUTE (`Stage S10` Start + Multi-DB Update #1)** | Target: `DEC0009` (`UD13`) Framework Lock |
 | **STEP-024** | S10 | Lock Phase 2 modeling environment (`environment/model/`) | Rayan Ahmed | - | ⚪ PENDING | Target: Modeling runtime lock |
 | **STEP-025** | S10 | Formalize experiment plan, ablation matrix, calibration/stats protocol | Rayan & Nafis | - | ⚪ PENDING | Target: `experiment_plan.md` |
 | **STEP-026** | S10 | Implement baseline suite (LR, RF, SVM, XGBoost, 1D-CNN, LSTM) & Transformer fusion | Rayan Ahmed | - | ⚪ PENDING | Target: `src/cvd_mm/models/` |
@@ -97,7 +97,9 @@ Read STEP_TRACKER.md and execute the next pending step.
 
 ---
 
-## 🎯 Next Step Details: Execute `STEP-022` (`G08` ECG Morphology Check & `REL0001` Release Lock)
+## 🎯 Next Step Details: Confirm `G07/G08` & Begin `Stage S10` (`STEP-023` Framework Lock)
 
-- **Gate Approvals Needed (`G07` & `G08`):** Confirm [DEC0008.md](file:///e:/FYDP/01_Project_Management/decision_log/DEC0008.md) (`G07`) and [DEC0007.md](file:///e:/FYDP/01_Project_Management/decision_log/DEC0007.md) (`G08` ECG ST-T preservation after inspecting Kaggle `Cell 6` overlays / `PP0001` telemetry).
-- **Next Execution (`STEP-022`):** Bind exact parent SHA-256 chain (`DS0001–04 -> ADJ0001–04 -> variables.csv -> SPLIT0001 -> PP0001`) into immutable prepared release **`REL0001`** (`03_Datasets_Cohort/releases.csv`), verify zero record drift across `91,781` encounters, and pass **`G08`** so **`Stage S10` (Kaggle GPU Model Architecture & Baselines)** starts!
+- **Gate Approvals Pending (`G07` & `G08`):** Technical `REL0001` checksum/leakage lineage is 100% locked; formal clinical/supervisor confirmation needed for [DEC0008.md](file:///e:/FYDP/01_Project_Management/decision_log/DEC0008.md) (`G07`) and [DEC0007.md](file:///e:/FYDP/01_Project_Management/decision_log/DEC0007.md) + [G08 Review](file:///e:/FYDP/01_Project_Management/reviews/G08_assessment_2026-11-27.md) (`G08` ECG ST-T preservation).
+- **Next Execution (`Stage S10` — Modeling Architecture & Runtime Lock):**
+  1. **`STEP-023` (`UD13`):** Lock deep learning framework (`PyTorch` vs `TF`) and execute scheduled PubMed/IEEE/Scopus literature update check per `DEC0002`.
+  2. **`STEP-024`–`STEP-027` (`G09`):** Lock `environment/model/`, write `experiment_plan.md`, implement baseline suite (`LR, RF, SVM, XGBoost, 1D-CNN, LSTM`) & Missing-Modality Transformer Fusion, and pass diagnostic smoke + checkpoint restore test (`G09`).

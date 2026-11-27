@@ -6,11 +6,11 @@
 | **Institution / Term** | Daffodil International University / Summer 2026 (CSE499) |
 | **Research Leads** | Rayan Ahmed (`232-15-847`), Mohammad Nafis Sadiq (`232-15-895`) |
 | **Supervisor** | Md. Mizanur Rahman (Senior Lecturer, Dept. of CSE, DIU) |
-| **Active Stage** | Stage S09 (`STEP-021` `PP0001` Complete [`MasterFitStateHash` Locked]; Ready for `STEP-022` `REL0001` & `G08`) |
-| **Current Step** | `STEP-021` `PP0001` Locked (`91,781` Transformed / `100%` PNG Red-Grid Suppression; [PP0001 Report](../05_Preprocessing_Alignment/reports/PP0001.md)) |
-| **Next Step** | 👉 Execute [STEP-022](../STEP_TRACKER.md#next-step-details-execute-step-022-g08-ecg-morphology-check--rel0001-release-lock) (**Confirm `G07/G08`, Release `REL0001` -> `Stage S10` Modeling**) |
+| **Active Stage** | Stage S09 Complete (`REL0001` Read-Only Locked [`91,781` Rows / `0` Drift]; Ready for `Stage S10` `STEP-023`) |
+| **Current Step** | `STEP-022` `REL0001` Locked (`ManifestHash = 7be9fa07a627...`; [REL0001 Summary](../03_Datasets_Cohort/reports/REL0001_manifest_summary.md)) |
+| **Next Step** | 👉 Execute [STEP-023](../STEP_TRACKER.md#next-step-details-confirm-g07g08--begin-stage-s10-step-023-framework-lock) (**Confirm `G07/G08` & `UD13` Framework Lock -> `Stage S10`**) |
 | **Master Step Tracker** | [STEP_TRACKER.md](../STEP_TRACKER.md) |
-| **Last Updated** | 2026-11-27T15:52:00+06:00 |
+| **Last Updated** | 2026-11-27T16:18:00+06:00 |
 
 ---
 
@@ -25,7 +25,7 @@
 | **G05** | Endpoint Charter & 4-Modality Schema | Md. Mizanur Rahman (Ext Cardiologist TBD) | **PASS** | [G05_assessment_2026-11-27_reassessment.md](file:///e:/FYDP/01_Project_Management/reviews/G05_assessment_2026-11-27_reassessment.md) *(`DEC0005 OptA` approved `2026-11-27`; Ext Cardiologist TBD for `G08/G14`)* |
 | **G06** | Pilot & Adjudicated Label Release | Md. Mizanur Rahman + Data Lead | **PASS** | [G06_assessment_2026-11-27_reassessment.md](file:///e:/FYDP/01_Project_Management/reviews/G06_assessment_2026-11-27_reassessment.md) *(`DEC0006 Option A` ratified `2026-11-27`; `91,781` eligible / `0` violations)* |
 | **G07** | Patient-Level Leakage-Free Split | Biostatistics Reviewer + Supervisor | **NOT ASSESSED** | [G07_assessment_2026-11-27.md](file:///e:/FYDP/01_Project_Management/reviews/G07_assessment_2026-11-27.md) *(`C1–C4` PASS [`0` overlap across `91,781`]; `DEC0008` sign-off pending)* |
-| **G08** | Preprocessing & ECG Filter Integrity | Clinical Lead + Implementer | **BLOCKED** | Pending Stage S09 execution (`STEP-021`–`022`) |
+| **G08** | Preprocessing & ECG Filter Integrity | Clinical Lead + Implementer | **NOT ASSESSED** | [G08_assessment_2026-11-27.md](file:///e:/FYDP/01_Project_Management/reviews/G08_assessment_2026-11-27.md) *(`C1–C4` PASS [`REL0001` locked / `91,781`]; Clinical ECG sign-off pending)* |
 | **G09** | Architecture, Runtime & Smoke Test | Supervisor + Evaluator | **BLOCKED** | Pending Stage S10 execution (`STEP-023`–`027`) |
 | **G10** | Controlled Experiment Completion | Experiment Reviewer | **BLOCKED** | Pending Stage S11 execution (`STEP-028`–`031`) |
 | **G11** | Validation-Only Selection & Freeze | Supervisor + Evaluator | **BLOCKED** | Pending Stage S12 execution (`STEP-032`–`033`) |
