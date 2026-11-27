@@ -1,0 +1,14 @@
+{
+  "status": "KAGGLE_SMOKE_G09_READY",
+  "experiment_id": "EXP0000_SMOKE",
+  "device": "cuda",
+  "test_partition_accessed": false,
+  "xgb_smoke_val_roc_auc": 0.768026,
+  "xgb_treeshap_max_additivity_error": 7.152557373046875e-07,
+  "cvd_mm_transformer_param_count": 129169,
+  "checkpoint_path": "/kaggle/working/EXP0000_SMOKE/CKPT0001_SMOKE_interrupt.pt",
+  "checkpoint_sha256": "18824d5e3c858bc52591a1ccf75a9af4998dda00bf64cfa2934e749603240b82",
+  "neural_kernelshap_max_additivity_error": 2.980232233218416e-08,
+  "missing_masks_zero_nan": true,
+  "resumed_losses_finite": true
+}
