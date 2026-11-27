@@ -1,0 +1,33 @@
+# Phase 2: Modeling, Statistics & XAI Runtime Lock (STEP-024 / UD13)
+# Governance: PyTorch locked under DEC0009 (UD13); 4-tier models under DEC0010 (UD14).
+# Note: SHAP & Captum versions are pinned here for PyTorch/NumPy ABI compatibility ONLY;
+# actual XAI attribution & AOPC faithfulness execution occurs strictly in Stage S15 (STEP-038-040).
+
+# Core Deep Learning Framework (UD13 — PyTorch)
+torch>=2.1.0,<2.7.0
+torchvision>=0.16.0,<0.22.0
+
+# Classical ML & Gradient Boosted Decision Trees
+scikit-learn>=1.4.0,<1.7.0
+xgboost>=2.0.3,<3.0.0
+lightgbm>=4.3.0,<5.0.0
+joblib>=1.3.2,<1.5.0
+
+# Core Numerical, Calibration & Statistical Inference (DeLong / Bootstrap / DCA)
+numpy>=1.26.0,<2.0.0
+scipy>=1.12.0,<2.0.0
+pandas>=2.2.0,<3.0.0
+statsmodels>=0.14.1,<0.15.0
+
+# Explainability Compatibility Pin (Executed at Stage S15 ONLY)
+shap>=0.45.0,<0.47.0
+captum>=0.7.0,<0.9.0
+
+# ECG / PNG Data Loading, Plotting & Config Validation
+wfdb>=4.1.2,<5.0.0
+opencv-python-headless>=4.9.0,<4.12.0
+matplotlib>=3.8.3,<3.11.0
+seaborn>=0.13.2,<0.14.0
+pyyaml>=6.0.1,<7.0.0
+jsonschema>=4.21.0,<5.0.0
+pytest>=8.0.0,<9.0.0

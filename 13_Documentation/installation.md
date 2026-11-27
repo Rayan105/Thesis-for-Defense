@@ -61,3 +61,27 @@ Verify that your installation is working correctly:
 pytest tests/ -v
 ```
 All tests should pass.
+
+---
+
+## 4. Phase 2 Setup Instructions (`environment/model/`, `STEP-024`)
+
+Active during Stages **S10–S17** following framework selection (`DEC0009`: **PyTorch + Scikit-Learn + XGBoost/LightGBM**) while leaving `environment/data/` untouched:
+
+### Kaggle GPU Execution Environment (`Primary Deep Learning Compute — DEC0004 Open Data`)
+- **Accelerator:** Kaggle `GPU T4 x2` / `P100` (`CUDA` native PyTorch + `XGBoost` + `LightGBM` + `SHAP` + `Captum`).
+- **Privacy Guard:** Private notebooks only; zero raw cohorts or output weights pushed to GitHub.
+
+### Local Workstation / Full Linux/Windows Virtual Environment
+```bash
+# Option A: Conda (PyTorch + Conda-Forge)
+conda env create -f environment/model/environment.yml
+conda activate cvd-mm-model
+
+# Option B: Pip inside clean Python 3.11/3.12 virtualenv
+pip install -r environment/model/requirements.txt
+
+# Verify runtime dependencies, Phase 1 immutability, and synthetic smoke checks
+python 14_Automation/verify_model_runtime.py
+```
+

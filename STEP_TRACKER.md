@@ -8,12 +8,12 @@
 
 | Metric | Current Value |
 |---|---|
-| **Last Completed Step** | **`STEP-023` (`G07/G08 PASS`, PyTorch `UD13`, 4-Tier Baselines & `CVD-MM-Transformer` `UD14`)** (`17` Candidates + Lit Update #1) |
-| **Last Git Commit** | `STEP-023`: Approved `G07/G08`, ran Lit Update #1, locked PyTorch (`UD13`) & 4-tier + Transformer fusion spec (`UD14`) |
-| **Active Stage** | **`S10` (`STEP-023` Complete)** -> **`STEP-024` (Pin Phase 2 Modeling & XAI Runtime `environment/model/`)** |
-| **Next Step to Execute** | 👉 **Execute `STEP-024`** (`Pin PyTorch, XGBoost, SciPy, Statsmodels, SHAP Environment Lock`) |
+| **Last Completed Step** | **`STEP-024` (Phase 2 Modeling Runtime Locked `environment/model/`)** (`PyTorch/XGBoost/Stats/SHAP` Compatibility Pin + Host Verified) |
+| **Last Git Commit** | `STEP-024`: Pinned `environment/model/` runtime lock (`environment/data/` preserved untouched) & host check |
+| **Active Stage** | **`S10` (`STEP-023–024` Complete)** -> **`STEP-025` (Approve Prospective Q1 Experiment, Stats & XAI Protocols)** |
+| **Next Step to Execute** | 👉 **Execute `STEP-025`** (`Formalize experiment_plan.md, protocol.md, xai_protocol.md & T32 YAML before Model Code & Run`) |
 | **Current Quality Gates** | `G01`: Not Assessed (`local PDF missing`) \| **`G02–G08`: PASS** \| `G09–G17`: Blocked (`S10–S17`) |
-| **Last Updated** | 2026-11-27T17:18:00+06:00 |
+| **Last Updated** | 2026-11-27T18:36:00+06:00 |
 
 ### 🤖 AI Prompt for Next Teammate / Next Session:
 To resume work with minimal token cost, simply give the AI this exact prompt:
@@ -67,8 +67,8 @@ Read STEP_TRACKER.md and execute the next pending step.
 | **STEP-021** | S09 | Preprocessing pipeline: record-local ECG filtering vs train-only fitted transforms | Rayan Ahmed | - | ✅ **COMPLETED (`PP0001` Locked / `0` Leakage)** | [PP0001 Report](file:///e:/FYDP/05_Preprocessing_Alignment/reports/PP0001.md), [pp0001_config.yaml](file:///e:/FYDP/05_Preprocessing_Alignment/configs/pp0001_config.yaml), [run_preprocessing_pipeline.py](file:///e:/FYDP/14_Automation/run_preprocessing_pipeline.py), [Kaggle PDF Script](file:///e:/FYDP/14_Automation/build_kaggle_notebook_pdf.py) |
 | **STEP-022** | S09 | Cardiologist ECG filter morphology check, release `REL####`, pass Gate G08 | Rayan & Cardiologist | G08 | ✅ **COMPLETED (`REL0001` Locked / `G08` Awaiting Clinical Sign-Off)** | [REL0001 Summary](file:///e:/FYDP/03_Datasets_Cohort/reports/REL0001_manifest_summary.md), [releases.csv](file:///e:/FYDP/03_Datasets_Cohort/releases.csv), [materialize_release.py](file:///e:/FYDP/14_Automation/materialize_release.py), [G08 Review](file:///e:/FYDP/01_Project_Management/reviews/G08_assessment_2026-11-27.md) |
 | **STEP-023** | S10 | Deep learning framework selection (PyTorch vs TF under UD13) | Rayan Ahmed | - | ✅ **COMPLETED (`PyTorch UD13 + Transformer UD14`)** | [DEC0009](file:///e:/FYDP/01_Project_Management/decision_log/DEC0009.md), [DEC0010](file:///e:/FYDP/01_Project_Management/decision_log/DEC0010.md), [candidates.csv](file:///e:/FYDP/06_Models_Fusion/candidates.csv), [baseline_plan.md](file:///e:/FYDP/06_Models_Fusion/baseline_plan.md), [Transformer Spec](file:///e:/FYDP/06_Models_Fusion/architectures/transformer_fusion_spec.md), [Lit Update #1](file:///e:/FYDP/02_Literature/searches/SEARCH_UPDATE1_2026-11-27.md) |
-| **STEP-024** | S10 | Lock Phase 2 modeling environment (`environment/model/`) | Rayan Ahmed | - | 👉 **NEXT TO EXECUTE** | Target: Modeling/XAI runtime lock |
-| **STEP-025** | S10 | Formalize experiment plan, ablation matrix, calibration/stats protocol | Rayan & Nafis | - | ⚪ PENDING | Target: `experiment_plan.md` |
+| **STEP-024** | S10 | Lock Phase 2 modeling environment (`environment/model/`) | Rayan Ahmed | - | ✅ **COMPLETED (`environment/model/` Locked)** | [versions.md](file:///e:/FYDP/environment/model/versions.md), [requirements.txt](file:///e:/FYDP/environment/model/requirements.txt), [environment.yml](file:///e:/FYDP/environment/model/environment.yml), [verify_model_runtime.py](file:///e:/FYDP/14_Automation/verify_model_runtime.py) |
+| **STEP-025** | S10 | Formalize experiment plan, ablation matrix, calibration/stats protocol | Rayan & Nafis | - | 👉 **NEXT TO EXECUTE** | Target: `experiment_plan.md`, `protocol.md`, `xai_protocol.md` |
 | **STEP-026** | S10 | Implement baseline suite (LR, RF, SVM, XGBoost, 1D-CNN, LSTM) & Transformer fusion | Rayan Ahmed | - | ⚪ PENDING | Target: `src/cvd_mm/models/` |
 | **STEP-027** | S10 | Diagnostic smoke run, pipeline test, checkpoint restore test, pass Gate G09 | Rayan Ahmed | G09 | ⚪ PENDING | Target: G09 Assessment |
 | **STEP-028** | S11 | Execute Tier 1 unimodal baselines & Tier 2 clinical risk scores | Rayan Ahmed | - | ⚪ PENDING | Target: Baseline runs |
@@ -97,9 +97,9 @@ Read STEP_TRACKER.md and execute the next pending step.
 
 ---
 
-## 🎯 Next Step Details: Execute `STEP-024` (`Pin Phase 2 Modeling & XAI Runtime`)
+## 🎯 Next Step Details: Execute `STEP-025` (`Approve Prospective Q1 Experiment & Stats Protocols`)
 
-- **`Stage S09` Gates Closed:** **`G07` & `G08` PASS** ([G07 Reassessment](file:///e:/FYDP/01_Project_Management/reviews/G07_assessment_2026-11-27_reassessment.md), [G08 Reassessment](file:///e:/FYDP/01_Project_Management/reviews/G08_assessment_2026-11-27_reassessment.md)); **`REL0001`** (`91,781` rows) & **`PyTorch` (`UD13`) + `CVD-MM-Transformer` (`UD14`)** ready for implementation!
-- **Next Execution (`STEP-024` -> `STEP-025`):**
-  1. **`STEP-024`:** Pin and document exact modeling, calibration, statistics, and XAI software versions inside `environment/model/` (Kaggle GPU T4/P100 runtime contract + local reproducibility spec).
-  2. **`STEP-025`:** Formalize `07_Experiments/experiment_plan.md` (Blocks `A–F` ablation matrix) and `09_Evaluation_Stats/protocol.md` before model implementation (`STEP-026`) and `G09` smoke verification (`STEP-027`).
+- **Runtime Pinned (`STEP-024` Complete):** `environment/model/` locked ([requirements.txt](file:///e:/FYDP/environment/model/requirements.txt), [versions.md](file:///e:/FYDP/environment/model/versions.md)) with `environment/data/` SHA-256 preserved untouched; host verified cleanly for Kaggle Private Cloud GPU (`T4 x2 / P100`) execution.
+- **Path to Live Model Training Runs:**
+  1. **`STEP-025` (`Next`):** Preregister `07_Experiments/experiment_plan.md` (`Blocks A–F` covering `MC0001–MC0015`), `09_Evaluation_Stats/protocol.md`, and `10_Explainability_XAI/xai_protocol.md` (`executed later at S15`) + executable `T32` YAML schema.
+  2. **`STEP-026`–`STEP-027` (`G09`):** Implement `src/cvd_mm/models/` (`LR, RF, SVM, XGBoost, ResNet1D, BiLSTM, CompactCNN2D, Early/Late/Gated Fusion, CVD-MM-Transformer`) + **Kaggle Full Model Training Notebook**, run `EXP0000_SMOKE` & checkpoint recovery -> **`STEP-028+` Real Kaggle Model Training Runs**!

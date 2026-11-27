@@ -6,11 +6,11 @@
 | **Institution / Term** | Daffodil International University / Summer 2026 (CSE499) |
 | **Research Leads** | Rayan Ahmed (`232-15-847`), Mohammad Nafis Sadiq (`232-15-895`) |
 | **Supervisor** | Md. Mizanur Rahman (Senior Lecturer, Dept. of CSE, DIU) |
-| **Active Stage** | Stage S10 (`G02–G08 PASS`; `STEP-023` PyTorch + 4-Tier Baselines + Transformer Fusion Locked) |
-| **Current Step** | `STEP-023` Complete (`DEC0009 UD13`, `DEC0010 UD14`, Lit Update #1; [Transformer Spec](../06_Models_Fusion/architectures/transformer_fusion_spec.md)) |
-| **Next Step** | 👉 Execute [STEP-024](../STEP_TRACKER.md#next-step-details-execute-step-024-pin-phase-2-modeling--xai-runtime) (**Pin `environment/model/` Modeling & XAI Runtime**) |
+| **Active Stage** | Stage S10 (`STEP-024` Phase 2 Runtime Locked; Ready for `STEP-025` Experiment & Stats Protocol Lock) |
+| **Current Step** | `STEP-024` Complete (`environment/model/` Pinned, `environment/data/` Preserved; [versions.md](../environment/model/versions.md)) |
+| **Next Step** | 👉 Execute [STEP-025](../STEP_TRACKER.md#next-step-details-execute-step-025-approve-prospective-q1-experiment--stats-protocols) (**Lock `experiment_plan.md` & Stats Protocol -> `STEP-026–028` Model Runs**) |
 | **Master Step Tracker** | [STEP_TRACKER.md](../STEP_TRACKER.md) |
-| **Last Updated** | 2026-11-27T17:18:00+06:00 |
+| **Last Updated** | 2026-11-27T18:36:00+06:00 |
 
 ---
 
