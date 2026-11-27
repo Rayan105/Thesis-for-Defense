@@ -2,9 +2,10 @@
 
 Strictly reads ONLY `REL0001/train` and `REL0001/val` shards (NEVER `test`!),
 applies deterministic Stage-A portrait-to-landscape `90° CCW` rotation,
-aspect-preserving downscale (`384x192`), and exact `suppress_red_ecg_grid_rgb`
-red millimeter grid suppression using native compiled C# `.NET System.Drawing`,
-and writes `05_Preprocessing_Alignment/processed/REL0001_ds0002_png_train_val.zip`.
+FULL-RESOLUTION red millimeter grid suppression (`suppress_red_ecg_grid_rgb`) FIRST,
+and then Ink-Preserving Min-Pooling downscale to `768x384` so thin 1-2px QRS traces
+are NEVER blurred out by bilinear averaging, writing:
+`05_Preprocessing_Alignment/processed/REL0001_ds0002_png_train_val.zip`.
 """
 
 from __future__ import annotations
@@ -68,46 +69,70 @@ def main() -> int:
 $csCode = @"
 using System;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 
-public static class EcgStageAPng {{
-    public static void CleanAndSave(string src, string dst, int width, int height) {{
-        using (var img = Image.FromFile(src)) {{
+public static class EcgStageAMinPool {{
+    public static void CleanFullResAndMinPool(string src, string dst, int outW, int outH) {{
+        using (var img = new Bitmap(src)) {{
             if (img.Width < img.Height) {{
                 img.RotateFlip(RotateFlipType.Rotate270FlipNone);
             }}
-            using (var bmp = new Bitmap(width, height, PixelFormat.Format24bppRgb)) {{
-                using (var g = Graphics.FromImage(bmp)) {{
-                    g.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                    g.DrawImage(img, 0, 0, width, height);
+            int W = img.Width, H = img.Height;
+            var rect = new Rectangle(0, 0, W, H);
+            var data = img.LockBits(rect, ImageLockMode.ReadOnly, img.PixelFormat);
+            int bpp = Image.GetPixelFormatSize(img.PixelFormat) / 8;
+            int stride = data.Stride;
+            byte[] raw = new byte[stride * H];
+            Marshal.Copy(data.Scan0, raw, 0, raw.Length);
+            img.UnlockBits(data);
+
+            // Step 1: Full-resolution red-grid suppression (preserves thin 1-2px QRS ink!)
+            byte[] fullGray = new byte[W * H];
+            for (int y = 0; y < H; y++) {{
+                int rOff = y * stride;
+                int gOff = y * W;
+                for (int x = 0; x < W; x++) {{
+                    int idx = rOff + x * bpp;
+                    int b = raw[idx], g = raw[idx + 1], r = raw[idx + 2];
+                    int cmax = Math.Max(r, Math.Max(g, b));
+                    int redEx = Math.Max(0, r - Math.Max(g, b));
+                    int boost = (int)Math.Round(0.299 * r + 0.587 * g + 0.114 * b + 0.75 * redEx);
+                    if (boost > 255) boost = 255;
+                    fullGray[gOff + x] = (boost >= 155 && cmax >= 165) ? (byte)255 : (byte)boost;
                 }}
-                var rect = new Rectangle(0, 0, width, height);
-                var data = bmp.LockBits(rect, ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
-                int stride = data.Stride;
-                byte[] buf = new byte[stride * height];
-                Marshal.Copy(data.Scan0, buf, 0, buf.Length);
-                for (int y = 0; y < height; y++) {{
-                    int rowOff = y * stride;
-                    for (int x = 0; x < width; x++) {{
-                        int idx = rowOff + x * 3;
-                        int b = buf[idx];
-                        int gCol = buf[idx + 1];
-                        int r = buf[idx + 2];
-                        int cmax = Math.Max(r, Math.Max(gCol, b));
-                        int redEx = Math.Max(0, r - Math.Max(gCol, b));
-                        int boost = (int)Math.Round(0.299 * r + 0.587 * gCol + 0.114 * b + 0.75 * redEx);
-                        if (boost > 255) boost = 255;
-                        byte gray = (boost >= 155 && cmax >= 165) ? (byte)255 : (byte)boost;
-                        buf[idx] = gray;
-                        buf[idx + 1] = gray;
-                        buf[idx + 2] = gray;
+            }}
+
+            // Step 2: Ink-preserving block minimum downscale to 768x384 (24bpp grayscale PNG)
+            using (var outBmp = new Bitmap(outW, outH, PixelFormat.Format24bppRgb)) {{
+                var outRect = new Rectangle(0, 0, outW, outH);
+                var outData = outBmp.LockBits(outRect, ImageLockMode.WriteOnly, PixelFormat.Format24bppRgb);
+                int outStride = outData.Stride;
+                byte[] outBuf = new byte[outStride * outH];
+                for (int oy = 0; oy < outH; oy++) {{
+                    int y0 = (int)((long)oy * H / outH);
+                    int y1 = Math.Max(y0 + 1, (int)((long)(oy + 1) * H / outH));
+                    int dOff = oy * outStride;
+                    for (int ox = 0; ox < outW; ox++) {{
+                        int x0 = (int)((long)ox * W / outW);
+                        int x1 = Math.Max(x0 + 1, (int)((long)(ox + 1) * W / outW));
+                        byte m = 255;
+                        for (int yy = y0; yy < y1; yy++) {{
+                            int gRow = yy * W;
+                            for (int xx = x0; xx < x1; xx++) {{
+                                byte v = fullGray[gRow + xx];
+                                if (v < m) m = v;
+                            }}
+                        }}
+                        int pIdx = dOff + ox * 3;
+                        outBuf[pIdx] = m;
+                        outBuf[pIdx + 1] = m;
+                        outBuf[pIdx + 2] = m;
                     }}
                 }}
-                Marshal.Copy(buf, 0, data.Scan0, buf.Length);
-                bmp.UnlockBits(data);
-                bmp.Save(dst, ImageFormat.Png);
+                Marshal.Copy(outBuf, 0, outData.Scan0, outBuf.Length);
+                outBmp.UnlockBits(outData);
+                outBmp.Save(dst, ImageFormat.Png);
             }}
         }}
     }}
@@ -116,9 +141,9 @@ public static class EcgStageAPng {{
 Add-Type -TypeDefinition $csCode -ReferencedAssemblies System.Drawing
 $jobs = Get-Content -Raw -Path '{pairs_json}' | ConvertFrom-Json
 foreach ($j in $jobs) {{
-    [EcgStageAPng]::CleanAndSave($j.src, $j.dst, 384, 192)
+    [EcgStageAMinPool]::CleanFullResAndMinPool($j.src, $j.dst, 768, 384)
 }}
-Write-Output ("Cleaned & packaged " + $jobs.Count + " Train/Val DS0002 PNGs to Stage-A 384x192.")
+Write-Output ("Cleaned full-res & MinPooled " + $jobs.Count + " Train/Val DS0002 PNGs to 768x384.")
 """
     subprocess.run(["powershell", "-NoProfile", "-Command", ps_script], check=True)
 
@@ -129,8 +154,12 @@ Write-Output ("Cleaned & packaged " + $jobs.Count + " Train/Val DS0002 PNGs to S
             "dataset": "DS0002_CARDIO_ML_ED",
             "partitions_included": ["train", "val"],
             "test_partition_excluded": True,
-            "target_size_wh": [384, 192],
-            "stage_a_applied": ["portrait_90ccw_to_landscape", "aspect_preserving_resize_384x192", "suppress_red_ecg_grid_rgb"],
+            "target_size_wh": [768, 384],
+            "stage_a_applied": [
+                "portrait_90ccw_to_landscape",
+                "full_res_suppress_red_ecg_grid_rgb",
+                "ink_preserving_minpool_resize_768x384",
+            ],
             "count": len(entries),
             "files": entries,
         }, indent=2),
@@ -145,7 +174,7 @@ Write-Output ("Cleaned & packaged " + $jobs.Count + " Train/Val DS0002 PNGs to S
 
     shutil.rmtree(tmp_dir)
     size_mb = zip_out.stat().st_size / (1024 * 1024)
-    print(f"Created {zip_out} ({size_mb:.2f} MB) with {len(entries)} Stage-A PNGs (0 Test files).")
+    print(f"Created {zip_out} ({size_mb:.2f} MB) with {len(entries)} ink-preserved 768x384 PNGs (0 Test files).")
     return 0
 
 
