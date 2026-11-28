@@ -26,6 +26,87 @@
     "G09"
   ],
   "test_partition_access": "SEALED_UNTIL_G11",
-  "status": "READY",
-  "registered_at": "2026-11-27T21:58:00+06:00"
+  "status": "COMPLETED",
+  "registered_at": "2026-11-27T21:58:00+06:00",
+  "executed_commit": "19249e5",
+  "executed_device": "cuda",
+  "run_ids": [
+    "RUN0001_KAGGLE"
+  ],
+  "completed_at": "2026-11-28T01:01:18+06:00",
+  "checkpoint_ids": [],
+  "val_metrics_summary": [
+    {
+      "cohort": "DS0003_C_only",
+      "seed": 20261127,
+      "val_roc_auc": 0.58637,
+      "val_pr_auc": 0.565047,
+      "val_brier_cal": 0.245595,
+      "val_ece_cal": 0.11775,
+      "val_f1_youden": 0.661765,
+      "temp": 3.0,
+      "tau_youden": 0.39,
+      "tau_sens85": 0.4
+    },
+    {
+      "cohort": "DS0003_C_plus_L",
+      "seed": 20261127,
+      "val_roc_auc": 0.663293,
+      "val_pr_auc": 0.671562,
+      "val_brier_cal": 0.227736,
+      "val_ece_cal": 0.117812,
+      "val_f1_youden": 0.622642,
+      "temp": 2.975,
+      "tau_youden": 0.495,
+      "tau_sens85": 0.385
+    },
+    {
+      "cohort": "DS0003_C_plus_L_plus_S",
+      "seed": 20261127,
+      "val_roc_auc": 0.822031,
+      "val_pr_auc": 0.82087,
+      "val_brier_cal": 0.170365,
+      "val_ece_cal": 0.101968,
+      "val_f1_youden": 0.762376,
+      "temp": 1.575,
+      "tau_youden": 0.515,
+      "tau_sens85": 0.32
+    },
+    {
+      "cohort": "DS0004_C_only",
+      "seed": 20261127,
+      "val_roc_auc": 0.787383,
+      "val_pr_auc": 0.76892,
+      "val_brier_cal": 0.186987,
+      "val_ece_cal": 0.01759,
+      "val_f1_youden": 0.698977,
+      "temp": 1.075,
+      "tau_youden": 0.535,
+      "tau_sens85": 0.34
+    },
+    {
+      "cohort": "DS0004_C_plus_L",
+      "seed": 20261127,
+      "val_roc_auc": 0.797836,
+      "val_pr_auc": 0.779141,
+      "val_brier_cal": 0.182343,
+      "val_ece_cal": 0.011935,
+      "val_f1_youden": 0.718878,
+      "temp": 1.05,
+      "tau_youden": 0.485,
+      "tau_sens85": 0.34
+    },
+    {
+      "cohort": "DS0004_C_plus_L_plus_S",
+      "seed": 20261127,
+      "val_roc_auc": 0.799926,
+      "val_pr_auc": 0.778612,
+      "val_brier_cal": 0.181278,
+      "val_ece_cal": 0.01805,
+      "val_f1_youden": 0.724682,
+      "temp": 1.05,
+      "tau_youden": 0.495,
+      "tau_sens85": 0.335
+    }
+  ]
 }

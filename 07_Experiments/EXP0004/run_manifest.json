@@ -25,6 +25,68 @@
     "G09"
   ],
   "test_partition_access": "SEALED_UNTIL_G11",
-  "status": "READY",
-  "registered_at": "2026-11-27T21:58:00+06:00"
+  "status": "COMPLETED",
+  "registered_at": "2026-11-27T21:58:00+06:00",
+  "executed_commit": "19249e5",
+  "executed_device": "cuda",
+  "run_ids": [
+    "RUN0001_KAGGLE"
+  ],
+  "completed_at": "2026-11-28T01:01:18+06:00",
+  "checkpoint_ids": [
+    "CKPT0002",
+    "CKPT0003",
+    "CKPT0004",
+    "CKPT0005"
+  ],
+  "val_metrics_summary": [
+    {
+      "cohort": "DS0001",
+      "seed": 20261127,
+      "val_roc_auc": 0.756332,
+      "val_pr_auc": 0.794546,
+      "val_brier_cal": 0.203281,
+      "val_ece_cal": 0.086246,
+      "val_f1_youden": 0.749103,
+      "temp": 1.1,
+      "tau_youden": 0.465,
+      "tau_sens85": 0.36
+    },
+    {
+      "cohort": "DS0002",
+      "seed": 20261127,
+      "val_roc_auc": 0.697959,
+      "val_pr_auc": 0.790553,
+      "val_brier_cal": 0.220754,
+      "val_ece_cal": 0.159188,
+      "val_f1_youden": 0.682353,
+      "temp": 1.3,
+      "tau_youden": 0.57,
+      "tau_sens85": 0.345
+    },
+    {
+      "cohort": "DS0003",
+      "seed": 20261127,
+      "val_roc_auc": 0.835948,
+      "val_pr_auc": 0.836446,
+      "val_brier_cal": 0.16564,
+      "val_ece_cal": 0.066954,
+      "val_f1_youden": 0.758294,
+      "temp": 0.725,
+      "tau_youden": 0.49,
+      "tau_sens85": 0.385
+    },
+    {
+      "cohort": "DS0004",
+      "seed": 20261127,
+      "val_roc_auc": 0.802356,
+      "val_pr_auc": 0.781511,
+      "val_brier_cal": 0.180194,
+      "val_ece_cal": 0.012176,
+      "val_f1_youden": 0.719271,
+      "temp": 0.975,
+      "tau_youden": 0.505,
+      "tau_sens85": 0.33
+    }
+  ]
 }

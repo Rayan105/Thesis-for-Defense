@@ -25,6 +25,39 @@
     "G09"
   ],
   "test_partition_access": "SEALED_UNTIL_G11",
-  "status": "READY",
-  "registered_at": "2026-11-27T21:58:00+06:00"
+  "status": "COMPLETED",
+  "registered_at": "2026-11-27T21:58:00+06:00",
+  "executed_commit": "19249e5",
+  "executed_device": "cuda",
+  "run_ids": [
+    "RUN0001_KAGGLE"
+  ],
+  "completed_at": "2026-11-28T01:01:18+06:00",
+  "checkpoint_ids": [],
+  "val_metrics_summary": [
+    {
+      "cohort": "DS0003",
+      "seed": 20261127,
+      "val_roc_auc": 0.500422,
+      "val_pr_auc": 0.474757,
+      "val_brier_cal": 0.250918,
+      "val_ece_cal": 0.117382,
+      "val_f1_youden": 0.548673,
+      "temp": 3.0,
+      "tau_youden": 0.465,
+      "tau_sens85": 0.43
+    },
+    {
+      "cohort": "DS0004",
+      "seed": 20261127,
+      "val_roc_auc": 0.648564,
+      "val_pr_auc": 0.623121,
+      "val_brier_cal": 0.236726,
+      "val_ece_cal": 0.053225,
+      "val_f1_youden": 0.571398,
+      "temp": 1.2,
+      "tau_youden": 0.46,
+      "tau_sens85": 0.365
+    }
+  ]
 }

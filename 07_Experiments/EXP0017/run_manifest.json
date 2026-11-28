@@ -26,6 +26,63 @@
     "G09"
   ],
   "test_partition_access": "SEALED_UNTIL_G11",
-  "status": "READY",
-  "registered_at": "2026-11-27T21:58:00+06:00"
+  "status": "COMPLETED",
+  "registered_at": "2026-11-27T21:58:00+06:00",
+  "executed_commit": "19249e5",
+  "executed_device": "cuda",
+  "run_ids": [
+    "RUN0001_KAGGLE"
+  ],
+  "completed_at": "2026-11-28T01:01:18+06:00",
+  "checkpoint_ids": [],
+  "val_metrics_summary": [
+    {
+      "cohort": "ALL_LOMO_drop_Clinical",
+      "seed": 20261127,
+      "val_roc_auc": 0.688528,
+      "val_pr_auc": 0.708955,
+      "val_brier_cal": 0.215917,
+      "val_ece_cal": 0.030047,
+      "val_f1_youden": 0.54322,
+      "temp": 1.35,
+      "tau_youden": 0.505,
+      "tau_sens85": 0.46
+    },
+    {
+      "cohort": "ALL_LOMO_drop_ECG",
+      "seed": 20261127,
+      "val_roc_auc": 0.789115,
+      "val_pr_auc": 0.77872,
+      "val_brier_cal": 0.187284,
+      "val_ece_cal": 0.017247,
+      "val_f1_youden": 0.723511,
+      "temp": 1.15,
+      "tau_youden": 0.48,
+      "tau_sens85": 0.35
+    },
+    {
+      "cohort": "ALL_LOMO_drop_Lab",
+      "seed": 20261127,
+      "val_roc_auc": 0.816602,
+      "val_pr_auc": 0.829082,
+      "val_brier_cal": 0.174218,
+      "val_ece_cal": 0.018455,
+      "val_f1_youden": 0.732742,
+      "temp": 1.3,
+      "tau_youden": 0.49,
+      "tau_sens85": 0.345
+    },
+    {
+      "cohort": "ALL_LOMO_drop_Lifestyle",
+      "seed": 20261127,
+      "val_roc_auc": 0.821682,
+      "val_pr_auc": 0.833476,
+      "val_brier_cal": 0.171409,
+      "val_ece_cal": 0.014786,
+      "val_f1_youden": 0.740789,
+      "temp": 1.25,
+      "tau_youden": 0.49,
+      "tau_sens85": 0.35
+    }
+  ]
 }

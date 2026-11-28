@@ -204,7 +204,7 @@ runtime:
             )
             self.assertEqual(cfg["experiment_id"], exp_id)
             manifest = json.loads(man_p.read_text(encoding="utf-8"))
-            self.assertEqual(manifest["status"], "READY")
+            self.assertIn(manifest["status"], ("READY", "COMPLETED"))
             self.assertEqual(manifest["test_partition_access"], "SEALED_UNTIL_G11")
             actual_sha = hashlib.sha256(cfg_p.read_bytes()).hexdigest()
             self.assertEqual(manifest["config_sha256"], actual_sha)

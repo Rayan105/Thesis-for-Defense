@@ -23,6 +23,29 @@
     "G09"
   ],
   "test_partition_access": "SEALED_UNTIL_G11",
-  "status": "READY",
-  "registered_at": "2026-11-27T21:58:00+06:00"
+  "status": "COMPLETED",
+  "registered_at": "2026-11-27T21:58:00+06:00",
+  "executed_commit": "19249e5",
+  "executed_device": "cuda",
+  "run_ids": [
+    "RUN0001_KAGGLE"
+  ],
+  "completed_at": "2026-11-28T01:01:18+06:00",
+  "checkpoint_ids": [
+    "CKPT0009"
+  ],
+  "val_metrics_summary": [
+    {
+      "cohort": "DS0001",
+      "seed": 20261127,
+      "val_roc_auc": 0.923228,
+      "val_pr_auc": 0.947794,
+      "val_brier_cal": 0.110071,
+      "val_ece_cal": 0.020789,
+      "val_f1_youden": 0.859227,
+      "temp": 1.375,
+      "tau_youden": 0.52,
+      "tau_sens85": 0.43
+    }
+  ]
 }

@@ -46,6 +46,7 @@ adjudications/
 *.onnx
 *.pkl
 *.joblib
+*.npz
 08_Checkpoints/binaries/
 
 # Python & Environment

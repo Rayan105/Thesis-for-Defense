@@ -26,6 +26,77 @@
     "G09"
   ],
   "test_partition_access": "SEALED_UNTIL_G11",
-  "status": "READY",
-  "registered_at": "2026-11-27T21:58:00+06:00"
+  "status": "COMPLETED",
+  "registered_at": "2026-11-27T21:58:00+06:00",
+  "executed_commit": "19249e5",
+  "executed_device": "cuda",
+  "run_ids": [
+    "RUN0001_KAGGLE"
+  ],
+  "completed_at": "2026-11-28T01:01:18+06:00",
+  "checkpoint_ids": [
+    "CKPT0011"
+  ],
+  "val_metrics_summary": [
+    {
+      "cohort": "ALL_COHORTS",
+      "seed": 20261127,
+      "val_roc_auc": 0.823691,
+      "val_pr_auc": 0.835141,
+      "val_brier_cal": 0.170535,
+      "val_ece_cal": 0.016904,
+      "val_f1_youden": 0.74899,
+      "temp": 1.2,
+      "tau_youden": 0.48,
+      "tau_sens85": 0.36
+    },
+    {
+      "cohort": "DS0001",
+      "seed": 20261127,
+      "val_roc_auc": 0.933255,
+      "val_pr_auc": 0.955011,
+      "val_brier_cal": 0.10907,
+      "val_ece_cal": 0.072693,
+      "val_f1_youden": 0.867295,
+      "temp": 1.475,
+      "tau_youden": 0.405,
+      "tau_sens85": 0.355
+    },
+    {
+      "cohort": "DS0002",
+      "seed": 20261127,
+      "val_roc_auc": 0.735277,
+      "val_pr_auc": 0.81247,
+      "val_brier_cal": 0.20841,
+      "val_ece_cal": 0.142264,
+      "val_f1_youden": 0.666667,
+      "temp": 1.425,
+      "tau_youden": 0.52,
+      "tau_sens85": 0.365
+    },
+    {
+      "cohort": "DS0003",
+      "seed": 20261127,
+      "val_roc_auc": 0.799679,
+      "val_pr_auc": 0.805265,
+      "val_brier_cal": 0.186603,
+      "val_ece_cal": 0.101137,
+      "val_f1_youden": 0.684783,
+      "temp": 1.075,
+      "tau_youden": 0.66,
+      "tau_sens85": 0.405
+    },
+    {
+      "cohort": "DS0004",
+      "seed": 20261127,
+      "val_roc_auc": 0.799192,
+      "val_pr_auc": 0.781431,
+      "val_brier_cal": 0.182031,
+      "val_ece_cal": 0.01897,
+      "val_f1_youden": 0.727435,
+      "temp": 1.125,
+      "tau_youden": 0.475,
+      "tau_sens85": 0.355
+    }
+  ]
 }

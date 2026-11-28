@@ -1,0 +1,77 @@
+[
+  {
+    "filename": "EXP0004_DS0001_xgb.pkl",
+    "bytes": 240581,
+    "sha256": "6ef215ae6e28989fddc3372fe9e8418bad7fd1bf15498278c5118e95d6c5b830"
+  },
+  {
+    "filename": "EXP0004_DS0002_xgb.pkl",
+    "bytes": 232004,
+    "sha256": "f33bfeaf05550bc3507cafbd2866b16f435ab6aed1c166fcbd8f56c6127d0aa6"
+  },
+  {
+    "filename": "EXP0004_DS0003_xgb.pkl",
+    "bytes": 240511,
+    "sha256": "429abcb1eeb37ff79d9fa2fcac8a3beb646ffa31f79332c0a2c64b176fea71ae"
+  },
+  {
+    "filename": "EXP0004_DS0004_xgb.pkl",
+    "bytes": 244597,
+    "sha256": "5ca11b13376ee46587c12dbb0e5c62bb05e542e48f6ed442319b013a76d2c9bf"
+  },
+  {
+    "filename": "EXP0007_MC0007_best_val.pt",
+    "bytes": 418565,
+    "sha256": "876ee99ffbc84fef5ee8010fdfbef126d4f693e1364e5ffbad461931c7c01ee0"
+  },
+  {
+    "filename": "EXP0008_MC0008_best_val.pt",
+    "bytes": 134881,
+    "sha256": "3fc94cd808acaf033806efcbc53ea2c10417be3ccdaee30efe6204fe7a72f70e"
+  },
+  {
+    "filename": "EXP0009_MC0009_best_val.pt",
+    "bytes": 231369,
+    "sha256": "16f1e293dc325054fba81d2b932bfacd867bec43581ad0b0f121e327db291af6"
+  },
+  {
+    "filename": "EXP0010_MC0010_best_val.pt",
+    "bytes": 355516,
+    "sha256": "fe4abbb4862d25a8e57cf2d6f68f5261f80a7d0dbcd3d274255b1cad837bedc1"
+  },
+  {
+    "filename": "EXP0014_MC0014_seed20261127_best_val.pt",
+    "bytes": 869723,
+    "sha256": "3283a6437d61b647eb6bee06468d0a76060c2b3d09749ff3c6d35572b50b4433"
+  },
+  {
+    "filename": "EXP0015_MC0015_seed20261127_best_val.pt",
+    "bytes": 1135799,
+    "sha256": "5e0686c33f471ea45acd5461e19504ae0dafdfa1a01ba0182e7f0caabec4c8ff"
+  },
+  {
+    "filename": "EXP0018_MC0015_seed20261127_best_val.pt",
+    "bytes": 1135799,
+    "sha256": "8e5cc3009e99408bbccdf9b4b0625f697da30675670f6a209a0996271e21274d"
+  },
+  {
+    "filename": "EXP0020_MC0015_seed20261128_best_val.pt",
+    "bytes": 1135799,
+    "sha256": "d960e55df930d0f7aec97eb6b1b61d000abe4556cf451ab45a97770096d3ada6"
+  },
+  {
+    "filename": "EXP0020_MC0015_seed20261129_best_val.pt",
+    "bytes": 1135799,
+    "sha256": "b3fbd98e29cbf87029ea0500c6e819f3322e362dcb915b5e849cf0d48be4bd8c"
+  },
+  {
+    "filename": "EXP0020_MC0015_seed20261130_best_val.pt",
+    "bytes": 1135799,
+    "sha256": "1a131598c88d97b40122a72913e2e6092e87c1d4cb6566e9bb86a34e79bce274"
+  },
+  {
+    "filename": "EXP0020_MC0015_seed20261201_best_val.pt",
+    "bytes": 1135799,
+    "sha256": "f5c1833b331b013cbbd4964b748f3dece1e44312a394be5c3e0b970033046bff"
+  }
+]

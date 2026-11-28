@@ -8,12 +8,12 @@
 
 | Metric | Current Value |
 |---|---|
-| **Last Completed Step** | **`STEP-028` (`EXP0001–EXP0020` Immutable Stage S11 Bundles Registered `READY`)** (`Blocks A–F`, `33/33` Tests PASS) |
-| **Last Git Commit** | `STEP-028`: Registered & hash-validated `EXP0001–EXP0020` immutable configs (`Blocks A–F`) & `experiment_registry.csv` |
-| **Active Stage** | **`S11` IN PROGRESS (`STEP-028` Complete -> `STEP-029` Executing Full Controlled Training on Kaggle GPU)** |
-| **Next Step to Execute** | 👉 **Execute `STEP-029` (`Train Blocks A–F Models [MC0001–MC0015] on REL0001 Train/Val via Kaggle GPU`)** |
-| **Current Quality Gates** | `G01`: Not Assessed (`PDF missing`) \| **`G02–G09`: PASS** \| `G10–G17`: Blocked (`S11–S17`) |
-| **Last Updated** | 2026-11-27T22:00:00+06:00 |
+| **Last Completed Step** | **`STEP-029`, `STEP-031` & `STEP-030/032` Docs (`20/20 EXPs`, `15` SHA-256 Checkpoints, `15 MODEL` Cards, `freeze.md` Ready)** |
+| **Last Git Commit** | `STEP-030/032`: Audited Kaggle S11 (`91` Val rows), registered `CKPT0002–16` & `MODEL0001–15`, froze `freeze.md` (`Test=SEALED`) |
+| **Active Stage** | **`S11 -> S12` (`G10` & `G11` Supervisor Sign-Off Required Before Unsealing `REL0001/test`)** |
+| **Next Step to Execute** | 👉 **Supervisor Sign-Off on `G10` & `G11` -> Unseal `REL0001/test` & Run `STEP-033` (Final Held-Out Test Inference)** |
+| **Current Quality Gates** | `G01`: Not Assessed (`PDF missing`) \| **`G02–G09`: PASS** \| **`G10–G11`: Pending Supervisor Ratification** \| `G12–G17`: Blocked (`S13–S17`) |
+| **Last Updated** | 2026-11-28T11:22:00+06:00 |
 
 ### 🤖 AI Prompt for Next Teammate / Next Session:
 To resume work with minimal token cost, simply give the AI this exact prompt:
@@ -72,11 +72,11 @@ Read STEP_TRACKER.md and execute the next pending step.
 | **STEP-026** | S10 | Implement baseline suite (LR, RF, SVM, XGBoost, 1D-CNN, LSTM) & Transformer fusion | Rayan Ahmed | - | ✅ **COMPLETED (`src/cvd_mm/` + `32/32` Tests + Kaggle NB)** | [pipeline.md](file:///e:/FYDP/13_Documentation/pipeline.md), [run_experiment.py](file:///e:/FYDP/14_Automation/run_experiment.py), [CVD_Multimodal_Kaggle_Training_Pipeline.ipynb](file:///e:/FYDP/06_Models_Fusion/notebooks/CVD_Multimodal_Kaggle_Training_Pipeline.ipynb) |
 | **STEP-027** | S10 | Diagnostic smoke run, pipeline test, checkpoint restore test, pass Gate G09 | Rayan Ahmed | G09 | ✅ **COMPLETED (`G09 PASS`)** | [EXP0000_SMOKE](file:///e:/FYDP/07_Experiments/EXP0000_SMOKE/README.md), [CKPT0001](file:///e:/FYDP/08_Checkpoints/manifests/CKPT0001.md), [G09 PASS](file:///e:/FYDP/01_Project_Management/reviews/G09_assessment_2026-11-27_reassessment.md) |
 | **STEP-028** | S11 | Register & hash-validate immutable `EXP0001–EXP0020` bundles (`Blocks A–F`) | Rayan Ahmed | - | ✅ **COMPLETED (`20/20 READY` in `experiment_registry.csv`)** | [register_experiments.py](file:///e:/FYDP/14_Automation/register_experiments.py), [experiment_registry.csv](file:///e:/FYDP/07_Experiments/experiment_registry.csv), [EXP0015 README](file:///e:/FYDP/07_Experiments/EXP0015/README.md) |
-| **STEP-029** | S11 | Train registered `Blocks A–F` models (`Tier 1–4`, `MC0001–MC0015`) on Train/Val | Rayan Ahmed | - | 👉 **NEXT TO EXECUTE** | Target: Kaggle GPU Full Matrix |
-| **STEP-030** | S11 | Register model checkpoints & cards, evaluate qualifying Gate G10 | Rayan Ahmed | G10 | ⚪ PENDING | Target: G10 Assessment |
-| **STEP-031** | S11 | Multi-seed runs, LOMO ablations, missing-modality degradation stress tests | Rayan Ahmed | - | ⚪ PENDING | Target: Full ablation matrix |
-| **STEP-032** | S12 | Validation-only champion model selection, fit calibrator, pass Gate G11 | Nafis Sadiq | G11 | ⚪ PENDING | Target: G11 (Test set freeze) |
-| **STEP-033** | S12 | Unseal held-out test partition & generate frozen test predictions | Nafis Sadiq | - | ⚪ PENDING | Target: Frozen test predictions |
+| **STEP-029** | S11 | Train registered `Blocks A–F` models (`Tier 1–4`, `MC0001–MC0015`) on Train/Val | Rayan Ahmed | - | ✅ **COMPLETED (Kaggle CUDA `91` Val Rows)** | [s11_validation_results.csv](file:///e:/FYDP/07_Experiments/s11_validation_results.csv), `results_kaggle_backup.zip` (`Test=0`) |
+| **STEP-030** | S11 | Register model checkpoints & cards, evaluate qualifying Gate G10 | Rayan Ahmed | G10 | ✅ **DOCS/HASHES VERIFIED (`G10` Pending Supervisor)** | [model_registry.csv](file:///e:/FYDP/06_Models_Fusion/model_registry.csv), [checkpoint_registry.csv](file:///e:/FYDP/08_Checkpoints/checkpoint_registry.csv), [G10 Review](file:///e:/FYDP/01_Project_Management/reviews/G10_assessment_2026-11-28.md) |
+| **STEP-031** | S11 | Multi-seed runs, LOMO ablations, missing-modality degradation stress tests | Rayan Ahmed | - | ✅ **COMPLETED (`5` Seeds + LOMO + Stress)** | [validation_matrix_summary.md](file:///e:/FYDP/07_Experiments/validation_matrix_summary.md) |
+| **STEP-032** | S12 | Validation-only champion model selection, fit calibrator, pass Gate G11 | Nafis Sadiq | G11 | ⏳ **FREEZE READY (`G11` Awaiting Supervisor Unseal)** | [freeze.md](file:///e:/FYDP/09_Evaluation_Stats/freeze.md), [G11 Review](file:///e:/FYDP/01_Project_Management/reviews/G11_assessment_2026-11-28.md) |
+| **STEP-033** | S12 | Unseal held-out test partition & generate frozen test predictions | Nafis Sadiq | - | 👉 **NEXT AFTER `G11` SIGN-OFF** | Target: `REL0001/test` (`12,719` pts, 1-shot frozen eval) |
 | **STEP-034** | S13 | Compute 6 proposal mandatory metrics + Q1 adopted metrics (PR-AUC, Brier, ECE) | Nafis Sadiq | - | ⚪ PENDING | Target: Test evaluation metrics |
 | **STEP-035** | S13 | Bootstrap 95% CIs, paired DeLong tests, Decision Curve Analysis (DCA) | Nafis Sadiq | - | ⚪ PENDING | Target: Statistical test reports |
 | **STEP-036** | S13 | Compile evaluation report (`EVAL####`), pass Gate G12 | Nafis Sadiq | G12 | ⚪ PENDING | Target: G12 Assessment |
@@ -97,9 +97,8 @@ Read STEP_TRACKER.md and execute the next pending step.
 
 ---
 
-## 🎯 Next Step Details: Execute `STEP-029` (`Kaggle GPU Controlled Training Across Blocks A–F`)
+## 🎯 Next Step Details: Supervisor Sign-Off on `G10` & `G11` -> Unseal `REL0001/test` (`STEP-033`)
 
-- **Immutable Bundles Registered (`STEP-028` Complete):** All `20` preregistered experiment bundles ([EXP0001..EXP0020](file:///e:/FYDP/07_Experiments/experiment_registry.csv)) covering Tier 1 unimodal (`MC0001–10`), Tier 2 clinical context (`MC0011`), Tier 3 simple fusion (`MC0012–14`), Tier 4 `CVDMMTransformer` (`MC0015`), and `Blocks D–F` ablations/stress tests passed schema + SHA-256 + `G08–G09` custody checks (`Status = READY`).
-- **Next Execution (`STEP-029` — Controlled Training Execution on Kaggle GPU):**
-  1. Launch Kaggle GPU training runs (`Train/Val` only; `Test` sealed until `G11`) using [CVD_Multimodal_Kaggle_Training_Pipeline.ipynb](file:///e:/FYDP/06_Models_Fusion/notebooks/CVD_Multimodal_Kaggle_Training_Pipeline.ipynb) across `Blocks A–C` first (`Tier 1–2` baselines vs `Tier 3` vs `Tier 4 CVDMMTransformer`)!
-  2. Export & log Validation metrics (`val_roc_auc`, `val_pr_auc`, `val_brier`, `ECE-15`) and `best_val` Tier 3 checkpoints (`CKPT####`), updating [experiment_registry.csv](file:///e:/FYDP/07_Experiments/experiment_registry.csv), [checkpoint_registry.csv](file:///e:/FYDP/08_Checkpoints/checkpoint_registry.csv), and [model_registry.csv](file:///e:/FYDP/06_Models_Fusion/model_registry.csv) in **`STEP-030` (`Gate G10`)**!
+- **Stage `S11` Verification Complete (`STEP-029`–`STEP-031`):** All `20` registered experiments (`EXP0001–EXP0020`, `91` validation rows) and `15` checkpoints (`CKPT0002–CKPT0016`) are verified by SHA-256 inside Tier 3 (`08_Checkpoints/binaries/S11/`) and indexed in [validation_matrix_summary.md](file:///e:/FYDP/07_Experiments/validation_matrix_summary.md) with zero Test reads (`TACC0001 SEALED`).
+- **Validation-Only Freeze Ready (`STEP-032` / `G11`):** Champion **`MODEL0015`** (`CVD_MM_Transformer`, `ALL_COHORTS` `0.8225 ± 0.0048`, `macro 0.8169`, `DS0002 0.7353`, `ECE 0.0169`) and prespecified comparators (`MODEL0001–0014`, `EXP0018`), validation temperature calibrators/thresholds ([frozen_validation_calibration.json](file:///e:/FYDP/09_Evaluation_Stats/frozen_validation_calibration.json)), and `N=256` Train-only SHAP background IDs ([shap_background_ids.json](file:///e:/FYDP/09_Evaluation_Stats/shap_background_ids.json)) are frozen in [freeze.md](file:///e:/FYDP/09_Evaluation_Stats/freeze.md).
+- **Required Before `STEP-033`:** Obtain Supervisor confirmation for [G10 Review](file:///e:/FYDP/01_Project_Management/reviews/G10_assessment_2026-11-28.md) & [G11 Review](file:///e:/FYDP/01_Project_Management/reviews/G11_assessment_2026-11-28.md), then run frozen `STEP-033`–`STEP-036` inference (`REL0001/test`, `N=12,719`).

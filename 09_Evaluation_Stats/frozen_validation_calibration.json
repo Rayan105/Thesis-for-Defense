@@ -1,0 +1,357 @@
+{
+  "release_id": "REL0001",
+  "fit_partition": "val_only",
+  "calibrators_and_thresholds": {
+    "EXP0001__MC0001__DS0001": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.05,
+      "tau_youden": 0.485,
+      "tau_sens85": 0.365,
+      "val_roc_auc_raw": 0.761719,
+      "val_brier_cal": 0.200566,
+      "val_ece_cal": 0.075073
+    },
+    "EXP0002__MC0002__DS0001": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.1,
+      "tau_youden": 0.49,
+      "tau_sens85": 0.345,
+      "val_roc_auc_raw": 0.746127,
+      "val_brier_cal": 0.205373,
+      "val_ece_cal": 0.080551
+    },
+    "EXP0004__MC0004__DS0001": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.1,
+      "tau_youden": 0.465,
+      "tau_sens85": 0.36,
+      "val_roc_auc_raw": 0.756332,
+      "val_brier_cal": 0.203281,
+      "val_ece_cal": 0.086246
+    },
+    "EXP0005__MC0005__DS0001": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.125,
+      "tau_youden": 0.435,
+      "tau_sens85": 0.36,
+      "val_roc_auc_raw": 0.754176,
+      "val_brier_cal": 0.204505,
+      "val_ece_cal": 0.080371
+    },
+    "EXP0001__MC0001__DS0002": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 0.9,
+      "tau_youden": 0.655,
+      "tau_sens85": 0.345,
+      "val_roc_auc_raw": 0.724781,
+      "val_brier_cal": 0.211773,
+      "val_ece_cal": 0.175313
+    },
+    "EXP0002__MC0002__DS0002": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 0.9,
+      "tau_youden": 0.68,
+      "tau_sens85": 0.41,
+      "val_roc_auc_raw": 0.676968,
+      "val_brier_cal": 0.217281,
+      "val_ece_cal": 0.15071
+    },
+    "EXP0004__MC0004__DS0002": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.3,
+      "tau_youden": 0.57,
+      "tau_sens85": 0.345,
+      "val_roc_auc_raw": 0.697959,
+      "val_brier_cal": 0.220754,
+      "val_ece_cal": 0.159188
+    },
+    "EXP0005__MC0005__DS0002": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.625,
+      "tau_youden": 0.56,
+      "tau_sens85": 0.355,
+      "val_roc_auc_raw": 0.674052,
+      "val_brier_cal": 0.227003,
+      "val_ece_cal": 0.146263
+    },
+    "EXP0001__MC0001__DS0003": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 0.775,
+      "tau_youden": 0.515,
+      "tau_sens85": 0.375,
+      "val_roc_auc_raw": 0.811404,
+      "val_brier_cal": 0.177863,
+      "val_ece_cal": 0.134837
+    },
+    "EXP0002__MC0002__DS0003": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 0.4,
+      "tau_youden": 0.455,
+      "tau_sens85": 0.305,
+      "val_roc_auc_raw": 0.852311,
+      "val_brier_cal": 0.156468,
+      "val_ece_cal": 0.079544
+    },
+    "EXP0004__MC0004__DS0003": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 0.725,
+      "tau_youden": 0.49,
+      "tau_sens85": 0.385,
+      "val_roc_auc_raw": 0.835948,
+      "val_brier_cal": 0.16564,
+      "val_ece_cal": 0.066954
+    },
+    "EXP0005__MC0005__DS0003": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 0.8,
+      "tau_youden": 0.58,
+      "tau_sens85": 0.35,
+      "val_roc_auc_raw": 0.831478,
+      "val_brier_cal": 0.167052,
+      "val_ece_cal": 0.051565
+    },
+    "EXP0011__MC0011__DS0003": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 3.0,
+      "tau_youden": 0.465,
+      "tau_sens85": 0.43,
+      "val_roc_auc_raw": 0.500422,
+      "val_brier_cal": 0.250918,
+      "val_ece_cal": 0.117382
+    },
+    "EXP0001__MC0001__DS0004": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.025,
+      "tau_youden": 0.46,
+      "tau_sens85": 0.365,
+      "val_roc_auc_raw": 0.791132,
+      "val_brier_cal": 0.187469,
+      "val_ece_cal": 0.038748
+    },
+    "EXP0002__MC0002__DS0004": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 0.975,
+      "tau_youden": 0.47,
+      "tau_sens85": 0.33,
+      "val_roc_auc_raw": 0.79966,
+      "val_brier_cal": 0.181519,
+      "val_ece_cal": 0.015506
+    },
+    "EXP0004__MC0004__DS0004": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 0.975,
+      "tau_youden": 0.505,
+      "tau_sens85": 0.33,
+      "val_roc_auc_raw": 0.802356,
+      "val_brier_cal": 0.180194,
+      "val_ece_cal": 0.012176
+    },
+    "EXP0005__MC0005__DS0004": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 0.975,
+      "tau_youden": 0.49,
+      "tau_sens85": 0.325,
+      "val_roc_auc_raw": 0.802538,
+      "val_brier_cal": 0.180048,
+      "val_ece_cal": 0.013085
+    },
+    "EXP0011__MC0011__DS0004": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.2,
+      "tau_youden": 0.46,
+      "tau_sens85": 0.365,
+      "val_roc_auc_raw": 0.648564,
+      "val_brier_cal": 0.236726,
+      "val_ece_cal": 0.053225
+    },
+    "EXP0007__MC0007__DS0001": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.15,
+      "tau_youden": 0.485,
+      "tau_sens85": 0.395,
+      "val_roc_auc_raw": 0.934585,
+      "val_brier_cal": 0.101334,
+      "val_ece_cal": 0.036353
+    },
+    "EXP0008__MC0008__DS0001": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.35,
+      "tau_youden": 0.52,
+      "tau_sens85": 0.44,
+      "val_roc_auc_raw": 0.937422,
+      "val_brier_cal": 0.097891,
+      "val_ece_cal": 0.023828
+    },
+    "EXP0009__MC0009__DS0002": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 3.0,
+      "tau_youden": 0.48,
+      "tau_sens85": 0.05,
+      "val_roc_auc_raw": 0.548611,
+      "val_brier_cal": 0.256536,
+      "val_ece_cal": 0.236816
+    },
+    "EXP0010__MC0010__DS0001": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.375,
+      "tau_youden": 0.52,
+      "tau_sens85": 0.43,
+      "val_roc_auc_raw": 0.923228,
+      "val_brier_cal": 0.110071,
+      "val_ece_cal": 0.020789
+    },
+    "EXP0012__MC0012__ALL_COHORTS": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.075,
+      "tau_youden": 0.515,
+      "tau_sens85": 0.335,
+      "val_roc_auc_raw": 0.830304,
+      "val_brier_cal": 0.167526,
+      "val_ece_cal": 0.018932
+    },
+    "EXP0013__MC0013__ALL_COHORTS": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.025,
+      "tau_youden": 0.485,
+      "tau_sens85": 0.335,
+      "val_roc_auc_raw": 0.827367,
+      "val_brier_cal": 0.168936,
+      "val_ece_cal": 0.020825
+    },
+    "EXP0014__MC0014__ALL_COHORTS": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.1,
+      "tau_youden": 0.51,
+      "tau_sens85": 0.37,
+      "val_roc_auc_raw": 0.82635,
+      "val_brier_cal": 0.169738,
+      "val_ece_cal": 0.027732
+    },
+    "EXP0014__MC0014__DS0001": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.575,
+      "tau_youden": 0.45,
+      "tau_sens85": 0.38,
+      "val_roc_auc_raw": 0.933613,
+      "val_brier_cal": 0.106296,
+      "val_ece_cal": 0.06549
+    },
+    "EXP0014__MC0014__DS0002": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 3.0,
+      "tau_youden": 0.78,
+      "tau_sens85": 0.425,
+      "val_roc_auc_raw": 0.68105,
+      "val_brier_cal": 0.236524,
+      "val_ece_cal": 0.15573
+    },
+    "EXP0014__MC0014__DS0003": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.025,
+      "tau_youden": 0.64,
+      "tau_sens85": 0.315,
+      "val_roc_auc_raw": 0.824899,
+      "val_brier_cal": 0.167541,
+      "val_ece_cal": 0.070651
+    },
+    "EXP0014__MC0014__DS0004": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 0.95,
+      "tau_youden": 0.485,
+      "tau_sens85": 0.35,
+      "val_roc_auc_raw": 0.802502,
+      "val_brier_cal": 0.180527,
+      "val_ece_cal": 0.020111
+    },
+    "EXP0015__MC0015__ALL_COHORTS": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.2,
+      "tau_youden": 0.48,
+      "tau_sens85": 0.36,
+      "val_roc_auc_raw": 0.823691,
+      "val_brier_cal": 0.170535,
+      "val_ece_cal": 0.016904
+    },
+    "EXP0015__MC0015__DS0001": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.475,
+      "tau_youden": 0.405,
+      "tau_sens85": 0.355,
+      "val_roc_auc_raw": 0.933255,
+      "val_brier_cal": 0.10907,
+      "val_ece_cal": 0.072693
+    },
+    "EXP0015__MC0015__DS0002": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.425,
+      "tau_youden": 0.52,
+      "tau_sens85": 0.365,
+      "val_roc_auc_raw": 0.735277,
+      "val_brier_cal": 0.20841,
+      "val_ece_cal": 0.142264
+    },
+    "EXP0015__MC0015__DS0003": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.075,
+      "tau_youden": 0.66,
+      "tau_sens85": 0.405,
+      "val_roc_auc_raw": 0.799679,
+      "val_brier_cal": 0.186603,
+      "val_ece_cal": 0.101137
+    },
+    "EXP0015__MC0015__DS0004": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.125,
+      "tau_youden": 0.475,
+      "tau_sens85": 0.355,
+      "val_roc_auc_raw": 0.799192,
+      "val_brier_cal": 0.182031,
+      "val_ece_cal": 0.01897
+    },
+    "EXP0018__MC0015__ALL_COHORTS": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.025,
+      "tau_youden": 0.45,
+      "tau_sens85": 0.32,
+      "val_roc_auc_raw": 0.825597,
+      "val_brier_cal": 0.169797,
+      "val_ece_cal": 0.020257
+    },
+    "EXP0018__MC0015__DS0001": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.1,
+      "tau_youden": 0.495,
+      "tau_sens85": 0.35,
+      "val_roc_auc_raw": 0.92954,
+      "val_brier_cal": 0.107161,
+      "val_ece_cal": 0.039446
+    },
+    "EXP0018__MC0015__DS0002": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.775,
+      "tau_youden": 0.49,
+      "tau_sens85": 0.37,
+      "val_roc_auc_raw": 0.693878,
+      "val_brier_cal": 0.219472,
+      "val_ece_cal": 0.109144
+    },
+    "EXP0018__MC0015__DS0003": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 0.725,
+      "tau_youden": 0.505,
+      "tau_sens85": 0.325,
+      "val_roc_auc_raw": 0.814524,
+      "val_brier_cal": 0.177774,
+      "val_ece_cal": 0.102881
+    },
+    "EXP0018__MC0015__DS0004": {
+      "method": "temperature_scaling_val_only",
+      "temperature": 1.025,
+      "tau_youden": 0.44,
+      "tau_sens85": 0.32,
+      "val_roc_auc_raw": 0.79942,
+      "val_brier_cal": 0.182009,
+      "val_ece_cal": 0.026496
+    }
+  }
+}
