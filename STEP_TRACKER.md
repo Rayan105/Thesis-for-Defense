@@ -8,12 +8,12 @@
 
 | Metric | Current Value |
 |---|---|
-| **Last Completed Step** | **`STEP-032` (`Gate G10 PASS` & `Gate G11 PASS` Frozen Champion + Test-Unseal `TACC0002` Authorized `2026-11-28`)** |
-| **Last Git Commit** | `STEP-032`: Signed `G10 PASS` & `G11 PASS` (`freeze.md v1.1.0`, `TACC0002`) prior to sealed Test execution |
-| **Active Stage** | **`S12 -> S15` (`STEP-033–039` Final Held-Out Test Inference, Stats/DCA, Subgroup Audit & Multimodal XAI)** |
-| **Next Step to Execute** | 👉 **Execute `STEP-033–039` (`REL0001/test` `12,719` pts + DeLong/Bootstrap/DCA + SHAP AOPC)** |
-| **Current Quality Gates** | `G01`: Not Assessed (`PDF missing`) \| **`G02–G11`: PASS** \| `G12–G17`: Pending (`S13–S17`) |
-| **Last Updated** | 2026-11-28T11:30:00+06:00 |
+| **Last Completed Step** | **`STEP-033–035, 038–039` (`EVAL0001` & `XAI0001` Executed on `12,719` Held-Out Test Patients `2026-11-28`)** |
+| **Last Git Commit** | `Stage S12–S15`: `EVAL0001` Test Metrics/Stats/DCA/Fairness/PROBAST-AI + `XAI0001` SHAP/AOPC (`G12–G14` Ready for Sign-Off) |
+| **Active Stage** | **`S13 -> S15` (`G12, G13, G14` Supervisor & External Cardiologist Sign-Off -> Next: `STEP-041` Prototype & `S16–S17`)** |
+| **Next Step to Execute** | 👉 **Review & Sign Off `G12, G13, G14` (with Supervisor & Cardiologist) + Execute `STEP-041` (`src/cvd_mm/prototype.py`)** |
+| **Current Quality Gates** | `G01`: Not Assessed (`PDF missing`) \| **`G02–G11`: PASS** \| **`G12–G14`: Ready for Sign-Off** \| `G15–G17`: Pending |
+| **Last Updated** | 2026-11-28T14:50:00+06:00 |
 
 ### 🤖 AI Prompt for Next Teammate / Next Session:
 To resume work with minimal token cost, simply give the AI this exact prompt:
@@ -76,15 +76,15 @@ Read STEP_TRACKER.md and execute the next pending step.
 | **STEP-030** | S11 | Register model checkpoints & cards, evaluate qualifying Gate G10 | Rayan Ahmed | G10 | ✅ **COMPLETED (`G10 PASS`)** | [model_registry.csv](file:///e:/FYDP/06_Models_Fusion/model_registry.csv), [checkpoint_registry.csv](file:///e:/FYDP/08_Checkpoints/checkpoint_registry.csv), [G10 PASS](file:///e:/FYDP/01_Project_Management/reviews/G10_assessment_2026-11-28_reassessment.md) |
 | **STEP-031** | S11 | Multi-seed runs, LOMO ablations, missing-modality degradation stress tests | Rayan Ahmed | - | ✅ **COMPLETED (`5` Seeds + LOMO + Stress)** | [validation_matrix_summary.md](file:///e:/FYDP/07_Experiments/validation_matrix_summary.md) |
 | **STEP-032** | S12 | Validation-only champion model selection, fit calibrator, pass Gate G11 | Nafis Sadiq | G11 | ✅ **COMPLETED (`G11 PASS` — `TACC0002`)** | [freeze.md](file:///e:/FYDP/09_Evaluation_Stats/freeze.md), [G11 PASS](file:///e:/FYDP/01_Project_Management/reviews/G11_assessment_2026-11-28_reassessment.md), [test_access_log.csv](file:///e:/FYDP/03_Datasets_Cohort/splits/test_access_log.csv) |
-| **STEP-033** | S12 | Unseal held-out test partition & generate frozen test predictions | Nafis Sadiq | - | 👉 **NEXT TO EXECUTE** | Target: `REL0001/test` (`12,719` pts) + Stats/XAI Kaggle bundle |
-| **STEP-034** | S13 | Compute 6 proposal mandatory metrics + Q1 adopted metrics (PR-AUC, Brier, ECE) | Nafis Sadiq | - | ⚪ PENDING | Target: Test evaluation metrics |
-| **STEP-035** | S13 | Bootstrap 95% CIs, paired DeLong tests, Decision Curve Analysis (DCA) | Nafis Sadiq | - | ⚪ PENDING | Target: Statistical test reports |
-| **STEP-036** | S13 | Compile evaluation report (`EVAL####`), pass Gate G12 | Nafis Sadiq | G12 | ⚪ PENDING | Target: G12 Assessment |
-| **STEP-037** | S14 | Subgroup fairness audit, error analysis, PROBAST-AI review, pass Gate G13 | Nafis Sadiq | G13 | ⚪ PENDING | Target: G13 Assessment |
-| **STEP-038** | S15 | Generate multimodal SHAP attributions (modality share, beeswarm, waterfalls) | Rayan Ahmed | - | ⚪ PENDING | Target: SHAP attributions |
-| **STEP-039** | S15 | Quantitative XAI faithfulness (Deletion/Insertion AOPC) & multi-seed stability | Rayan Ahmed | - | ⚪ PENDING | Target: AOPC faithfulness curves |
-| **STEP-040** | S15 | Cardiologist explanation plausibility review, shortcut audit, pass Gate G14 | Cardiologist | G14 | ⚪ PENDING | Target: G14 Assessment |
-| **STEP-041** | S16 | Implement research decision-support prototype (CLI / optional defense UI) | Rayan Ahmed | - | ⚪ PENDING | Target: `src/cvd_mm/prototype.py` |
+| **STEP-033** | S12 | Unseal held-out test partition & generate frozen test predictions | Nafis Sadiq | - | ✅ **COMPLETED (`TACC0003` — `12,719/12,719`)** | [coverage_audit.md](file:///e:/FYDP/09_Evaluation_Stats/EVAL0001/coverage_audit.md), [test_access_log.csv](file:///e:/FYDP/03_Datasets_Cohort/splits/test_access_log.csv) |
+| **STEP-034** | S13 | Compute 6 proposal mandatory metrics + Q1 adopted metrics (PR-AUC, Brier, ECE) | Nafis Sadiq | - | ✅ **COMPLETED (`EVAL0001`)** | [metrics_summary.csv](file:///e:/FYDP/09_Evaluation_Stats/EVAL0001/metrics_summary.csv), [calibration_metrics.csv](file:///e:/FYDP/09_Evaluation_Stats/EVAL0001/calibration_metrics.csv) |
+| **STEP-035** | S13 | Bootstrap 95% CIs, paired DeLong tests, Decision Curve Analysis (DCA) | Nafis Sadiq | - | ✅ **COMPLETED (`B=2,000` + Holm + DCA)** | [stats_dca_notes.md](file:///e:/FYDP/09_Evaluation_Stats/EVAL0001/stats_dca_notes.md), [paired_stat_tests.csv](file:///e:/FYDP/09_Evaluation_Stats/EVAL0001/paired_stat_tests.csv) |
+| **STEP-036** | S13 | Compile evaluation report (`EVAL####`), pass Gate G12 | Nafis Sadiq | G12 | 🟡 **REPORT READY (Awaiting `G12` Sign-Off)** | [EVAL0001 Report](file:///e:/FYDP/09_Evaluation_Stats/EVAL0001/report.md), [G12 Review](file:///e:/FYDP/01_Project_Management/reviews/G12_assessment_2026-11-28.md) |
+| **STEP-037** | S14 | Subgroup fairness audit, error analysis, PROBAST-AI review, pass Gate G13 | Nafis Sadiq | G13 | 🟡 **AUDIT READY (Awaiting Clinical/`G13` Sign-Off)** | [error_probast.md](file:///e:/FYDP/09_Evaluation_Stats/EVAL0001/error_probast.md), [PROBAST_AI.md](file:///e:/FYDP/12_Writing/checklists/PROBAST_AI.md), [G13 Review](file:///e:/FYDP/01_Project_Management/reviews/G13_assessment_2026-11-28.md) |
+| **STEP-038** | S15 | Generate multimodal SHAP attributions (modality share, beeswarm, waterfalls) | Rayan Ahmed | - | ✅ **COMPLETED (`XAI0001` — `2^4` Shapley + TreeSHAP + IG)** | [modality_shares.csv](file:///e:/FYDP/10_Explainability_XAI/XAI0001/modality_shares.csv), [additivity_check.md](file:///e:/FYDP/10_Explainability_XAI/XAI0001/additivity_check.md) |
+| **STEP-039** | S15 | Quantitative XAI faithfulness (Deletion/Insertion AOPC) & multi-seed stability | Rayan Ahmed | - | ✅ **COMPLETED (`AOPC +0.0171 > Ctrl`, `rho=0.9816`)** | [faithfulness_stability_report.md](file:///e:/FYDP/10_Explainability_XAI/XAI0001/faithfulness_stability_report.md), [aopc_faithfulness.csv](file:///e:/FYDP/10_Explainability_XAI/XAI0001/aopc_faithfulness.csv) |
+| **STEP-040** | S15 | Cardiologist explanation plausibility review, shortcut audit, pass Gate G14 | Cardiologist | G14 | 🟡 **AUDIT READY (Awaiting Cardiologist/`G14` Sign-Off)** | [shortcut_audit.md](file:///e:/FYDP/10_Explainability_XAI/XAI0001/shortcut_audit.md), [XAI0001 Report](file:///e:/FYDP/10_Explainability_XAI/XAI0001/report.md), [G14 Review](file:///e:/FYDP/01_Project_Management/reviews/G14_assessment_2026-11-28.md) |
+| **STEP-041** | S16 | Implement research decision-support prototype (CLI / optional defense UI) | Rayan Ahmed | - | 👉 **NEXT TO EXECUTE** | Target: `src/cvd_mm/prototype.py` |
 | **STEP-042** | S16 | Clean-environment reproducibility audit (Level A/B/C), pass Gate G15 | Rayan & Nafis | G15 | ⚪ PENDING | Target: G15 Assessment |
 | **STEP-043** | S17 | Initialize claim ledger (`claims.csv`) & thesis/paper writing outlines | Rayan & Nafis | - | ⚪ PENDING | Target: Writing outlines |
 | **STEP-044** | S17 | Draft FYDP Thesis Chapters 1–3 (Introduction, Literature, Methodology) | Nafis Sadiq | - | ⚪ PENDING | Target: Thesis draft part 1 |
@@ -97,7 +97,9 @@ Read STEP_TRACKER.md and execute the next pending step.
 
 ---
 
-## 🎯 Next Step Details: Execute `STEP-033–039` (`Final Held-Out Test, Statistical Inference, DCA & Multimodal XAI`)
+## 🎯 Next Step Details: Human Gate Sign-Off (`G12–G14`) & Stage `S16–S17` (`STEP-041+`)
 
-- **Gates `G10 PASS` & `G11 PASS` Signed (`2026-11-28`):** Supervisor Md. Mizanur Rahman ratified [G10 PASS](file:///e:/FYDP/01_Project_Management/reviews/G10_assessment_2026-11-28_reassessment.md) and [G11 PASS](file:///e:/FYDP/01_Project_Management/reviews/G11_assessment_2026-11-28_reassessment.md), authorizing `TACC0002` ([test_access_log.csv](file:///e:/FYDP/03_Datasets_Cohort/splits/test_access_log.csv)) strictly for frozen one-shot `REL0001/test` evaluation.
-- **Frozen Champion & Freeze Hashes Locked:** [freeze.md](file:///e:/FYDP/09_Evaluation_Stats/freeze.md) locks `MODEL0015` (`CKPT0011` + `CKPT0013–0016`), comparators `MODEL0001–0014` & `EXP0018`, `CalibratorHash = ea5e5d96...`, and `BackgroundHash = fd797cf5...`.
+- **Stage `S12–S15` Executed (`EVAL0001` & `XAI0001` Complete):** Held-out Test inference (`12,719` encounters, `0` patient overlap), `B=2,000` bootstrap CIs, `13` Holm-adjusted DeLong/McNemar pairwise tests, DCA `p_t ∈ [0.05, 0.50]`, Subgroup Fairness, Missing-Modality Stress, `PROBAST-AI`, `2^4` Coalition Shapley, `TreeSHAP`, `50`-step IG, Deletion/Insertion `AOPC`, `5`-seed XAI stability, and Shortcut Audit are all recorded cleanly.
+- **Pending Human Sign-Offs:**
+  - `G12`: Evaluation Lead (`Mohammad Nafis Sadiq`) + Supervisor (`Md. Mizanur Rahman`) review [EVAL0001 Report](file:///e:/FYDP/09_Evaluation_Stats/EVAL0001/report.md)
+  - `G13` & `G14`: External Cardiologist + Supervisor inspect [PROBAST_AI.md](file:///e:/FYDP/12_Writing/checklists/PROBAST_AI.md), Tier-2B `clinician_review_n24_s15.json`, [shortcut_audit.md](file:///e:/FYDP/10_Explainability_XAI/XAI0001/shortcut_audit.md), and `XAI0001/report.md` (including disclosed IG `3.25%` > `2.0%` completeness note).

@@ -1,0 +1,9 @@
+Model,MaxAdditivityRelErr,Top3_Features,Has_MNAR_isnan_in_Top3
+MC0004_XGB_DS0001,8.3e-07,age_years(0.7540); weight_kg_isnan(0.3951); sex__F(0.2297),True
+MC0004_XGB_DS0002,6.2e-07,dbp_mmhg(0.4793); sbp_mmhg(0.3940); age_years(0.3030),False
+MC0004_XGB_DS0003,8.1e-07,age_years(0.4907); smoking_status(0.4725); activity_level__Low(0.4608),False
+MC0004_XGB_DS0004,6.9e-07,sbp_mmhg(0.6991); age_years(0.3076); cholesterol_tier(0.2673),False
+MC0015_CVDMM_DS0001,0.032514,age_years(0.2089); sex__M(0.0800); sex__F(0.0641),False
+MC0015_CVDMM_DS0002,0.032514,pr_bpm(1.3725); age_years(0.6672); sbp_mmhg(0.5465),False
+MC0015_CVDMM_DS0003,0.032514,activity_level__Low(0.8456); family_history_cvd(0.6677); smoking_status(0.5768),False
+MC0015_CVDMM_DS0004,0.032514,sbp_mmhg(1.0333); age_years(0.4205); weight_kg(0.2088),False

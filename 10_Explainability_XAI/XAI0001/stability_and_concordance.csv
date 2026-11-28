@@ -1,0 +1,2 @@
+LOMO_SHAP_Spearman_rho,LOMO_SHAP_Pearson_r,ModShares_C_E_L_S_pct,LOMO_AUC_Drops,Seed5_Mean_Spearman_rho,Seed5_Mean_Kendall_tau,Seed5_Top5_Jaccard,Lipschitz_005SD_Spearman,Max_IG_Completeness_RelErr,Mean_Del_TopK_AOPC,Mean_Del_Random_AOPC,Mean_Del_Reverse_AOPC,Mean_Ins_TopK_Prob,Mean_Ins_Random_Prob
+1.0,0.9761,"[44.8, 27.19, 14.69, 13.31]","[0.12986, 0.03234, 0.00702, 0.0024]",0.9816,0.9231,0.5298,0.8194,0.032514,0.017086,-0.000544,-0.000746,0.478866,0.456323
