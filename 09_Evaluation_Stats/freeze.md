@@ -3,12 +3,12 @@
 | Field | Value |
 |---|---|
 | Document | `09_Evaluation_Stats/freeze.md` |
-| Version | v1.0.0 (`Validation-Locked Pre-Unseal Bundle — Awaiting Supervisor G11 Sign-Off`) |
-| Step / Gate | `STEP-032` / `Gate G11` |
+| Version | v1.1.0 (`G11 PASS Locked — Authorized for One-Shot STEP-033–040 Frozen Test Inference`) |
+| Step / Gate | `STEP-032` / `Gate G11` (**`PASS` — `G11-20261128-02`**) |
 | Date | `2026-11-28` |
 | Leads | Mohammad Nafis Sadiq (`232-15-895`), Rayan Ahmed (`232-15-847`) |
-| Approver Required | Md. Mizanur Rahman (`Supervisor`) + Evaluation Reviewer (`STEP-032`) |
-| Test Partition Custody | **`SEALED` (`TACC0001`, `0` Test Reads Performed Prior to Sign-Off)** |
+| Approver Required | Md. Mizanur Rahman (`Supervisor`) — **Approved `2026-11-28`** |
+| Test Partition Custody | **`UNSEALED_FROZEN_EVAL_ONLY` (`TACC0002` Authorized strictly after `G11 PASS`)** |
 
 ---
 
@@ -39,6 +39,5 @@
 ---
 
 ## 3. Gate `G11` Unseal Authorization Status
-- **Validation Parity Rule at `STEP-033`:** Before running Test predictions, all frozen `.pt`/`.pkl` checkpoints and any deterministic `sklearn`/`LGBM` refits MUST reproduce logged `REL0001 Validation` AUROCs identically (`<= 1e-4` tolerance).
-- **Zero Test Leakage Verified:** [test_access_log.csv](../03_Datasets_Cohort/splits/test_access_log.csv) contains strictly `TACC0001 SEALED` (`0` reads of `rel0001_test.jsonl`).
-- **Action Required to Unseal:** Supervisor Md. Mizanur Rahman confirmation of Gate `G10` + Gate `G11` before executing `STEP-033`.
+- **Validation Parity Rule at `STEP-033`:** Before generating Test metrics, all frozen `.pt`/`.pkl` checkpoints and any deterministic `sklearn`/`LGBM` refits MUST reproduce logged `REL0001 Validation` AUROCs identically (`<= 1e-4` tolerance).
+- **Custody Timestamp Log:** [test_access_log.csv](../03_Datasets_Cohort/splits/test_access_log.csv) records `TACC0001 SEALED` (Stage `S10–S11`) followed strictly by `TACC0002 UNSEAL_AUTHORIZED` (`2026-11-28T11:30:00+06:00`) upon Supervisor **`G11-20261128-02 PASS`**. Zero post-freeze hyperparameter/threshold edits permitted.

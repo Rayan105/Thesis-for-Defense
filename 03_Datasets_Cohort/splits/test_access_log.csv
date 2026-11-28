@@ -1,2 +1,3 @@
 AccessID,SplitID,Partition,Actor,EventType,Timestamp,ApprovedBy,PurposeAndJustification,Status
 TACC0001,SPLIT0001,test,Rayan Ahmed,SEAL_INITIALIZED,2026-11-27T15:32:00+06:00,G07 Pending Sign-Off,Formal STEP-020 test partition seal; 0 test reads permitted until Gate G11 validation lock.,SEALED
+TACC0002,SPLIT0001,test,Rayan Ahmed; Mohammad Nafis Sadiq,UNSEAL_AUTHORIZED,2026-11-28T11:30:00+06:00,G11-20261128-02 (Supervisor Md. Mizanur Rahman),Authorized one-shot frozen STEP-033..040 test evaluation & XAI strictly using frozen MODEL0015/comparators and CalibratorHash ea5e5d96 (zero retraining/tuning).,UNSEALED_FROZEN_EVAL_ONLY

@@ -8,12 +8,12 @@
 
 | Metric | Current Value |
 |---|---|
-| **Last Completed Step** | **`STEP-029`, `STEP-031` & `STEP-030/032` Docs (`20/20 EXPs`, `15` SHA-256 Checkpoints, `15 MODEL` Cards, `freeze.md` Ready)** |
-| **Last Git Commit** | `STEP-030/032`: Audited Kaggle S11 (`91` Val rows), registered `CKPT0002–16` & `MODEL0001–15`, froze `freeze.md` (`Test=SEALED`) |
-| **Active Stage** | **`S11 -> S12` (`G10` & `G11` Supervisor Sign-Off Required Before Unsealing `REL0001/test`)** |
-| **Next Step to Execute** | 👉 **Supervisor Sign-Off on `G10` & `G11` -> Unseal `REL0001/test` & Run `STEP-033` (Final Held-Out Test Inference)** |
-| **Current Quality Gates** | `G01`: Not Assessed (`PDF missing`) \| **`G02–G09`: PASS** \| **`G10–G11`: Pending Supervisor Ratification** \| `G12–G17`: Blocked (`S13–S17`) |
-| **Last Updated** | 2026-11-28T11:22:00+06:00 |
+| **Last Completed Step** | **`STEP-032` (`Gate G10 PASS` & `Gate G11 PASS` Frozen Champion + Test-Unseal `TACC0002` Authorized `2026-11-28`)** |
+| **Last Git Commit** | `STEP-032`: Signed `G10 PASS` & `G11 PASS` (`freeze.md v1.1.0`, `TACC0002`) prior to sealed Test execution |
+| **Active Stage** | **`S12 -> S15` (`STEP-033–039` Final Held-Out Test Inference, Stats/DCA, Subgroup Audit & Multimodal XAI)** |
+| **Next Step to Execute** | 👉 **Execute `STEP-033–039` (`REL0001/test` `12,719` pts + DeLong/Bootstrap/DCA + SHAP AOPC)** |
+| **Current Quality Gates** | `G01`: Not Assessed (`PDF missing`) \| **`G02–G11`: PASS** \| `G12–G17`: Pending (`S13–S17`) |
+| **Last Updated** | 2026-11-28T11:30:00+06:00 |
 
 ### 🤖 AI Prompt for Next Teammate / Next Session:
 To resume work with minimal token cost, simply give the AI this exact prompt:
@@ -73,10 +73,10 @@ Read STEP_TRACKER.md and execute the next pending step.
 | **STEP-027** | S10 | Diagnostic smoke run, pipeline test, checkpoint restore test, pass Gate G09 | Rayan Ahmed | G09 | ✅ **COMPLETED (`G09 PASS`)** | [EXP0000_SMOKE](file:///e:/FYDP/07_Experiments/EXP0000_SMOKE/README.md), [CKPT0001](file:///e:/FYDP/08_Checkpoints/manifests/CKPT0001.md), [G09 PASS](file:///e:/FYDP/01_Project_Management/reviews/G09_assessment_2026-11-27_reassessment.md) |
 | **STEP-028** | S11 | Register & hash-validate immutable `EXP0001–EXP0020` bundles (`Blocks A–F`) | Rayan Ahmed | - | ✅ **COMPLETED (`20/20 READY` in `experiment_registry.csv`)** | [register_experiments.py](file:///e:/FYDP/14_Automation/register_experiments.py), [experiment_registry.csv](file:///e:/FYDP/07_Experiments/experiment_registry.csv), [EXP0015 README](file:///e:/FYDP/07_Experiments/EXP0015/README.md) |
 | **STEP-029** | S11 | Train registered `Blocks A–F` models (`Tier 1–4`, `MC0001–MC0015`) on Train/Val | Rayan Ahmed | - | ✅ **COMPLETED (Kaggle CUDA `91` Val Rows)** | [s11_validation_results.csv](file:///e:/FYDP/07_Experiments/s11_validation_results.csv), `results_kaggle_backup.zip` (`Test=0`) |
-| **STEP-030** | S11 | Register model checkpoints & cards, evaluate qualifying Gate G10 | Rayan Ahmed | G10 | ✅ **DOCS/HASHES VERIFIED (`G10` Pending Supervisor)** | [model_registry.csv](file:///e:/FYDP/06_Models_Fusion/model_registry.csv), [checkpoint_registry.csv](file:///e:/FYDP/08_Checkpoints/checkpoint_registry.csv), [G10 Review](file:///e:/FYDP/01_Project_Management/reviews/G10_assessment_2026-11-28.md) |
+| **STEP-030** | S11 | Register model checkpoints & cards, evaluate qualifying Gate G10 | Rayan Ahmed | G10 | ✅ **COMPLETED (`G10 PASS`)** | [model_registry.csv](file:///e:/FYDP/06_Models_Fusion/model_registry.csv), [checkpoint_registry.csv](file:///e:/FYDP/08_Checkpoints/checkpoint_registry.csv), [G10 PASS](file:///e:/FYDP/01_Project_Management/reviews/G10_assessment_2026-11-28_reassessment.md) |
 | **STEP-031** | S11 | Multi-seed runs, LOMO ablations, missing-modality degradation stress tests | Rayan Ahmed | - | ✅ **COMPLETED (`5` Seeds + LOMO + Stress)** | [validation_matrix_summary.md](file:///e:/FYDP/07_Experiments/validation_matrix_summary.md) |
-| **STEP-032** | S12 | Validation-only champion model selection, fit calibrator, pass Gate G11 | Nafis Sadiq | G11 | ⏳ **FREEZE READY (`G11` Awaiting Supervisor Unseal)** | [freeze.md](file:///e:/FYDP/09_Evaluation_Stats/freeze.md), [G11 Review](file:///e:/FYDP/01_Project_Management/reviews/G11_assessment_2026-11-28.md) |
-| **STEP-033** | S12 | Unseal held-out test partition & generate frozen test predictions | Nafis Sadiq | - | 👉 **NEXT AFTER `G11` SIGN-OFF** | Target: `REL0001/test` (`12,719` pts, 1-shot frozen eval) |
+| **STEP-032** | S12 | Validation-only champion model selection, fit calibrator, pass Gate G11 | Nafis Sadiq | G11 | ✅ **COMPLETED (`G11 PASS` — `TACC0002`)** | [freeze.md](file:///e:/FYDP/09_Evaluation_Stats/freeze.md), [G11 PASS](file:///e:/FYDP/01_Project_Management/reviews/G11_assessment_2026-11-28_reassessment.md), [test_access_log.csv](file:///e:/FYDP/03_Datasets_Cohort/splits/test_access_log.csv) |
+| **STEP-033** | S12 | Unseal held-out test partition & generate frozen test predictions | Nafis Sadiq | - | 👉 **NEXT TO EXECUTE** | Target: `REL0001/test` (`12,719` pts) + Stats/XAI Kaggle bundle |
 | **STEP-034** | S13 | Compute 6 proposal mandatory metrics + Q1 adopted metrics (PR-AUC, Brier, ECE) | Nafis Sadiq | - | ⚪ PENDING | Target: Test evaluation metrics |
 | **STEP-035** | S13 | Bootstrap 95% CIs, paired DeLong tests, Decision Curve Analysis (DCA) | Nafis Sadiq | - | ⚪ PENDING | Target: Statistical test reports |
 | **STEP-036** | S13 | Compile evaluation report (`EVAL####`), pass Gate G12 | Nafis Sadiq | G12 | ⚪ PENDING | Target: G12 Assessment |
@@ -97,8 +97,7 @@ Read STEP_TRACKER.md and execute the next pending step.
 
 ---
 
-## 🎯 Next Step Details: Supervisor Sign-Off on `G10` & `G11` -> Unseal `REL0001/test` (`STEP-033`)
+## 🎯 Next Step Details: Execute `STEP-033–039` (`Final Held-Out Test, Statistical Inference, DCA & Multimodal XAI`)
 
-- **Stage `S11` Verification Complete (`STEP-029`–`STEP-031`):** All `20` registered experiments (`EXP0001–EXP0020`, `91` validation rows) and `15` checkpoints (`CKPT0002–CKPT0016`) are verified by SHA-256 inside Tier 3 (`08_Checkpoints/binaries/S11/`) and indexed in [validation_matrix_summary.md](file:///e:/FYDP/07_Experiments/validation_matrix_summary.md) with zero Test reads (`TACC0001 SEALED`).
-- **Validation-Only Freeze Ready (`STEP-032` / `G11`):** Champion **`MODEL0015`** (`CVD_MM_Transformer`, `ALL_COHORTS` `0.8225 ± 0.0048`, `macro 0.8169`, `DS0002 0.7353`, `ECE 0.0169`) and prespecified comparators (`MODEL0001–0014`, `EXP0018`), validation temperature calibrators/thresholds ([frozen_validation_calibration.json](file:///e:/FYDP/09_Evaluation_Stats/frozen_validation_calibration.json)), and `N=256` Train-only SHAP background IDs ([shap_background_ids.json](file:///e:/FYDP/09_Evaluation_Stats/shap_background_ids.json)) are frozen in [freeze.md](file:///e:/FYDP/09_Evaluation_Stats/freeze.md).
-- **Required Before `STEP-033`:** Obtain Supervisor confirmation for [G10 Review](file:///e:/FYDP/01_Project_Management/reviews/G10_assessment_2026-11-28.md) & [G11 Review](file:///e:/FYDP/01_Project_Management/reviews/G11_assessment_2026-11-28.md), then run frozen `STEP-033`–`STEP-036` inference (`REL0001/test`, `N=12,719`).
+- **Gates `G10 PASS` & `G11 PASS` Signed (`2026-11-28`):** Supervisor Md. Mizanur Rahman ratified [G10 PASS](file:///e:/FYDP/01_Project_Management/reviews/G10_assessment_2026-11-28_reassessment.md) and [G11 PASS](file:///e:/FYDP/01_Project_Management/reviews/G11_assessment_2026-11-28_reassessment.md), authorizing `TACC0002` ([test_access_log.csv](file:///e:/FYDP/03_Datasets_Cohort/splits/test_access_log.csv)) strictly for frozen one-shot `REL0001/test` evaluation.
+- **Frozen Champion & Freeze Hashes Locked:** [freeze.md](file:///e:/FYDP/09_Evaluation_Stats/freeze.md) locks `MODEL0015` (`CKPT0011` + `CKPT0013–0016`), comparators `MODEL0001–0014` & `EXP0018`, `CalibratorHash = ea5e5d96...`, and `BackgroundHash = fd797cf5...`.
